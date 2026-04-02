@@ -45,6 +45,11 @@ ColumnLayout {
     pluginApi?.manifest?.metadata?.defaultSettings?.terminalCommand ||
     ""
 
+  property string editSshUsername:
+    pluginApi?.pluginSettings?.sshUsername ||
+    pluginApi?.manifest?.metadata?.defaultSettings?.sshUsername ||
+    ""
+
   property int editPingCount:
     pluginApi?.pluginSettings?.pingCount ||
     pluginApi?.manifest?.metadata?.defaultSettings?.pingCount ||
@@ -54,6 +59,21 @@ ColumnLayout {
     pluginApi?.pluginSettings?.defaultPeerAction ||
     pluginApi?.manifest?.metadata?.defaultSettings?.defaultPeerAction ||
     "copy-ip"
+
+  property bool editTaildropEnabled:
+    pluginApi?.pluginSettings?.taildropEnabled ??
+    pluginApi?.manifest?.metadata?.defaultSettings?.taildropEnabled ??
+    true
+
+  property string editTaildropDownloadDir:
+    pluginApi?.pluginSettings?.taildropDownloadDir ||
+    pluginApi?.manifest?.metadata?.defaultSettings?.taildropDownloadDir ||
+    "~/Downloads"
+
+  property string editTaildropReceiveMode:
+    pluginApi?.pluginSettings?.taildropReceiveMode ||
+    pluginApi?.manifest?.metadata?.defaultSettings?.taildropReceiveMode ||
+    "operator"
 
   spacing: Style.marginM
 
@@ -185,6 +205,15 @@ ColumnLayout {
     onTextChanged: root.editTerminalCommand = text
   }
 
+  NTextInput {
+    Layout.fillWidth: true
+    label: pluginApi?.tr("settings.ssh-username")
+    description: pluginApi?.tr("settings.ssh-username-desc")
+    placeholderText: pluginApi?.tr("settings.ssh-username-placeholder")
+    text: root.editSshUsername
+    onTextChanged: root.editSshUsername = text
+  }
+
   NLabel {
     label: pluginApi?.tr("settings.ping-count")
     description: pluginApi?.tr("settings.ping-count-desc") + " (" + root.editPingCount + ")"
@@ -225,6 +254,48 @@ ColumnLayout {
     onSelected: key => root.editDefaultPeerAction = key
   }
 
+  // Taildrop section
+  NDivider {
+    Layout.fillWidth: true
+    Layout.topMargin: Style.marginM
+    Layout.bottomMargin: Style.marginM
+  }
+
+  NLabel {
+    label: pluginApi?.tr("settings.taildrop")
+  }
+
+  NToggle {
+    Layout.fillWidth: true
+    label: pluginApi?.tr("settings.taildrop-enabled")
+    description: pluginApi?.tr("settings.taildrop-enabled-desc")
+    checked: root.editTaildropEnabled
+    onToggled: checked => root.editTaildropEnabled = checked
+  }
+
+  NTextInput {
+    Layout.fillWidth: true
+    enabled: root.editTaildropEnabled
+    label: pluginApi?.tr("settings.taildrop-download-dir")
+    description: pluginApi?.tr("settings.taildrop-download-dir-desc")
+    placeholderText: "~/Downloads"
+    text: root.editTaildropDownloadDir
+    onTextChanged: root.editTaildropDownloadDir = text
+  }
+
+  NComboBox {
+    Layout.fillWidth: true
+    enabled: root.editTaildropEnabled
+    label: pluginApi?.tr("settings.taildrop-receive-mode")
+    description: pluginApi?.tr("settings.taildrop-receive-mode-desc")
+    model: [
+      { key: "operator", name: pluginApi?.tr("settings.taildrop-receive-mode-operator") },
+      { key: "pkexec",   name: pluginApi?.tr("settings.taildrop-receive-mode-pkexec") }
+    ]
+    currentKey: root.editTaildropReceiveMode
+    onSelected: key => root.editTaildropReceiveMode = key
+  }
+
   // Save function - called by the dialog
   function saveSettings() {
     if (!pluginApi) {
@@ -239,8 +310,12 @@ ColumnLayout {
     pluginApi.pluginSettings.hideDisconnected = root.editHideDisconnected
     pluginApi.pluginSettings.hideMullvadExitNodes = root.editHideMullvadExitNodes
     pluginApi.pluginSettings.terminalCommand = root.editTerminalCommand
+    pluginApi.pluginSettings.sshUsername = root.editSshUsername
     pluginApi.pluginSettings.pingCount = root.editPingCount
     pluginApi.pluginSettings.defaultPeerAction = root.editDefaultPeerAction
+    pluginApi.pluginSettings.taildropEnabled = root.editTaildropEnabled
+    pluginApi.pluginSettings.taildropDownloadDir = root.editTaildropDownloadDir
+    pluginApi.pluginSettings.taildropReceiveMode = root.editTaildropReceiveMode
 
     pluginApi.saveSettings()
 

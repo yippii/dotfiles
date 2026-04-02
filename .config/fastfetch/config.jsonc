@@ -1,87 +1,75 @@
+//   _____ _____ _____ _____ _____ _____ _____ _____ _____ 
+//  |   __|  _  |   __|_   _|   __|   __|_   _|     |  |  |
+//  |   __|     |__   | | | |   __|   __| | | |   --|     |
+//  |__|  |__|__|_____| |_| |__|  |_____| |_| |_____|__|__|  ARCH  
+//
+//  by Bina
+
+
+// execute with: fastfetch --colors-block-range-start 9 --colors-block-width 3
+
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": {
-        "type": "small",
-        "padding": {
-            "top": 4,
-            "left": 2
-        }
-    },
+		"logo": {
+				"padding": {
+						"top": 3
+				},
+				"type": "small"
+		},
     "display": {
-        "separator": "",
-        "key": {
-	    "width": 15
-	}
+        "separator": " "
     },
     "modules": [
-        {
-            "format": " ",
-            "type": "custom"
-        },
-        {
-            "format": "\u001b[11D\u001b[34m           ╭───────────╮",
-            "type": "custom"
-        },
-        {
-            // draw borders first to make colors of left and right border consistant
-            "key": "│           │\u001b[11D\u001b[31m user",
+			  "break",
+				{
             "type": "title",
-            "format": "{1}"
+            "keyWidth": 10
+        },
+        "break",
+        {
+            "type": "os",
+            "key": " ",
+            "keyColor": "33"
         },
         {
-            "key": "│           │\u001b[11D\u001b[32m󰇅 hname",
-            "type": "title",
-            "format": "{2}"
+            "type": "kernel",
+            "key": " ",
+            "keyColor": "33"
         },
         {
-            "key": "│           │\u001b[11D\u001b[33m󰅐 uptime",
-            "type": "uptime"
+            "type": "packages",
+            "key": " ",
+            "keyColor": "33"  
         },
         {
-            "key": "│           │\u001b[11D\u001b[34m󰟾 distro",
-            "type": "os"
+            "type": "shell",
+            "key": " ",
+            "keyColor": "33"
         },
         {
-            "key": "│           │\u001b[11D\u001b[35m kernel",
-            "type": "kernel"
+            "type": "terminal",
+            "key": " ",
+            "keyColor": "33"
         },
         {
-            "key": "│           │\u001b[11D\u001b[36m󰇄 desktop",
-            "type": "de"
+            "type": "wm",
+            "key": " ",
+            "keyColor": "33" 
         },
         {
-            "key": "│           │\u001b[11D\u001b[31m term",
-            "type": "terminal"
+            "type": "uptime",
+            "key": " ",
+            "keyColor": "33"
         },
         {
-            "key": "│           │\u001b[11D\u001b[32m shell",
-            "type": "shell"
+            "type": "media",
+            "key": "󰝚 ",
+            "keyColor": "33" 
         },
-        {
-            "key": "│           │\u001b[11D\u001b[33m󰍛 cpu",
-            "type": "cpu"
-        },
-        {
-            "key": "│           │\u001b[11D\u001b[34m󰉉 disk",
-            "type": "disk",
-            "folders": "/"
-        },
-        {
-            "key": "│           │\u001b[11D\u001b[35m memory",
-            "type": "memory"
-        },
-        {
-            "format": "\u001b[11D\u001b[34m           ├───────────┤",
-            "type": "custom"
-        },
-        {
-            "key": "│           │\u001b[11D\u001b[m  color",
-            "type": "colors",
-            "symbol": "circle"
-        },
-        {
-            "format": "\u001b[11D\u001b[34m           ╰───────────╯",
-            "type": "custom"
-        }
+        "break",
+				{
+					"type": "colors",
+					"symbol": "circle"
+				}
     ]
 }

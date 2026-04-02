@@ -17,12 +17,24 @@
     "hide-mullvad-exit-nodes-desc": "Hide Mullvad VPN exit nodes from the peer list",
     "terminal": "Terminal Configuration",
     "terminal-command": "Terminal Command",
+    "ssh-username": "SSH Username",
+    "ssh-username-desc": "Username for SSH connections. Leave empty to use your host's default username.",
+    "ssh-username-placeholder": "e.g. pi, ubuntu, admin",
     "terminal-command-desc": "Command to launch terminal for SSH/ping (e.g., 'ghostty', 'alacritty', 'kitty')",
     "ping-count": "Ping Count",
     "ping-count-desc": "Number of ping packets to send when testing connectivity",
     "peer-action": "Peer Click Action",
     "default-peer-action": "Default Action",
-    "default-peer-action-desc": "Action when clicking on a peer in the panel"
+    "default-peer-action-desc": "Action when clicking on a peer in the panel",
+    "taildrop": "Taildrop",
+    "taildrop-enabled": "Enable Taildrop",
+    "taildrop-enabled-desc": "Allow sending and receiving files via Taildrop",
+    "taildrop-download-dir": "Download Directory",
+    "taildrop-download-dir-desc": "Directory where received files are saved (e.g. ~/Downloads)",
+    "taildrop-receive-mode": "Receive Mode",
+    "taildrop-receive-mode-desc": "How to run 'tailscale file get'. Operator mode requires no prompts if you have run 'sudo tailscale set --operator $USER'.",
+    "taildrop-receive-mode-operator": "Operator (no prompt)",
+    "taildrop-receive-mode-pkexec": "pkexec (prompt each time)"
   },
   "actions": {
     "widget-settings": "Widget Settings"
@@ -30,18 +42,21 @@
   "context": {
     "connect": "Connect",
     "disconnect": "Disconnect",
-    "refresh": "Refresh Status",
     "not-installed": "Tailscale not installed",
     "settings": "Settings",
     "copy-ip": "Copy IP",
     "copy-fqdn": "Copy FQDN",
     "ssh": "SSH to host",
-    "ping": "Ping host"
+    "ping": "Ping host",
+    "use-exit-node": "Use as Exit Node",
+    "send-file": "Send File"
   },
   "toast": {
     "title": "Tailscale",
     "connected": "Tailscale connected",
     "disconnected": "Tailscale disconnected",
+    "exit-node-enabled": "Exit node activated",
+    "exit-node-disabled": "Exit node disabled",
     "ip-copied": {
       "title": "IP Copied"
     },
@@ -57,8 +72,6 @@
     "title": "Tailscale Network",
     "peers": "peers",
     "not-connected": "Not connected",
-    "online": "Online",
-    "offline": "Offline",
     "no-peers": "No connected peers",
     "admin-console": "Admin Console",
     "terminal-warning": {
@@ -68,7 +81,24 @@
     "exit-node": {
       "active": "Exit Node Active",
       "online": "Online",
-      "offline": "Offline"
+      "offline": "Offline",
+      "disable": "Disable Exit Node"
+    },
+    "taildrop": {
+      "receive": "Receive via Taildrop"
     }
-  }
+  },
+  "taildrop": {
+    "toast": {
+      "no-files": "No files were received",
+      "sent": "Files sent successfully"
+    },
+    "error": {
+      "unknown": "An unexpected error occurred",
+      "file-exists": "File already exists in the download directory"
+    }
+  },
+  "file-picker": {
+    "title": "Select file to send via Taildrop"
+  }  
 }

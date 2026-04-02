@@ -24,6 +24,19 @@ Item {
   // Shared state for context menu
   property var selectedPeer: null
   property var selectedPeerDelegate: null
+  property var sendTargetPeer: null
+
+  NFilePicker {
+    id: sendFilePicker
+    title: pluginApi?.tr("file-picker.title")
+    selectionMode: "files"
+    initialPath: Quickshell.env("HOME") ?? ""
+    onAccepted: function(paths) {
+      if (!mainInstance || !root.sendTargetPeer || paths.length === 0) return
+      var target = root.sendTargetPeer.HostName + ":"
+      mainInstance.sendFilesViaTaildrop(paths, target)
+    }
+  }
 
   function openPeerContextMenu(peer, delegate, mouseX, mouseY) {
     selectedPeer = peer
@@ -105,7 +118,8 @@ Item {
     if (selectedPeer) {
       var ips = filterIPv4(selectedPeer.TailscaleIPs)
       if (ips.length > 0) {
-        Quickshell.execDetached([root.terminalCommand, "-e", "ssh", ips[0]])
+        var target = root.sshUsername.trim() !== "" ? root.sshUsername.trim() + "@" + ips[0] : ips[0]
+        Quickshell.execDetached([root.terminalCommand, "-e", "ssh", target])
       }
     }
   }
@@ -117,6 +131,19 @@ Item {
       if (ips.length > 0) {
         Quickshell.execDetached([root.terminalCommand, "-e", "ping", "-c", root.pingCount.toString(), ips[0]])
       }
+    }
+  }
+
+  function useExitNode(peer) {
+    var ips = filterIPv4(peer.TailscaleIPs)
+    if (ips.length > 0 && mainInstance) {
+      mainInstance.setExitNode(ips[0])
+    }
+  }
+
+  function clearExitNode() {
+    if (mainInstance) {
+      mainInstance.clearExitNode()
     }
   }
 
@@ -134,6 +161,9 @@ Item {
         break
       case "ping":
         pingSelectedPeer()
+        break
+      case "use-exit-node":
+        useExitNode(peer)
         break
     }
   }
@@ -163,6 +193,19 @@ Item {
         action: "ping", 
         icon: "activity",
         enabled: root.isTerminalConfigured
+      },
+      {
+        label: pluginApi?.tr("context.use-exit-node"),
+        action: "use-exit-node",
+        icon: "globe",
+        visible: (root.selectedPeer?.ExitNodeOption || false) && !(root.selectedPeer?.ExitNode || false) && (root.selectedPeer?.Online || false)
+      },
+      {
+        label: pluginApi?.tr("context.send-file"),
+        action: "send-file",
+        icon: "file-upload",
+        visible: mainInstance?.taildropEnabled ?? true,
+        enabled: root.selectedPeer?.Online || false
       }
     ]
     onTriggered: function(action) {
@@ -178,6 +221,13 @@ Item {
           break
         case "ping":
           root.pingSelectedPeer()
+          break
+        case "use-exit-node":
+          root.useExitNode(root.selectedPeer)
+          break
+        case "send-file":
+          root.sendTargetPeer = root.selectedPeer
+          sendFilePicker.openFilePicker()
           break
       }
     }
@@ -204,6 +254,11 @@ Item {
   readonly property string terminalCommand:
     pluginApi?.pluginSettings?.terminalCommand ||
     pluginApi?.manifest?.metadata?.defaultSettings?.terminalCommand ||
+    ""
+
+  readonly property string sshUsername:
+    pluginApi?.pluginSettings?.sshUsername ||
+    pluginApi?.manifest?.metadata?.defaultSettings?.sshUsername ||
     ""
 
   readonly property int pingCount:
@@ -241,15 +296,15 @@ Item {
       if (a.Online && !b.Online) return -1
       if (!a.Online && b.Online) return 1
       // Then alphabetically by hostname
-      var nameA = (a.HostName || a.DNSName || "").toLowerCase()
-      var nameB = (b.HostName || b.DNSName || "").toLowerCase()
+      var nameA = (a.HostName || normalizeFqdn(a.DNSName) || "").toLowerCase()
+      var nameB = (b.HostName || normalizeFqdn(b.DNSName) || "").toLowerCase()
       return nameA.localeCompare(nameB)
     })
     return peers
   }
 
   property real contentPreferredWidth: panelReady ? 400 * Style.uiScaleRatio : 0
-  property real contentPreferredHeight: panelReady ? Math.min(500, 200 + sortedPeerList.length * 48) * Style.uiScaleRatio : 0
+  property real contentPreferredHeight: panelReady ? Math.min(560, 260 + sortedPeerList.length * 48) * Style.uiScaleRatio : 0
 
   anchors.fill: parent
 
@@ -463,7 +518,7 @@ Item {
 
                   readonly property var peerData: modelData
                   readonly property string peerIp: filterIPv4(peerData.TailscaleIPs)[0] || ""
-                  readonly property string peerHostname: peerData.HostName || peerData.DNSName || "Unknown"
+                  readonly property string peerHostname: peerData.HostName || normalizeFqdn(peerData.DNSName) || "Unknown"
                   readonly property bool peerOnline: peerData.Online || false
 
                   background: Rectangle {
@@ -489,6 +544,14 @@ Item {
                       font.weight: Style.fontWeightMedium
                       elide: Text.ElideRight
                       Layout.fillWidth: true
+                    }
+
+                    NIcon {
+                      icon: "globe"
+                      pointSize: Style.fontSizeS
+                      color: peerDelegate.peerData.ExitNode ? Color.mPrimary : Qt.alpha(Color.mOnSurfaceVariant, 0.4)
+                      visible: peerDelegate.peerData.ExitNode || peerDelegate.peerData.ExitNodeOption
+                      Layout.alignment: Qt.AlignRight
                     }
 
                     NText {
@@ -529,6 +592,19 @@ Item {
         }
       }
 
+      // Taildrop receive button
+      NButton {
+        Layout.fillWidth: true
+        visible: (mainInstance?.tailscaleRunning ?? false) && (mainInstance?.taildropEnabled ?? true)
+        text: pluginApi?.tr("panel.taildrop.receive")
+        icon: "file-download"
+        onClicked: {
+          if (!mainInstance) return
+          mainInstance.startTaildropReceive()
+          if (pluginApi) pluginApi.closePanel(pluginApi.panelOpenScreen)
+        }
+      }
+
       NButton {
         Layout.fillWidth: true
         visible: mainInstance?.tailscaleRunning ?? false
@@ -537,6 +613,14 @@ Item {
         onClicked: {
           Qt.openUrlExternally("https://login.tailscale.com/admin")
         }
+      }
+
+      NButton {
+        Layout.fillWidth: true
+        visible: mainInstance?.exitNodeStatus !== null && mainInstance?.exitNodeStatus !== undefined
+        text: pluginApi?.tr("panel.exit-node.disable")
+        icon: "globe-off"
+        onClicked: root.clearExitNode()
       }
 
       NButton {

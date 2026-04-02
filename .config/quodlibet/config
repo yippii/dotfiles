@@ -1,0 +1,58 @@
+[settings]
+columns = ~#track,~people,~title~version,~album~discsubtitle,~#length
+	
+default_rating = 0.5
+scan = /home/yippie/Music
+
+[memory]
+browser = AlbumList
+chooser_dir = /home/yippie/Music
+column_expands = ~people,1,~title~version,1,~album~discsubtitle,1
+	
+column_widths = ~people,-1,~title~version,-1,~album~discsubtitle,-1
+	
+open_browsers = 
+prefs_page = tagging
+queue_disable = False
+queue_expanded = False
+quodlibet_information_maximized = 4
+quodlibet_last_active_version = 4.7.1
+quodlibet_maximized = 4
+quodlibet_position = 0 0
+quodlibet_size_ = 950 1024
+seek = 0
+sidebar_pos = 0.25052083333333336
+song = /home/yippie/Music/flacs/flacs/MyGO!!!!! - 迷跡波/07. MyGO!!!!! - 音一会.flac
+sortby = 0~#track
+	
+volume = 0.9999847412109375
+
+[player]
+gst_buffer = 3.0
+is_playing = False
+replaygain_mode = auto
+
+[browsers]
+albumlist_pos = 0.45938818565400846
+albums = ('', ('dawn',), ('aimer',))
+pane_selection = 0	YOASOBI, ミドリーズ	.
+	0	<b><i>2021</i></b> - THE BOOK 2	.
+panedbrowser_pane_widths = 0.5185972369819342
+panedbrowser_pos = 0.43266832917705733
+query_text = dawn
+
+[library]
+watch = true
+
+[__config__]
+version = 0
+
+[plugins]
+active_plugins = Remove Playlist Duplicates
+	Shuffle Playlist
+	WaveformSeekBar
+	mpris
+
+[editing]
+save_email = liboris20@gmail.com
+

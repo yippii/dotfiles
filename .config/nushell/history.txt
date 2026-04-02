@@ -1,0 +1,24 @@
+clear
+ls
+ls | reverse 
+clear
+ls
+ls | where size > 4.0
+ls | where size > 4.0kb
+ls | where size < 4.0kb
+ls | where size > 4.1kb
+clear
+cat /etc/nixos/flake.nix
+cat /etc/nixos/flake.nix | explore 
+clear
+help commands | explore
+help commands
+help commands | explore
+help commands | explain
+clear
+explain 
+explain a
+explain cat
+help explain
+help ls
+exit

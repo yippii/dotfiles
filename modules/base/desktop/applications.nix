@@ -2,9 +2,32 @@
 
   flake.nixosModules.desktop = { pkgs, ... }: {
 
-    environment.systemPackages = with pkgs; [
-      nautilus
-    ];
+    services.sysprof.enable = true;
 
+    services.gvfs.enable = true;
+
+    services.flatpak.enable = true;
+    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    xdg.portal.config.common.default = "gtk";
+
+    programs.nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/etc/nixos";
+    };
+
+    environment = {
+      systemPackages = with pkgs; [
+        nautilus
+        discord
+        quodlibet
+        easyeffects
+        github-desktop
+        android-tools
+      ];
+
+      sessionVariables.NIXOS_OZONE_WL = "1";
+    };
   };
 }

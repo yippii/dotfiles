@@ -57,9 +57,10 @@ Item {
   // Toggle via: qs -c noctalia-shell ipc call plugin:tailscale setMockPeers
   property bool useMockData: false
   readonly property var mockPeerList: [
-    { "HostName": "mock-linux-box", "DNSName": "mock-linux-box.tail1234.ts.net.", "TailscaleIPs": ["100.64.0.1"], "Online": true,  "OS": "linux", "Tags": [] },
-    { "HostName": "mock-mac",       "DNSName": "mock-mac.tail1234.ts.net.",       "TailscaleIPs": ["100.64.0.2"], "Online": true,  "OS": "macos", "Tags": [] },
-    { "HostName": "mock-win-pc",    "DNSName": "mock-win-pc.tail1234.ts.net.",    "TailscaleIPs": ["100.64.0.3"], "Online": false, "OS": "windows", "Tags": [] }
+    { "HostName": "mock-linux-box",          "DNSName": "mock-linux-box.tail1234.ts.net.",          "TailscaleIPs": ["100.64.0.1"], "Online": true,  "OS": "linux",   "Tags": [], "ExitNodeOption": true,  "ExitNode": false },
+    { "HostName": "mock-mac",                "DNSName": "mock-mac.tail1234.ts.net.",                "TailscaleIPs": ["100.64.0.2"], "Online": true,  "OS": "macos",   "Tags": [], "ExitNodeOption": false, "ExitNode": false },
+    { "HostName": "mock-win-pc",             "DNSName": "mock-win-pc.tail1234.ts.net.",             "TailscaleIPs": ["100.64.0.3"], "Online": false, "OS": "windows", "Tags": [], "ExitNodeOption": false, "ExitNode": false },
+    { "HostName": "google-pixel-9-pro-xl",   "DNSName": "google-pixel-9-pro-xl.tail1234.ts.net.",   "TailscaleIPs": ["100.64.0.4"], "Online": true,  "OS": "android", "Tags": [], "ExitNodeOption": false, "ExitNode": false }
   ]
 
   readonly property var peerList: useMockData ? mockPeerList : _realPeerList
@@ -68,6 +69,15 @@ Item {
   function filterIPv4(ips) {
     if (!ips || !ips.length) return []
     return ips.filter(ip => ip.startsWith("100."))
+  }
+
+  // Some devices (e.g. Android) report "localhost" as their HostName.
+  // In that case, derive a meaningful name from the first label of DNSName.
+  function resolveHostName(hostName, dnsName) {
+    if (hostName && hostName.toLowerCase() !== "localhost") return hostName
+    if (!dnsName) return hostName
+    var label = dnsName.split(".")[0]
+    return label || hostName
   }
 
   Process {
@@ -107,12 +117,14 @@ Item {
                 var peer = data.Peer[peerId]
                 var ipv4s = filterIPv4(peer.TailscaleIPs)
                 peers.push({
-                  "HostName": peer.HostName,
+                  "HostName": resolveHostName(peer.HostName, peer.DNSName),
                   "DNSName": peer.DNSName,
                   "TailscaleIPs": ipv4s,
                   "Online": peer.Online,
                   "OS": peer.OS,
-                  "Tags": peer.Tags || []
+                  "Tags": peer.Tags || [],
+                  "ExitNodeOption": peer.ExitNodeOption || false,
+                  "ExitNode": peer.ExitNode || false
                 })
               }
             }
@@ -168,6 +180,255 @@ Item {
 
       statusDelayTimer.start()
     }
+  }
+
+  Process {
+    id: exitNodeProcess
+    onExited: function(exitCode, exitStatus) {
+      if (exitCode === 0) {
+        var message = root.lastExitNodeAction === "set" ?
+          pluginApi?.tr("toast.exit-node-enabled") :
+          pluginApi?.tr("toast.exit-node-disabled")
+        ToastService.showNotice(
+          pluginApi?.tr("toast.title"),
+          message,
+          "globe"
+        )
+      }
+      statusDelayTimer.start()
+    }
+  }
+
+  property string lastExitNodeAction: ""
+
+  // ─── Taildrop state ──────────────────────────────────────────────────────
+
+  // Possible values: "idle", "receiving", "sending", "error"
+  property string taildropState: "idle"
+  property string taildropMessage: ""
+
+  readonly property string _homeDir: Quickshell.env("HOME") ?? ""
+
+  function _expandPath(path) {
+    if (!path) return path
+    if (path.startsWith("~/")) return _homeDir + path.substring(1)
+    return path
+  }
+
+  readonly property bool taildropEnabled:
+    pluginApi?.pluginSettings?.taildropEnabled ??
+    pluginApi?.manifest?.metadata?.defaultSettings?.taildropEnabled ??
+    true
+
+  readonly property string taildropDownloadDir:
+    _expandPath(
+      pluginApi?.pluginSettings?.taildropDownloadDir ||
+      pluginApi?.manifest?.metadata?.defaultSettings?.taildropDownloadDir ||
+      "~/Downloads"
+    )
+
+  // "operator" = no priv-esc (requires `sudo tailscale set --operator $USER`)
+  // "pkexec"   = use pkexec to run as root
+  readonly property string taildropReceiveMode:
+    pluginApi?.pluginSettings?.taildropReceiveMode ||
+    pluginApi?.manifest?.metadata?.defaultSettings?.taildropReceiveMode ||
+    "operator"
+
+  // Snapshot of filenames in download dir taken just before receive starts
+  property var _preScanFiles: []
+
+  Process {
+    id: preScanProcess
+    stdout: StdioCollector {}
+    stderr: StdioCollector {}
+
+    onExited: function(exitCode) {
+      if (exitCode === 0) {
+        var raw = String(preScanProcess.stdout.text || "").trim()
+        root._preScanFiles = raw.length > 0 ? raw.split("\n") : []
+      } else {
+        root._preScanFiles = []
+      }
+      Logger.d("Tailscale", "Pre-scan: " + root._preScanFiles.length + " files")
+      // Now start the actual receive
+      var dir = root.taildropDownloadDir
+      if (root.taildropReceiveMode === "pkexec") {
+        taildropReceiveProcess.command = ["pkexec", "tailscale", "file", "get", dir]
+      } else {
+        taildropReceiveProcess.command = ["tailscale", "file", "get", dir]
+      }
+      taildropReceiveProcess.running = true
+    }
+  }
+
+  Process {
+    id: postScanProcess
+    stdout: StdioCollector {}
+    stderr: StdioCollector {}
+
+    onExited: function(exitCode) {
+      var newFiles = []
+      if (exitCode === 0) {
+        var raw = String(postScanProcess.stdout.text || "").trim()
+        var postFiles = raw.length > 0 ? raw.split("\n") : []
+        var preSet = {}
+        for (var i = 0; i < root._preScanFiles.length; i++) {
+          preSet[root._preScanFiles[i]] = true
+        }
+        for (var j = 0; j < postFiles.length; j++) {
+          if (!preSet[postFiles[j]]) {
+            newFiles.push(postFiles[j])
+          }
+        }
+      }
+      Logger.i("Tailscale", "Taildrop received " + newFiles.length + " new file(s)")
+      if (newFiles.length > 0) {
+        ToastService.showNotice(
+          pluginApi?.tr("toast.title"),
+          newFiles.join("\n"),
+          "file-download"
+        )
+      } else {
+        ToastService.showWarning(
+          pluginApi?.tr("toast.title"),
+          pluginApi?.tr("taildrop.toast.no-files")
+        )
+      }
+    }
+  }
+
+  Process {
+    id: taildropReceiveProcess
+    stdout: StdioCollector {}
+    stderr: StdioCollector {}
+
+    onStarted: {
+      root.taildropState = "receiving"
+      root.taildropMessage = ""
+      Logger.i("Tailscale", "Taildrop receive started in: " + root.taildropDownloadDir)
+    }
+
+    onExited: function(exitCode, exitStatus) {
+      var stderr = String(taildropReceiveProcess.stderr.text || "").trim()
+      var stdout = String(taildropReceiveProcess.stdout.text || "").trim()
+      var allOutput = (stderr + "\n" + stdout).trim()
+      if (exitCode === 0) {
+        root.taildropState = "idle"
+        root.taildropMessage = ""
+        // Scan post-receive to diff new files
+        postScanProcess.command = ["ls", "-1", root.taildropDownloadDir]
+        postScanProcess.running = true
+        Logger.i("Tailscale", "Taildrop receive completed, running post-scan")
+      } else {
+        root.taildropState = "error"
+        var isDuplicateFile = allOutput.indexOf("file exists") !== -1
+          || allOutput.indexOf("refusing to overwrite") !== -1
+          || /moved 0\/\d+ files/.test(allOutput)
+        root.taildropMessage = isDuplicateFile
+          ? pluginApi?.tr("taildrop.error.file-exists")
+          : allOutput || pluginApi?.tr("taildrop.error.unknown")
+        ToastService.showError(
+          pluginApi?.tr("toast.title"),
+          root.taildropMessage,
+          "file-x"
+        )
+        Logger.e("Tailscale", "Taildrop receive failed (exit " + exitCode + "): " + allOutput)
+      }
+    }
+  }
+
+  Process {
+    id: taildropSendProcess
+    stdout: StdioCollector {}
+    stderr: StdioCollector {}
+
+    onStarted: {
+      root.taildropState = "sending"
+      root.taildropMessage = ""
+      Logger.i("Tailscale", "Taildrop send started")
+    }
+
+    onExited: function(exitCode, exitStatus) {
+      var stderr = String(taildropSendProcess.stderr.text || "").trim()
+      if (exitCode === 0) {
+        root.taildropState = "idle"
+        root.taildropMessage = ""
+        ToastService.showNotice(
+          pluginApi?.tr("toast.title"),
+          pluginApi?.tr("taildrop.toast.sent"),
+          "file-upload"
+        )
+        Logger.i("Tailscale", "Taildrop send completed successfully")
+      } else {
+        root.taildropState = "error"
+        root.taildropMessage = stderr || pluginApi?.tr("taildrop.error.unknown")
+        ToastService.showError(
+          pluginApi?.tr("toast.title"),
+          root.taildropMessage,
+          "file-x"
+        )
+        Logger.e("Tailscale", "Taildrop send failed (exit " + exitCode + "): " + root.taildropMessage)
+      }
+    }
+  }
+
+  function startTaildropReceive() {
+    if (!root.tailscaleInstalled || !root.tailscaleRunning) {
+      Logger.w("Tailscale", "Cannot start receive: tailscale not running")
+      return
+    }
+    if (!root.taildropEnabled) {
+      Logger.w("Tailscale", "Taildrop is disabled in settings")
+      return
+    }
+    if (root.taildropState === "receiving") {
+      Logger.w("Tailscale", "Already receiving")
+      return
+    }
+    // Pre-scan the download dir; the scan's onExited launches the actual receive
+    preScanProcess.command = ["ls", "-1", root.taildropDownloadDir]
+    preScanProcess.running = true
+  }
+
+  // files: array of local file paths, peerTarget: "hostname:" or "ip:"
+  function sendFilesViaTaildrop(files, peerTarget) {
+    if (!root.tailscaleInstalled || !root.tailscaleRunning) {
+      Logger.w("Tailscale", "Cannot send: tailscale not running")
+      return
+    }
+    if (!root.taildropEnabled) {
+      Logger.w("Tailscale", "Taildrop is disabled in settings")
+      return
+    }
+    if (!files || files.length === 0) {
+      Logger.w("Tailscale", "No files to send")
+      return
+    }
+    if (root.taildropState === "sending") {
+      Logger.w("Tailscale", "Already sending files")
+      return
+    }
+    var cmd = ["tailscale", "file", "cp"]
+    for (var i = 0; i < files.length; i++) {
+      cmd.push(files[i])
+    }
+    cmd.push(peerTarget)
+    taildropSendProcess.command = cmd
+    taildropSendProcess.running = true
+  }
+
+  function setExitNode(ip) {
+    if (!root.tailscaleInstalled || !root.tailscaleRunning) return
+    root.lastExitNodeAction = "set"
+    exitNodeProcess.command = ["tailscale", "set", "--exit-node=" + ip]
+    exitNodeProcess.running = true
+  }
+
+  function clearExitNode() {
+    if (!root.tailscaleInstalled || !root.tailscaleRunning) return
+    root.lastExitNodeAction = "clear"
+    exitNodeProcess.command = ["tailscale", "set", "--exit-node="]
+    exitNodeProcess.running = true
   }
 
   Timer {
@@ -253,6 +514,11 @@ Item {
 
     function refresh() {
       updateTailscaleStatus()
+    }
+
+    // Taildrop IPC: qs ipc call plugin:tailscale receive
+    function receive() {
+      startTaildropReceive()
     }
 
     // Dev/testing: toggle mock peer list to reproduce few-device layouts.

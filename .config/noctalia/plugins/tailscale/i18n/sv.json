@@ -18,11 +18,23 @@
     "terminal": "Terminalkonfiguration",
     "terminal-command": "Terminalkommando",
     "terminal-command-desc": "Kommando för att starta terminal för SSH/ping (t.ex. 'ghostty', 'alacritty', 'kitty')",
+    "ssh-username": "SSH-användarnamn",
+    "ssh-username-desc": "Användarnamn för SSH-anslutningar. Lämna tomt för att använda din värds standardanvändarnamn.",
+    "ssh-username-placeholder": "t.ex. pi, ubuntu, admin",
     "ping-count": "Antal pingar",
     "ping-count-desc": "Antal ping-paket att skicka vid anslutningstest",
     "peer-action": "Peer-klickåtgärd",
     "default-peer-action": "Standardåtgärd",
-    "default-peer-action-desc": "Åtgärd vid klick på en peer i panelen"
+    "default-peer-action-desc": "Åtgärd vid klick på en peer i panelen",
+    "taildrop": "Taildrop",
+    "taildrop-enabled": "Aktivera Taildrop",
+    "taildrop-enabled-desc": "Tillåt att skicka och ta emot filer via Taildrop",
+    "taildrop-download-dir": "Nedladdningsmapp",
+    "taildrop-download-dir-desc": "Mapp där mottagna filer sparas (t.ex. ~/Downloads)",
+    "taildrop-receive-mode": "Mottagningsläge",
+    "taildrop-receive-mode-desc": "Hur 'tailscale file get' körs. Operatörsläget kräver ingen bekräftelse om du har kört 'sudo tailscale set --operator $USER'.",
+    "taildrop-receive-mode-operator": "Operatör (ingen bekräftelse)",
+    "taildrop-receive-mode-pkexec": "pkexec (bekräftelse varje gång)"
   },
   "actions": {
     "widget-settings": "Widgetinställningar"
@@ -30,18 +42,21 @@
   "context": {
     "connect": "Anslut",
     "disconnect": "Koppla från",
-    "refresh": "Uppdatera status",
     "not-installed": "Tailscale är inte installerad",
     "settings": "Inställningar",
     "copy-ip": "Kopiera IP",
     "copy-fqdn": "Kopiera FQDN",
     "ssh": "SSH till värd",
-    "ping": "Pinga värd"
+    "ping": "Pinga värd",
+    "use-exit-node": "Använd som utgångsnod",
+    "send-file": "Skicka fil"
   },
   "toast": {
     "title": "Tailscale",
     "connected": "Tailscale ansluten",
     "disconnected": "Tailscale frånkopplad",
+    "exit-node-enabled": "Utgångsnod aktiverad",
+    "exit-node-disabled": "Utgångsnod inaktiverad",
     "ip-copied": {
       "title": "IP kopierad"
     },
@@ -57,8 +72,6 @@
     "title": "Tailscale-nätverk",
     "peers": "peers",
     "not-connected": "Ej ansluten",
-    "online": "Online",
-    "offline": "Offline",
     "no-peers": "Inga anslutna peers",
     "admin-console": "Administrationskonsol",
     "terminal-warning": {
@@ -68,7 +81,24 @@
     "exit-node": {
       "active": "Utgångsnod aktiv",
       "online": "Online",
-      "offline": "Offline"
+      "offline": "Offline",
+      "disable": "Inaktivera utgångsnod"
+    },
+    "taildrop": {
+      "receive": "Ta emot via Taildrop"
     }
+  },
+  "taildrop": {
+    "toast": {
+      "no-files": "Inga filer togs emot",
+      "sent": "Filer skickades"
+    },
+    "error": {
+      "unknown": "Ett oväntat fel uppstod",
+      "file-exists": "Filen finns redan i nedladdningsmappen"
+    }
+  },
+  "file-picker": {
+    "title": "Välj fil att skicka via Taildrop"
   }
 }

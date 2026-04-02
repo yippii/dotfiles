@@ -89,6 +89,7 @@
     # Font Packages
     fonts.packages = with pkgs; [
       nerd-fonts.meslo-lg
+      noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
