@@ -39,6 +39,8 @@
 
     lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
   };
 
   outputs = inputs: 
