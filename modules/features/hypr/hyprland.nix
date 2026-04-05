@@ -12,7 +12,6 @@
 
     services.dbus.packages = with pkgs; [
       upower
-      hyprdynamicmonitors
     ];
 
     environment.systemPackages = with pkgs; [
@@ -21,7 +20,6 @@
       app2unit
       papirus-icon-theme
       polkit_gnome
-      hyprdynamicmonitors
       hyprlock
       hypridle
     ];

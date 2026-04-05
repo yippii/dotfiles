@@ -1,13 +1,24 @@
 { self, inputs, ... }: {
   flake.nixosModules.lanzabooteConfig = { pkgs, lib, ...}: {
-    environment.systemPackages = with pkgs; [ sbctl ];
+    environment.systemPackages = with pkgs;  
+      lib.mkIf pkgs.stdenv.isx86_64 [
+        sbctl 
+      ];
 
-    boot.loader.systemd-boot.enable = lib.mkForce false;
+    boot.loader.systemd-boot.enable = 
+      lib.mkIf pkgs.stdenv.isx86_64 lib.mkForce false;
 
-    boot.lanzaboote = {
-      enable = true;
-      pkiBundle = "/var/lib/sbctl";
-    };
+    boot.lanzaboote = lib.mkMerge
+    [
+      (lib.mkIf pkgs.stdenv.isx86_64 {
+        enable = true;
+        pkiBundle = "/var/lib/sbctl";
+      })
+
+      (lib.mkIf pkgs.stdenv.isAarch64 {
+        enable = false;
+       })
+    ];
 
     boot.loader.timeout = 0;
   };

@@ -12,6 +12,7 @@
         self.nixosModules.noctalia-shell
         self.nixosModules.desktop
         self.nixosModules.terminal
+        self.nixosModules.boot
     ];
 
     boot.loader.grub.enable = true;
@@ -55,8 +56,6 @@
       git
     ];
 
-    environment.variables.LIBGL_ALWAYS_SOFTWARE = 1;
-
     # Copy the NixOS configuration file and link it from the resulting system
     # (/run/current-system/configuration.nix). This is useful in case you
     # accidentally delete configuration.nix.
@@ -83,6 +82,9 @@
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs.config = {
+      allowUnfree = true;
+      #allowUnsupportedSystem = true;
+    };
   };
 }

@@ -1,6 +1,6 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.desktop = { pkgs, ... }: {
+  flake.nixosModules.desktop = { lib, pkgs, ... }: {
 
     services.sysprof.enable = true;
 
@@ -18,13 +18,22 @@
     };
 
     environment = {
-      systemPackages = with pkgs; [
+      systemPackages = with pkgs; lib.mkMerge [
+        [
         nautilus
-        discord
         quodlibet
         easyeffects
         github-desktop
         android-tools
+        ] 
+      
+        (lib.mkIf pkgs.stdenv.isx86_64 [
+          discord
+        ])
+
+        (lib.mkIf pkgs.stdenv.isAarch64 [
+          vesktop
+        ])
       ];
 
       sessionVariables.NIXOS_OZONE_WL = "1";
