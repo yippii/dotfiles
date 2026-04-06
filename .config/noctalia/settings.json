@@ -35,7 +35,7 @@
             "github-desktop",
             "zen-beta",
             "com.github.wwmm.easyeffects",
-            "sh.ppy.osu"
+            "osu-lazer"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -478,8 +478,8 @@
         ],
         "onlySameOutput": true,
         "pinnedApps": [
-            "zen",
-            "org.kde.dolphin",
+            "zen-beta",
+            "org.gnome.Nautilus",
             "kitty",
             "code",
             "vesktop"
@@ -789,10 +789,6 @@
             },
             {
                 "enabled": true,
-                "id": "fuzzel"
-            },
-            {
-                "enabled": true,
                 "id": "gtk"
             },
             {
@@ -806,6 +802,10 @@
             {
                 "enabled": true,
                 "id": "pywalfox"
+            },
+            {
+                "enabled": true,
+                "id": "zed"
             }
         ],
         "enableUserTheming": false

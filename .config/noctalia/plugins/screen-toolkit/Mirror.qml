@@ -18,6 +18,7 @@ Item {
 
     property bool isSquare:   true
     property bool isFlipped:  true
+    property int  cameraIndex: 0
     property int  currentWidth:  300
     property int  currentHeight: 300
     property int  xPos: -1
@@ -98,7 +99,7 @@ Item {
                                 camera: Camera {
                                     id: camera
                                     active: true
-                                    cameraDevice: mediaDevices.videoInputs[0] ?? mediaDevices.defaultVideoInput
+                                    cameraDevice: mediaDevices.videoInputs[root.cameraIndex] ?? mediaDevices.defaultVideoInput
                                 }
                                 videoOutput: videoOutput
                             }
@@ -196,6 +197,21 @@ Item {
                                 anchors.fill: parent; cursorShape: Qt.PointingHandCursor; hoverEnabled: true
                                 onClicked: root.isFlipped = !root.isFlipped
                                 onEntered: TooltipService.show(parent, root.isFlipped ? root.pluginApi?.tr("tooltips.unflipCamera") : root.pluginApi?.tr("tooltips.flipCamera"))
+                                onExited:  TooltipService.hide()
+                            }
+                        }
+
+                        // Switch camera
+                        Rectangle {
+                            width: 32; height: 32; radius: 16
+                            visible: mediaDevices.videoInputs.length > 1
+                            color: camHover.containsMouse ? Qt.rgba(1,1,1,0.2) : "transparent"
+                            NIcon { anchors.centerIn: parent; icon: "camera-rotate"; color: "white" }
+                            MouseArea {
+                                id: camHover
+                                anchors.fill: parent; cursorShape: Qt.PointingHandCursor; hoverEnabled: true
+                                onClicked: root.cameraIndex = (root.cameraIndex + 1) % mediaDevices.videoInputs.length
+                                onEntered: TooltipService.show(parent, root.pluginApi?.tr("tooltips.switchCamera"))
                                 onExited:  TooltipService.hide()
                             }
                         }

@@ -56,6 +56,7 @@
     "measure": "Measure distance in pixels",
     "mirror": "Floating webcam mirror",
     "flipCamera": "Flip camera",
+    "switchCamera": "Switch camera",
     "switchToWide": "Switch to wide (16:9)",
     "switchToSquare": "Switch to square",
     "systemAudio": "Record system audio (desktop output)",
