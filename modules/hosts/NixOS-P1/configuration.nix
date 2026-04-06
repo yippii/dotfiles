@@ -85,8 +85,6 @@
       };
     };
 
-    environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
-
     services.supergfxd.enable = true;
 
     systemd.services.supergfxd.path = [ pkgs.pciutils ];
