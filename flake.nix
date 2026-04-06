@@ -42,6 +42,8 @@
 
     nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
     nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
+
+    zed.url = "github:zed-industries/zed";
   };
 
   outputs = inputs: 

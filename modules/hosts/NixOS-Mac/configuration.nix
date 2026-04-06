@@ -25,7 +25,7 @@
 
     time.timeZone = "America/Toronto";
 
-    i18n.defaultLocale = "en_US.UTF-8";
+    i18n.defaultLocale = "fr_CA.UTF-8";
     console = {
       font = "Lat2-Terminus16";
       useXkbConfig = true; # use xkb.options in tty.
@@ -49,6 +49,8 @@
     };
 
     programs.firefox.enable = true;
+
+    services.power-profiles-daemon.enable = true;
 
     environment.systemPackages = with pkgs; [
       wget

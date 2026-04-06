@@ -1,6 +1,14 @@
 { self, inputs, ... }: {
 
   flake.nixosModules.hyprland = { pkgs, ... }: {
+    services.logind.settings = {
+      Login = {
+        HandlePowerKey = "suspend";
+        HandleLidSwitchDocked = "ignore";
+      };
+    };
+
+
     programs.hyprland = {
       enable = true;
       withUWSM = true;

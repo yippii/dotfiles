@@ -25,6 +25,8 @@
         easyeffects
         github-desktop
         android-tools
+        zed-editor
+        github-desktop
         ] 
       
         (lib.mkIf pkgs.stdenv.isx86_64 [

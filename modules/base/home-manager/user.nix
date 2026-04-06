@@ -1,4 +1,4 @@
-{ self, inputs, ... }: { 
+{ self, inputs, ... }: {
   flake.homeManagerModules.homeManagerUserConfig = { lib, config, pkgs, ... }:
     let
       cfg_orig = config.programs.zen-browser;
@@ -50,7 +50,7 @@
         '';
       };
     in {
-      imports = [ 
+      imports = [
         inputs.zen-browser.homeModules.beta
         inputs.nix4nvchad.homeManagerModule
       ];
@@ -154,6 +154,72 @@
         ];
         hm-activation = true;
         backup = true;
+      };
+
+      programs.zed-editor = {
+        enable = true;
+
+        # This populates the userSettings "auto_install_extensions"
+        extensions = [ "nix" "toml" "make" "html" "catppuccin" "java" "catppuccin-icons" "latex" ];
+
+        # Everything inside of these brackets are Zed options
+        userSettings = {
+          agent = {
+            enabled = true;
+
+            # inline_alternatives = [
+            #   {
+            #     provider = "copilot_chat";
+            #     model = "gpt-3.5-turbo";
+            #   }
+            # ];
+          };
+
+          auto_update = false;
+
+          terminal = {
+            alternate_scroll = "off";
+            blinking = "off";
+            copy_on_select = false;
+            dock = "bottom";
+            detect_venv = {
+              on = {
+                directories = [ ".env" "env" ".venv" "venv" ];
+                activate_script = "default";
+              };
+            };
+            env = {
+              TERM = "kitty";
+            };
+            font_family = "MesloLGS Nerd Font";
+            font_features = null;
+            font_size = null;
+            line_height = "comfortable";
+            option_as_meta = false;
+            button = false;
+            shell = "system";
+            # shell = {
+            #   program = "zsh";
+            # };
+            working_directory = "current_project_directory";
+          };
+
+          vim_mode = true;
+
+          # Tell Zed to use direnv and direnv can use a flake.nix environment
+          load_direnv = "shell_hook";
+          base_keymap = "VSCode";
+
+          theme = {
+            mode = "system";
+            light = "One Light";
+            dark = "Catppuccin Macchiato";
+          };
+
+          show_whitespaces = "all";
+          ui_font_size = 16;
+          buffer_font_size = 16;
+        };
       };
     };
 }
