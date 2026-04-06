@@ -5,8 +5,10 @@
         sbctl 
       ];
 
-    boot.loader.systemd-boot.enable = 
-      lib.mkIf pkgs.stdenv.isx86_64 lib.mkForce false;
+    boot.loader.systemd-boot = lib.mkMerge
+    [
+      (lib.mkIf pkgs.stdenv.isx86_64 { enable = lib.mkForce false; })
+    ];
 
     boot.lanzaboote = lib.mkMerge
     [

@@ -19,7 +19,6 @@
     boot.loader.efi.efiSysMountPoint = "/boot";
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.timeout = 0;
-    services.logind.settings.Login.HandlePowerKey = "ignore";
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
