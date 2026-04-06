@@ -1,12 +1,12 @@
-.config/discord/
-.config/gh/
-.config/github-copilot/
-.config/'GitHub Desktop'/
-.config/user-dirs.*
-.config/systemd/
-.config/vesktop/
-.config/rygel.conf
-.config/JetBrains/
-.config/spotify/
-.config/zen/
 /.config/discord
+/.config/gh
+/.config/github-copilot
+/.config/GitHub Desktop
+/.config/user-dirs.*
+/.config/systemd
+/.config/vesktop
+/.config/rygel.conf
+/.config/JetBrains
+/.config/spotify
+/.config/zen
+/.config/GitHub Desktop
