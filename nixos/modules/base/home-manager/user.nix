@@ -164,6 +164,10 @@
 
         # Everything inside of these brackets are Zed options
         userSettings = {
+          disable_ai = true;
+
+          icon_theme = "Catppuccin Macchiato";
+
           agent = {
             enabled = true;
 
@@ -213,7 +217,7 @@
           theme = {
             mode = "system";
             light = "One Light";
-            dark = "Catppuccin Macchiato";
+            dark = "Noctalia Dark Transparent";
           };
 
           show_whitespaces = "all";

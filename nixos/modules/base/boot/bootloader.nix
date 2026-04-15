@@ -7,7 +7,12 @@
 
     boot.loader.systemd-boot = lib.mkMerge
     [
-      (lib.mkIf pkgs.stdenv.isx86_64 { enable = lib.mkForce false; })
+      (lib.mkIf pkgs.stdenv.isx86_64 { 
+        enable = lib.mkForce false; 
+      })
+      (lib.mkIf pkgs.stdenv.isAarch64 {
+        enable = true;
+       })
     ];
 
     boot.lanzaboote = lib.mkMerge
