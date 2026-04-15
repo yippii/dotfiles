@@ -25,7 +25,6 @@
         easyeffects
         github-desktop
         android-tools
-        zed-editor
         github-desktop
         ] 
       
