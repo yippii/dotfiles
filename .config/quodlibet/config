@@ -21,8 +21,8 @@ quodlibet_maximized = 4
 quodlibet_position = 0 0
 quodlibet_size_ = 950 1024
 seek = 0
-sidebar_pos = 0.25052083333333336
-song = /home/yippie/Music/flacs/flacs/MyGO!!!!! - 迷跡波/07. MyGO!!!!! - 音一会.flac
+sidebar_pos = 0.2505263157894737
+song = /home/yippie/Music/flacs/flacs/トゲナシトゲアリ - 棘ナシ/08. TOGENASHI TOGEARI - I’ｍ here.flac
 sortby = 0~#track
 	
 volume = 0.9999847412109375
@@ -33,13 +33,13 @@ is_playing = False
 replaygain_mode = auto
 
 [browsers]
-albumlist_pos = 0.45938818565400846
-albums = ('', ('dawn',), ('aimer',))
+albumlist_pos = 0.46044303797468356
+albums = ('', ('棘ナシ',), ('トゲナシトゲアリ',))
 pane_selection = 0	YOASOBI, ミドリーズ	.
 	0	<b><i>2021</i></b> - THE BOOK 2	.
 panedbrowser_pane_widths = 0.5185972369819342
 panedbrowser_pos = 0.43266832917705733
-query_text = dawn
+query_text = 
 
 [library]
 watch = true

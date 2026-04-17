@@ -2,8 +2,9 @@
 type=6
 
 [soe][Filter#0]
+equalMode=1
 frequency=18
-mode=6
-quality=0.7
-slope=3
+mode=2
+quality=0.8999999761581421
+slope=4
 type=1

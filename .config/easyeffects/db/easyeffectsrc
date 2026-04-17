@@ -1,5 +1,5 @@
 [Presets]
-lastLoadedOutputPreset=GentleDynamics Dialogue Clarity Engine
+lastLoadedOutputPreset=GentleDynamics
 
 [StreamInputs]
 inputDevice=alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Mic2__source
@@ -9,20 +9,18 @@ visiblePage=pluginsPage
 visiblePlugin=rnnoise#0
 
 [StreamOutputs]
-blocklist=alsa_playback.osu!:ALSA Playback
 blocklistUsesMediaName=true
 mostUsedPresets=GentleDynamics Feather Loudness,GentleDynamics,GentleDynamics Dialogue Clarity Engine
 outputDevice=alsa_output.usb-TTGK_Technology_USB_Audio_330220C1240511-00.analog-stereo
-plugins=expander#0,filter#0,multiband_compressor#0,equalizer#0,equalizer#1,compressor#1,compressor#2,deesser#0,stereo_tools#0,limiter#0,level_meter#0
+plugins=equalizer#0
 pluginsListWidth=316
-usedPresets=GentleDynamics:11,GentleDynamics Feather Loudness:19,GentleDynamics Dialogue Clarity Engine:4
+usedPresets=GentleDynamics:13,GentleDynamics Feather Loudness:20,GentleDynamics Dialogue Clarity Engine:5
 visiblePage=pluginsPage
-visiblePlugin=equalizer#1
+visiblePlugin=equalizer#0
 
 [Style]
 forceBreezeTheme=false
 
 [Window]
 height=1020
-visiblePage=inputPage
-width=941
+width=1896
