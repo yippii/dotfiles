@@ -37,16 +37,17 @@
 
     hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
 
-    auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq";
-    auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
-
     nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
 
     lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
     nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
+
+    dolphin-overlay.url = "github:rumboon/dolphin-overlay";
+    dolphin-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: 

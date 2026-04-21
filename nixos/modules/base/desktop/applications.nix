@@ -25,7 +25,6 @@
         easyeffects
         github-desktop
         android-tools
-        github-desktop
         ] 
       
         (lib.mkIf pkgs.stdenv.isx86_64 [

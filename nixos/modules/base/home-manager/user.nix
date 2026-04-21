@@ -62,6 +62,13 @@
 
       home.packages = with pkgs; [
         pywalfox-native
+        kdePackages.dolphin
+        kdePackages.kimageformats
+        kdePackages.kdegraphics-thumbnailers
+        kdePackages.ffmpegthumbs
+        kdePackages.qtimageformats
+        libsForQt5.qt5ct
+        qt6Packages.qt6ct
       ];
 
       gtk = {
@@ -119,6 +126,18 @@
             echo "@import \"file://${config.xdg.configHome}/zen/default/chrome/sine-mods/Nebula/userContent.css\";" > ${config.xdg.configHome}/zen/default/chrome/sine-mods/content.css
           fi
         '';
+      };
+
+      qt = {
+        enable = true;
+        style.package = with pkgs; [
+          darkly
+          darkly-qt5
+        ];
+        platformTheme = "qtct";
+        kde.settings.kdeglobals.General.TerminalApplication = "kitty";
+        kde.settings.kdeglobals.Icons.Theme = config.gtk.iconTheme.name;
+        kde.settings.kdeglobals.UISettings.ColorScheme= "*";
       };
 
       programs.zen-browser = {

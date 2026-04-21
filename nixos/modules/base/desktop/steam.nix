@@ -1,6 +1,8 @@
 { inputs, self, ... }: {
   flake.nixosModules.desktop = { lib, pkgs, ... }: lib.mkMerge [
     (lib.mkIf pkgs.stdenv.isx86_64 {
+      boot.kernelModules = [ "ntsync" ];
+
       programs.steam = {
         enable = true;
         gamescopeSession.enable = true;
@@ -15,7 +17,6 @@
           er-patcher
         ];
 
-        protontricks.enable = true;
       };
 
       programs.gamemode.enable = true;
@@ -27,7 +28,9 @@
 
       environment.systemPackages = with pkgs; [
         mangohud
-        inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
+        osu-lazer-bin
+        lutris
+        vulkan-tools
         inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.wine-discord-ipc-bridge
       ];
     })
