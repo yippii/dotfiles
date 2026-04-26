@@ -14,8 +14,8 @@
         "splash"
         "udev.log_level=0"
         "udev.log_priority=0"
-        "systemd.show_status=false"
         "usbcore.autosuspend=-1"
+        "acpi=force"
       ];
 
       loader.timeout = 0;
