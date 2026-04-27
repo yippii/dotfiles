@@ -174,5 +174,6 @@
         hm-activation = true;
         backup = true;
       };
+    };
   };
 }

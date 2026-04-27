@@ -25,6 +25,8 @@
         easyeffects
         github-desktop
         android-tools
+        github-desktop
+        sublime-merge
         ] 
       
         (lib.mkIf pkgs.stdenv.isx86_64 [
