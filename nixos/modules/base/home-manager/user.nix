@@ -111,8 +111,12 @@
       programs.home-manager.enable = true;
 
       xdg.configFile = {
-        ".zen".source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/zen";
+        ".zen" = {
+          source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/zen";
+          force = true;
+        };
         "zen/default/chrome" = {
+          force = true;
           source = combined_chrome;
           recursive = true;
         };
@@ -134,7 +138,7 @@
           darkly
           darkly-qt5
         ];
-        platformTheme = "qtct";
+        platformTheme.name = "qtct";
         kde.settings.kdeglobals.General.TerminalApplication = "kitty";
         kde.settings.kdeglobals.Icons.Theme = config.gtk.iconTheme.name;
         kde.settings.kdeglobals.UISettings.ColorScheme= "*";

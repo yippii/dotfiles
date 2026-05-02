@@ -17,6 +17,18 @@
       flake = "/etc/nixos";
     };
 
+    nix = {
+      settings = {
+        substituters = [
+          "https://nix-community.cachix.org"
+          "https://cache.nixos.org/"
+        ];
+        trusted-public-keys = [
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+      };
+    };
+
     environment = {
       systemPackages = with pkgs; lib.mkMerge [
         [
@@ -25,8 +37,10 @@
         easyeffects
         github-desktop
         android-tools
-        github-desktop
         sublime-merge
+        ani-cli
+        yt-dlp
+        signal-desktop
         ] 
       
         (lib.mkIf pkgs.stdenv.isx86_64 [

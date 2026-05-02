@@ -15,7 +15,6 @@
     ];
 
     boot.loader.systemd-boot.enable = true;
-    boot.loader.grub.device = "nodev";
     boot.loader.efi.efiSysMountPoint = "/boot";
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.timeout = 0;
@@ -28,10 +27,6 @@
     time.timeZone = "America/Toronto";
 
     i18n.defaultLocale = "en_US.UTF-8";
-    console = {
-      font = "Lat2-Terminus16";
-      useXkbConfig = true; # use xkb.options in tty.
-    };
 
     services.printing.enable = true;
 
@@ -66,7 +61,6 @@
         intel-compute-runtime
       ];
     };
-
     
     services.xserver.videoDrivers = [ "nvidia" ];
 
