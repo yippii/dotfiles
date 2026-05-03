@@ -22,14 +22,14 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    sine.url = "github:CosmoCreeper/Sine";
+    sine.url = "github:CosmoCreeper/Sine?rev=a48b73d32a074d710a1193294d432a62e436b8cf";
     sine.flake = false;
-    sine-bootloader.url = "github:sineorg/bootloader";
+    sine-bootloader.url = "github:sineorg/bootloader?rev=ad1c91019196c3d7d43730f5dd0ddc278f9e3a6e";
     sine-bootloader.flake = false;
     nebula-zen.url = "github:JustAdumbPrsn/Zen-Nebula";
     nebula-zen.flake = false;
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake?rev=231ae41b0cd867046ff0bc3c1a7707e244fe8127";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.inputs.home-manager.follows = "home-manager";
 

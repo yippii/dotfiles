@@ -32,15 +32,6 @@
           # Installing Nebula
           mkdir -p $out/sine-mods
           cp --no-preserve=mode -r $src_1 $out/sine-mods/Nebula
-          echo "{}" > $out/sine-mods/mods.json
-          jq --arg key "Nebula" --slurpfile new $src_1/theme.json  \
-            '.[$key] = ($new[0] + {
-              "stars": 1233,
-              "origin": "store",
-              "preferences": "preferences.json",
-              "no-updates": false,
-              "enabled": true
-            })' $out/sine-mods/mods.json > $out/sine-mods/mods.json.tmp && mv $out/sine-mods/mods.json.tmp $out/sine-mods/mods.json
           ln -s $out/sine-mods/Nebula/README.md $out/sine-mods/Nebula/readme.md
           # Modifying Nebula
           cp --no-preserve=mode ${pkgs.nixos-icons}/share/icons/hicolor/1024x1024/apps/nix-snowflake.png $out/sine-mods/Nebula/Nebula/modules

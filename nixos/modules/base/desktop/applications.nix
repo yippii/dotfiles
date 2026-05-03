@@ -38,6 +38,7 @@
         github-desktop
         android-tools
         sublime-merge
+        # animeko
         ani-cli
         yt-dlp
         signal-desktop
