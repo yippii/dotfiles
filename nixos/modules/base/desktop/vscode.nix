@@ -3,6 +3,9 @@
   flake.nixosModules.desktop = { pkgs, ... }: {
 
     environment.systemPackages = with pkgs; [
+      nixd
+      nixfmt
+
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
           jnoortheen.nix-ide
@@ -14,7 +17,5 @@
         ];
       })
     ];
-
-
   };
 }
