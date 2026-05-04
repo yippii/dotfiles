@@ -6,7 +6,6 @@
   flake.nixosModules.NixOS-P1Config = { config, lib, pkgs, ... } : {
 
     imports = [
-      inputs.flake-parts.flakeModules.modules
       self.nixosModules.homeManager
 
       inputs.lanzaboote.nixosModules.lanzaboote

@@ -6,7 +6,6 @@
   flake.nixosModules.NixOS-MacConfig = { config, lib, pkgs, ... } : {
 
     imports = [
-      inputs.flake-parts.flakeModules.modules
       self.nixosModules.homeManager
 
       inputs.hyprdynamicmonitors.nixosModules.default
