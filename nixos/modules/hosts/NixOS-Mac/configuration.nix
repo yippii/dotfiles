@@ -6,13 +6,18 @@
   flake.nixosModules.NixOS-MacConfig = { config, lib, pkgs, ... } : {
 
     imports = [
-	inputs.nixos-apple-silicon.nixosModules.default
-        self.nixosModules.NixOS-MacHardware
-        self.nixosModules.hyprland
-        self.nixosModules.noctalia-shell
-        self.nixosModules.desktop
-        self.nixosModules.terminal
-        self.nixosModules.boot
+      inputs.flake-parts.flakeModules.modules
+      self.nixosModules.homeManager
+
+      inputs.hyprdynamicmonitors.nixosModules.default
+      
+      inputs.nixos-apple-silicon.nixosModules.default
+      self.nixosModules.NixOS-MacHardware
+      self.nixosModules.hyprland
+      self.nixosModules.noctalia-shell
+      self.nixosModules.desktop
+      self.nixosModules.terminal
+      self.nixosModules.boot
     ];
 
     boot.loader.efi.efiSysMountPoint = "/boot";

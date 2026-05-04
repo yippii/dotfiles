@@ -12,7 +12,5 @@
       wl-screenrec
       gifski
     ];
-
-    #services.power-profiles-daemon.enable = true;
   };
 }

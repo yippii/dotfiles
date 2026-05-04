@@ -32,7 +32,6 @@
     environment = {
       systemPackages = with pkgs; lib.mkMerge [
         [
-        nautilus
         quodlibet
         easyeffects
         github-desktop
@@ -42,6 +41,11 @@
         ani-cli
         yt-dlp
         signal-desktop
+        nicotine-plus
+        qbittorrent
+        kdePackages.ark
+        unrar
+        tailscale
         ] 
       
         (lib.mkIf pkgs.stdenv.isx86_64 [

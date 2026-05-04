@@ -6,12 +6,20 @@
   flake.nixosModules.NixOS-P1Config = { config, lib, pkgs, ... } : {
 
     imports = [
-        self.nixosModules.NixOS-P1Hardware
-        self.nixosModules.hyprland
-        self.nixosModules.noctalia-shell
-        self.nixosModules.desktop
-        self.nixosModules.terminal
-        self.nixosModules.boot
+      inputs.flake-parts.flakeModules.modules
+      self.nixosModules.homeManager
+
+      inputs.lanzaboote.nixosModules.lanzaboote
+      self.nixosModules.lanzabooteConfig
+
+      inputs.hyprdynamicmonitors.nixosModules.default
+
+      self.nixosModules.NixOS-P1Hardware
+      self.nixosModules.hyprland
+      self.nixosModules.noctalia-shell
+      self.nixosModules.desktop
+      self.nixosModules.terminal
+      self.nixosModules.boot
     ];
 
     boot.loader.systemd-boot.enable = true;
