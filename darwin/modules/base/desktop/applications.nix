@@ -18,7 +18,6 @@
 
     nicotine-plus
     qbittorrent
-    whatsapp-for-mac
     signal-desktop
     discord
     kitty
