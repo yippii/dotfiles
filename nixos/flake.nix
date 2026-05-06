@@ -43,7 +43,7 @@
     lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon?rev=b6d1d07d55831902cb188a40692a5c7b5529e9e0";
     nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
 
     dolphin-overlay.url = "github:rumboon/dolphin-overlay";

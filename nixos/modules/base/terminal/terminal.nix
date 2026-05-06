@@ -6,6 +6,20 @@
       fish
       starship
       fastfetch
+      nixfmt
+      nixd
+      nh
+      git
+      wget
+      curl
+      yt-dlp
+      platformio
+      qmk
+      openjdk
+      maven
+      gradle
+      nodejs
+      cargo
     ];
 
     programs.fish.enable = true;
