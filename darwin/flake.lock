@@ -259,11 +259,11 @@
     "nvchad-starter": {
       "flake": false,
       "locked": {
-        "lastModified": 1777933097,
-        "narHash": "sha256-3FX1NaJER+CopsKee+X42GRdFYYNxzJtzinnyxQghWE=",
+        "lastModified": 1778018340,
+        "narHash": "sha256-00PfAwKu4JnHe0GNg9RRIuWvRrWC95MAWsUH7RfKCRc=",
         "owner": "yippii",
         "repo": "nvchad-starter",
-        "rev": "02f05fd3dba7d008f4d71a4a1c2e49f9eae3e558",
+        "rev": "2db1c8dee2a969ddf103dbf072753178c8425b54",
         "type": "github"
       },
       "original": {
