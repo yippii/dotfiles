@@ -5,6 +5,10 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "nix"
-    directory: "/"
+    directory: "/nixos"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "nix"
+    directory: "/darwin"
     schedule:
       interval: "weekly"
