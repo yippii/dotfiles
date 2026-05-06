@@ -1,14 +1,17 @@
-{ self, inputs, ... }: {
+{ self, inputs, ... }:
+{
 
-  flake.nixosModules.terminal = { pkgs, ... }: {
-    
-    environment.systemPackages = with pkgs; [ seahorse ];
+  flake.nixosModules.terminal =
+    { pkgs, ... }:
+    {
 
-    programs.git = {
-      enable = true;
-      config = {
-        credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
+      environment.systemPackages = with pkgs; [ seahorse ];
+
+      programs.git = {
+        enable = true;
+        config = {
+          credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
+        };
       };
     };
-  };
 }

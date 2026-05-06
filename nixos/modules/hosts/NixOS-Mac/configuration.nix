@@ -55,16 +55,6 @@
         ];
       };
 
-      programs.firefox.enable = true;
-
-      services.power-profiles-daemon.enable = true;
-
-      environment.systemPackages = with pkgs; [
-        wget
-        curl
-        git
-      ];
-
       # Copy the NixOS configuration file and link it from the resulting system
       # (/run/current-system/configuration.nix). This is useful in case you
       # accidentally delete configuration.nix.

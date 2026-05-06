@@ -8,7 +8,7 @@
     import-tree.url = "github:vic/import-tree";
 
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
-  
+
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -50,10 +50,11 @@
     dolphin-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs: 
-  inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-    imports = [
-      (inputs.import-tree ./modules)
-    ];
-  };
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        (inputs.import-tree ./modules)
+      ];
+    };
 }

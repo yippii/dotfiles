@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs = {
 
     starship = {
@@ -75,7 +76,7 @@
           disabled = false;
           show_always = true;
         };
-        
+
         hostname = {
           ssh_only = false;
           style = "purple bold";

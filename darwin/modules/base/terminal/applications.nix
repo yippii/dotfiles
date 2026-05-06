@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   nix = {
     settings = {
       substituters = [
@@ -11,7 +12,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     nixfmt
     nixd
     nh
@@ -27,12 +28,14 @@
     gradle
     nodejs
 
-    (python314.withPackages (python-pkgs: with python-pkgs; [
-      black
-      isort
-      mypy
-      pylint
-      turtle
-    ]))
+    (python314.withPackages (
+      python-pkgs: with python-pkgs; [
+        black
+        isort
+        mypy
+        pylint
+        turtle
+      ]
+    ))
   ];
 }

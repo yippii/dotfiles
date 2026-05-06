@@ -1,5 +1,12 @@
-{ self, inputs, ... }: {
-  flake.homeModules.zen-browser = { lib, config, pkgs, ... }:
+{ self, inputs, ... }:
+{
+  flake.homeModules.zen-browser =
+    {
+      lib,
+      config,
+      pkgs,
+      ...
+    }:
     let
       cfg_orig = config.programs.zen-browser;
 
@@ -7,12 +14,12 @@
         (inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta-unwrapped.override {
           policies = cfg_orig.policies;
         }).overrideAttrs
-        (prev: {
-          postInstall = prev.postInstall or "" + ''
-            chmod -R u+w "$out/lib/zen-bin-${prev.version}"
-            cp -r "${inputs.sine-bootloader}/program/"* "$out/lib/zen-bin-${prev.version}"
-          '';
-        });
+          (prev: {
+            postInstall = prev.postInstall or "" + ''
+              chmod -R u+w "$out/lib/zen-bin-${prev.version}"
+              cp -r "${inputs.sine-bootloader}/program/"* "$out/lib/zen-bin-${prev.version}"
+            '';
+          });
 
       combined_chrome = pkgs.stdenv.mkDerivation {
         pname = "chrome-zen";
@@ -40,7 +47,8 @@
             --replace-fail "scale: 1.7;" "scale: 1.5;" \
         '';
       };
-    in {
+    in
+    {
       imports = [
         inputs.zen-browser.homeModules.beta
       ];
@@ -66,10 +74,10 @@
           fi
         '';
       };
-      
+
       programs.zen-browser = {
         enable = true;
-        package = (pkgs.wrapFirefox zen-package {icon = "zen-browser";}).override {
+        package = (pkgs.wrapFirefox zen-package { icon = "zen-browser"; }).override {
           extraPrefs = cfg_orig.extraPrefs;
           extraPrefsFiles = cfg_orig.extraPrefsFiles;
           nativeMessagingHosts = cfg_orig.nativeMessagingHosts;

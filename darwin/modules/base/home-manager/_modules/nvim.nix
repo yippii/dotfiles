@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.nvchad = {
     enable = true;
     extraPackages = with pkgs; [
@@ -6,10 +7,12 @@
       dockerfile-language-server
       emmet-language-server
       nixd
-      (python3.withPackages(ps: with ps; [
-        python-lsp-server
-        flake8
-      ]))
+      (python3.withPackages (
+        ps: with ps; [
+          python-lsp-server
+          flake8
+        ]
+      ))
     ];
 
     hm-activation = true;

@@ -1,4 +1,5 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+{
   imports = [ inputs.home-manager.darwinModules.home-manager ];
 
   home-manager.overwriteBackup = true;
@@ -16,7 +17,7 @@
 
     # home.packages = with pkgs; [];
 
-    home.sessionVariables = {};
+    home.sessionVariables = { };
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;

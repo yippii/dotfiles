@@ -1,21 +1,24 @@
-{ self, inputs, ... }: {
+{ self, inputs, ... }:
+{
 
-  flake.nixosModules.desktop = { pkgs, ... }: {
+  flake.nixosModules.desktop =
+    { pkgs, ... }:
+    {
 
-    environment.systemPackages = with pkgs; [
-      nixd
-      nixfmt
+      environment.systemPackages = with pkgs; [
+        nixd
+        nixfmt
 
-      (vscode-with-extensions.override {
-        vscodeExtensions = with vscode-extensions; [
-          jnoortheen.nix-ide
-          ms-python.python
-          vscjava.vscode-java-pack
-          ms-vscode.cpptools
-          catppuccin.catppuccin-vsc
-          catppuccin.catppuccin-vsc-icons
-        ];
-      })
-    ];
-  };
+        (vscode-with-extensions.override {
+          vscodeExtensions = with vscode-extensions; [
+            jnoortheen.nix-ide
+            ms-python.python
+            vscjava.vscode-java-pack
+            ms-vscode.cpptools
+            catppuccin.catppuccin-vsc
+            catppuccin.catppuccin-vsc-icons
+          ];
+        })
+      ];
+    };
 }
