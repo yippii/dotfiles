@@ -27,6 +27,10 @@
     maven
     gradle
     nodejs
+    statix
+    alejandra
+    deadnix
+    darwin.libiconv
 
     (python314.withPackages (
       python-pkgs: with python-pkgs; [

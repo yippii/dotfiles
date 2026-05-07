@@ -30,6 +30,7 @@
     brews = [
       "osx-cross/arm/arm-none-eabi-binutils"
       "osx-cross/arm/arm-none-eabi-gcc@8"
+      "libiconv"
     ];
 
     casks = [
@@ -37,6 +38,7 @@
       "keyguard"
       "keka"
       "github"
+      "cloudflare-warp"
     ];
 
     onActivation = {

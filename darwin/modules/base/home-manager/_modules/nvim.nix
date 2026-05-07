@@ -1,3 +1,4 @@
+{pkgs, ...}: {
 { pkgs, ... }:
 {
   programs.nvchad = {
@@ -7,6 +8,11 @@
       dockerfile-language-server
       emmet-language-server
       nixd
+      (python3.withPackages (ps:
+        with ps; [
+          python-lsp-server
+          flake8
+        ]))
       (python3.withPackages (
         ps: with ps; [
           python-lsp-server
@@ -16,6 +22,8 @@
     ];
 
     hm-activation = true;
-    backup = true;
+    backup = false;
   };
 }
+
+
