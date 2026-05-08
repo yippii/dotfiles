@@ -1,9 +1,18 @@
+/.config/btop
 /.config/discord
+/.config/fish
+/.config/gtk-3.0
+/.config/gtk-4.0
 /.config/gh
 /.config/github-copilot
 /.config/GitHub Desktop
+/.config/pulse
+/.config/qt5ct
+/.config/qt6ct
+/.config/QtProject
 /.config/user-dirs.*
 /.config/systemd
+/.config/session
 /.config/vesktop
 /.config/rygel.conf
 /.config/JetBrains
