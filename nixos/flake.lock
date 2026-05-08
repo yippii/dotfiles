@@ -348,11 +348,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777122262,
-        "narHash": "sha256-OmJSOtPnQsv/mHbIwTHQm+Wp6+Ui0+XhayFnGk1AOdo=",
+        "lastModified": 1778070131,
+        "narHash": "sha256-EedXCyi5QiavlU08WPPnspk/AM8e+WD410aV8QQF7dU=",
         "owner": "nix-community",
         "repo": "nix4nvchad",
-        "rev": "aa881f4466edcc8a2679918fd21ccd8252fa33e8",
+        "rev": "45fffa011c9c5dcb764763f29e0c3b6b5206a6cd",
         "type": "github"
       },
       "original": {
@@ -369,17 +369,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1775887459,
-        "narHash": "sha256-aUC+iK8zpMxdZLMhQpmUz9XBzKrQnFWzveB9IK18n3w=",
+        "lastModified": 1777553167,
+        "narHash": "sha256-wyGbwRrLlcwAwMcXX6QAd7yzF8wEjFhULYUO4Ajz7W4=",
         "owner": "nix-community",
         "repo": "nixos-apple-silicon",
-        "rev": "b6d1d07d55831902cb188a40692a5c7b5529e9e0",
+        "rev": "61259a00667ee19410810b992bee615b00587aca",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "nixos-apple-silicon",
-        "rev": "b6d1d07d55831902cb188a40692a5c7b5529e9e0",
         "type": "github"
       }
     },
@@ -482,11 +481,11 @@
         "noctalia-qs": "noctalia-qs"
       },
       "locked": {
-        "lastModified": 1778031921,
-        "narHash": "sha256-jMpD+on7JENnIOHTKNwugcqDGL27TWus1OGgMLZFYrU=",
+        "lastModified": 1778075743,
+        "narHash": "sha256-WB5zYuFT69KUGa1ou+aMGNGxV/9e5EaqxF3IltN6BxY=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "7d0357683121ebb2551e6204dc3aa41caa3bbef4",
+        "rev": "3bbf31945de508409e3a3ded08cc154f185c42fb",
         "type": "github"
       },
       "original": {
@@ -763,11 +762,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1778181873,
         "narHash": "sha256-oc2uE+IQJaYnFBuv9Hj/dBDQ/du0ymrVl1f7aMJwZxc=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
         "rev": "9fe7b9c816b18f7371f7d9b17920eb5249659514",
+=======
+        "lastModified": 1778047595,
+        "narHash": "sha256-RquiPUl5fViU+hHRjilVcy+5XUowINmvMfk2lNdIAg8=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "e361aeff090333c005bc12b3bcf3c8b44d867a4f",
+>>>>>>> 7af8aaa5 (Alejandra format for all files and added NixOS command line formatters to systemPackages for neovim)
         "type": "github"
       },
       "original": {

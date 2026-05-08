@@ -4,8 +4,7 @@
   config,
   self,
   ...
-}:
-{
+}: {
   imports = [
     (inputs.import-tree ../../base)
   ];

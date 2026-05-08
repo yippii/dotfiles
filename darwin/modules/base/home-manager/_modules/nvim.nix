@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-{ pkgs, ... }:
-{
   programs.nvchad = {
     enable = true;
     extraPackages = with pkgs; [
@@ -14,10 +12,11 @@
           flake8
         ]))
       (python3.withPackages (
-        ps: with ps; [
-          python-lsp-server
-          flake8
-        ]
+        ps:
+          with ps; [
+            python-lsp-server
+            flake8
+          ]
       ))
     ];
 
@@ -25,5 +24,3 @@
     backup = false;
   };
 }
-
-

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   nix = {
     settings = {
       substituters = [
@@ -33,13 +32,14 @@
     darwin.libiconv
 
     (python314.withPackages (
-      python-pkgs: with python-pkgs; [
-        black
-        isort
-        mypy
-        pylint
-        turtle
-      ]
+      python-pkgs:
+        with python-pkgs; [
+          black
+          isort
+          mypy
+          pylint
+          turtle
+        ]
     ))
   ];
 }

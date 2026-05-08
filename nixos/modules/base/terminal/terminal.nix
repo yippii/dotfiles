@@ -1,41 +1,50 @@
-{ self, inputs, ... }:
 {
+  self,
+  inputs,
+  ...
+}: {
+  flake.nixosModules.terminal = {pkgs, ...}: {
+    environment.systemPackages = with pkgs;
+      lib.mkMerge [
+        [
+          fish
+          starship
+          fastfetch
+          nixfmt
+          nixd
+          nh
+          git
+          wget
+          curl
+          yt-dlp
+          platformio
+          qmk
+          openjdk
+          maven
+          gradle
+          nodejs
+          cargo
+          unzip
+        ]
 
-  flake.nixosModules.terminal =
-    { pkgs, ... }:
-    {
-
-      environment.systemPackages = with pkgs; [
-        fish
-        starship
-        fastfetch
-        nixfmt
-        nixd
-        nh
-        git
-        wget
-        curl
-        yt-dlp
-        platformio
-        qmk
-        openjdk
-        maven
-        gradle
-        nodejs
-        cargo
+        (lib.mkIf pkgs.stdenv.isAarch64 [
+          asahi-bless
+          asahi-nvram
+          asahi-fwextract
+        ])
       ];
 
-      programs.fish.enable = true;
+    programs.fish.enable = true;
 
-      users.users.yippie.shell = pkgs.fish;
+    users.users.yippie.shell = pkgs.fish;
 
-      console = {
-        font = "${pkgs.terminus_font}/share/consolefonts/ter-u32b.psf.gz";
-        packages = with pkgs; [ terminus_font ];
-        keyMap = "us";
-        earlySetup = true;
-      };
-
-      systemd.services.systemd-vconsole-setup.unitConfig.After = "local-fs.target";
+    console = {
+      font = "${pkgs.terminus_font}/share/consolefonts/ter-u32b.psf.gz";
+      packages = with pkgs; [terminus_font];
+      keyMap = "us";
+      earlySetup = true;
     };
+
+    systemd.services.systemd-vconsole-setup.unitConfig.After = "local-fs.target";
+  };
 }
