@@ -228,11 +228,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778009629,
-        "narHash": "sha256-nUoQtf4Zq7DRYJrfv904hjrxjAlWVP6a1pNNFKx3FCg=",
+        "lastModified": 1778144356,
+        "narHash": "sha256-dGM+QCstz/DyLB68+JK5GWyMx4QSqmOJEVgZmy63d/g=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "00ed86e58bb6979a7921859fd1615d19382eac5c",
+        "rev": "e4419d3123b780d5f4c0bceeace450424387638c",
         "type": "github"
       },
       "original": {
@@ -302,11 +302,11 @@
     "nebula-zen": {
       "flake": false,
       "locked": {
-        "lastModified": 1772915241,
-        "narHash": "sha256-GvSyNwPbvUpI7Ii2WC0IW0soKDzNOj51YsjFTFAmsKY=",
+        "lastModified": 1778163259,
+        "narHash": "sha256-1jZ+7ndp31qTGreStonmSz97zulA48fTR+0g/Zqw0UI=",
         "owner": "JustAdumbPrsn",
         "repo": "Zen-Nebula",
-        "rev": "d5dd37455aa4c12e89c188c02f0c3a56841eee6f",
+        "rev": "31ba4a3bde77391e173a6a3460d9fb0ab9bca8a0",
         "type": "github"
       },
       "original": {
@@ -324,11 +324,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777951879,
-        "narHash": "sha256-NPT0E83KP8ObpeeKbCD0XetxzhVUXiY12j6FQ0P1z2w=",
+        "lastModified": 1778125220,
+        "narHash": "sha256-WuM0IwmoMXt2r42n3BiT5wx/cxugTUTbndIQnsASKWA=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "ba0c7a6b6daee0101ff5b64f6893e2aa963be653",
+        "rev": "8f01d20678b7ab4543383f3ea29a0022c9de48af",
         "type": "github"
       },
       "original": {
@@ -481,11 +481,11 @@
         "noctalia-qs": "noctalia-qs"
       },
       "locked": {
-        "lastModified": 1778075743,
-        "narHash": "sha256-WB5zYuFT69KUGa1ou+aMGNGxV/9e5EaqxF3IltN6BxY=",
+        "lastModified": 1778104114,
+        "narHash": "sha256-+tbqLv7IW5Aem8kGF6cp4n3MtNBcwqmuGlMt6S1kQjs=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "3bbf31945de508409e3a3ded08cc154f185c42fb",
+        "rev": "eb2b53ddaa7564f5c93031cbe65cd5b6ef3c12a9",
         "type": "github"
       },
       "original": {
@@ -762,19 +762,11 @@
         ]
       },
       "locked": {
-<<<<<<< HEAD
-        "lastModified": 1778181873,
-        "narHash": "sha256-oc2uE+IQJaYnFBuv9Hj/dBDQ/du0ymrVl1f7aMJwZxc=",
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
-        "rev": "9fe7b9c816b18f7371f7d9b17920eb5249659514",
-=======
         "lastModified": 1778047595,
         "narHash": "sha256-RquiPUl5fViU+hHRjilVcy+5XUowINmvMfk2lNdIAg8=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
         "rev": "e361aeff090333c005bc12b3bcf3c8b44d867a4f",
->>>>>>> 7af8aaa5 (Alejandra format for all files and added NixOS command line formatters to systemPackages for neovim)
         "type": "github"
       },
       "original": {
