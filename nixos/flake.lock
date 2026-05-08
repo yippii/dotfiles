@@ -520,11 +520,11 @@
     "nvchad-starter": {
       "flake": false,
       "locked": {
-        "lastModified": 1778018340,
-        "narHash": "sha256-00PfAwKu4JnHe0GNg9RRIuWvRrWC95MAWsUH7RfKCRc=",
+        "lastModified": 1778204092,
+        "narHash": "sha256-KDQKiRZdHs4QfMHYmN9+fjxFPEUuuI3D17Zb+4bSp0A=",
         "owner": "yippii",
         "repo": "nvchad-starter",
-        "rev": "2db1c8dee2a969ddf103dbf072753178c8425b54",
+        "rev": "8db1c9fcb807d8d87fbf2530e37212152318a331",
         "type": "github"
       },
       "original": {
@@ -762,11 +762,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778047595,
-        "narHash": "sha256-RquiPUl5fViU+hHRjilVcy+5XUowINmvMfk2lNdIAg8=",
+        "lastModified": 1778181873,
+        "narHash": "sha256-oc2uE+IQJaYnFBuv9Hj/dBDQ/du0ymrVl1f7aMJwZxc=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "e361aeff090333c005bc12b3bcf3c8b44d867a4f",
+        "rev": "9fe7b9c816b18f7371f7d9b17920eb5249659514",
         "type": "github"
       },
       "original": {
