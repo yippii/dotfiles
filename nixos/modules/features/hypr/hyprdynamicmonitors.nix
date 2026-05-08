@@ -61,32 +61,31 @@
           [power_events]
 
           [power_events.dbus_query_object]
-          path = "/org/freedesktop/UPower/devices/line_power_AC"
+          path = "/org/freedesktop/UPower/devices/line_power_macsmc_ac"
 
           [[power_events.dbus_signal_match_rules]]
-          object_path = "/org/freedesktop/UPower/devices/line_power_AC"
+          object_path = "/org/freedesktop/UPower/devices/line_power_macsmc_ac"
 
-
-          [profiles.Laptop]
-          config_file = "/home/yippie/.config/hyprdynamicmonitors/hyprconfigs/Laptop.go.tmpl"
+          [profiles.Mac]
+          config_file = "/home/yippie/.config/hyprdynamicmonitors/hyprconfigs/hyprconfigs_Mac/Mac.go.tmpl"
           config_file_type = "template"
-          [profiles.Laptop.conditions]
+          [profiles.Mac.conditions]
 
-          [[profiles.Laptop.conditions.required_monitors]]
-          description = "BOE 0x0AE0"
+          [[profiles.Mac.conditions.required_monitors]]
+          name = "eDP-1"
           monitor_tag = "monitor0"
 
 
-          [profiles.Desktop]
-          config_file = "/home/yippie/.config/hyprdynamicmonitors/hyprconfigs/Desktop.go.tmpl"
+          [profiles.Mac-Desktop]
+          config_file = "/home/yippie/.config/hyprdynamicmonitors/hyprconfigs/hyprconfigs_Mac/Mac-Desktop.go.tmpl"
           config_file_type = "template"
-          [profiles.Desktop.conditions]
+          [profiles.Mac-Desktop.conditions]
 
-          [[profiles.Desktop.conditions.required_monitors]]
-          description = "BOE 0x0AE0"
+          [[profiles.Mac-Desktop.conditions.required_monitors]]
+          name = "eDP-1"
           monitor_tag = "monitor0"
 
-          [[profiles.Desktop.conditions.required_monitors]]
+          [[profiles.Mac-Desktop.conditions.required_monitors]]
           description = "LG Electronics LG ULTRAGEAR 408NTCZ3F411"
           monitor_tag = "monitor1"
         '')
