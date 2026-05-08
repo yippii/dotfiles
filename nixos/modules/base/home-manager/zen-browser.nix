@@ -35,6 +35,21 @@
 
         buildInputs = [ pkgs.jq ];
 
+        installPhase = ''
+          # Installing Sine
+          mkdir -p $out/JS
+          cp --no-preserve=mode -r $src/{sine.sys.mjs,engine} $out/JS
+          cp --no-preserve=mode -r $src_2/profile/utils $src/locales $out
+          # Installing Nebula
+          mkdir -p $out/sine-mods
+          cp --no-preserve=mode -r $src_1 $out/sine-mods/Nebula
+          ln -s $out/sine-mods/Nebula/README.md $out/sine-mods/Nebula/readme.md
+          # Modifying Nebula
+          cp --no-preserve=mode ${pkgs.nixos-icons}/share/icons/hicolor/1024x1024/apps/nix-snowflake.png $out/sine-mods/Nebula/nebula/modules
+          substituteInPlace $out/sine-mods/Nebula/nebula/modules/topbar-buttons.css \
+            --replace-fail "url(\"chrome://branding/content/about-logo.svg\")" "url(\"nix-snowflake.png\")" \
+            --replace-fail "scale: 1.7;" "scale: 1.5;" \
+        '';
       };
     in
     {
@@ -46,21 +61,6 @@
         ".zen" = {
           source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/zen";
           force = true;
-          installPhase = ''
-            # Installing Sine
-            mkdir -p $out/JS
-            cp --no-preserve=mode -r $src/{sine.sys.mjs,engine} $out/JS
-            cp --no-preserve=mode -r $src_2/profile/utils $src/locales $out
-            # Installing Nebula
-            mkdir -p $out/sine-mods
-            cp --no-preserve=mode -r $src_1 $out/sine-mods/Nebula
-            ln -s $out/sine-mods/Nebula/README.md $out/sine-mods/Nebula/readme.md
-            # Modifying Nebula
-            cp --no-preserve=mode ${pkgs.nixos-icons}/share/icons/hicolor/1024x1024/apps/nix-snowflake.png $out/sine-mods/Nebula/nebula/modules
-            substituteInPlace $out/sine-mods/Nebula/nebula/modules/topbar-buttons.css \
-              --replace-fail "url(\"chrome://branding/content/about-logo.svg\")" "url(\"nix-snowflake.png\")" \
-              --replace-fail "scale: 1.7;" "scale: 1.5;" \
-          '';
         };
         "zen/default/chrome" = {
           force = true;
