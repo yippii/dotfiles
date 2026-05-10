@@ -32,7 +32,7 @@
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
-    networking.hostName = "NixOS-Nextcloud";
+    networking.hostName = "yippie-nextcloud";
     networking.networkmanager.enable = true;
 
     time.timeZone = "America/Toronto";
