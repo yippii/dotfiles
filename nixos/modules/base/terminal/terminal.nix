@@ -36,6 +36,8 @@
 
     programs.fish.enable = true;
 
+    services.tailscale.enable = true;
+
     users.users.yippie.shell = pkgs.fish;
 
     console = {

@@ -13,9 +13,11 @@
         sbctl
       ];
 
+    boot.loader.grub.enable = false;
+
     boot.loader.systemd-boot = lib.mkMerge [
       (lib.mkIf pkgs.stdenv.isx86_64 {
-        enable = lib.mkForce false;
+        enable = false;
       })
       (lib.mkIf pkgs.stdenv.isAarch64 {
         enable = true;

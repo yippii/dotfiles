@@ -54,7 +54,6 @@
             qbittorrent
             kdePackages.ark
             unrar
-            tailscale
           ]
 
           (lib.mkIf pkgs.stdenv.isx86_64 [
