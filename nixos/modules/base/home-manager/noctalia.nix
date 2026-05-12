@@ -6,6 +6,7 @@
   flake.homeModules.noctalia = {pkgs, ...}: {
     imports = [inputs.noctalia.homeModules.default];
 
+    wayland.windowManager.hyprland.systemd.enable = true;
     wayland.windowManager.hyprland.systemd.variables = ["--all" "XDG_RUNTIME_DIR" "XDG_SESSION_ID"];
 
     programs.noctalia-shell = {
@@ -914,6 +915,51 @@
             }
           ];
         };
+      };
+
+      plugins = {
+        sources = [
+          {
+            enabled = true;
+            name = "Noctalia Plugins";
+            url = "https://github.com/noctalia-dev/noctalia-plugins";
+          }
+        ];
+        states = {
+          noctalia-supergfxctl = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          privacy-indicator = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          screen-recorder = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          screen-toolkit = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          tailscale = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          usb-drive-manager = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          video-wallpaper = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+          workspace-overview = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+        };
+        version = 2;
       };
     };
   };
