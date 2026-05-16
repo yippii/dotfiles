@@ -30,6 +30,8 @@
 
           catppuccin.catppuccin-vsc
           catppuccin.catppuccin-vsc-icons
+
+          sumneko.lua
         ];
       })
     ];
