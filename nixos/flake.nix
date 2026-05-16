@@ -2,16 +2,25 @@
   description = "yippie nix flake";
 
   inputs = {
+    # NixOS Base
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # Dendritic Pattern
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
-    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+    # Home Manager
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    # Noctalia Shell
+    noctalia.url = "github:noctalia-dev/noctalia-shell/v5";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Hyprland Tools
+    hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
+
+    # Neovim Configuration
     nix4nvchad.url = "github:nix-community/nix4nvchad";
     nix4nvchad.inputs.nixpkgs.follows = "nixpkgs";
     nix4nvchad.inputs.nvchad-starter.follows = "nvchad-starter";
@@ -19,8 +28,10 @@
     nvchad-starter.url = "github:yippii/nvchad-starter";
     nvchad-starter.flake = false;
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # Zen Browser
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+    zen-browser.inputs.home-manager.follows = "home-manager";
 
     sine.url = "github:CosmoCreeper/Sine?rev=a48b73d32a074d710a1193294d432a62e436b8cf";
     sine.flake = false;
@@ -29,25 +40,20 @@
     nebula-zen.url = "github:JustAdumbPrsn/Zen-Nebula";
     nebula-zen.flake = false;
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-    zen-browser.inputs.home-manager.follows = "home-manager";
-
+    # Spotify (Spicetify)
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-
-    hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
-
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Device Specific
+
+    # UEFI Secure Boot
     lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Apple Silicon Macs
     nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
     nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
-
-    dolphin-overlay.url = "github:rumboon/dolphin-overlay";
-    dolphin-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

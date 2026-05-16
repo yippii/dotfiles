@@ -22,12 +22,15 @@
       enable = true;
       style.package = with pkgs; [
         darkly
-        darkly-qt5
       ];
       platformTheme.name = "qtct";
       kde.settings.kdeglobals.General.TerminalApplication = "kitty";
       kde.settings.kdeglobals.Icons.Theme = config.gtk.iconTheme.name;
       kde.settings.kdeglobals.UISettings.ColorScheme = "*";
     };
+
+    home.activation.kdeBuildMimeCache = config.lib.dag.entryAfter ["writeBoundary"] ''
+      ${pkgs.kdePackages.kservice}/bin/kbuildsycoca6 --noincremental
+    '';
   };
 }
