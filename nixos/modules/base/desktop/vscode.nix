@@ -13,33 +13,35 @@
       pylint
 
       (vscode-with-extensions.override {
-        vscodeExtensions = with vscode-extensions; [
-          jnoortheen.nix-ide
+        vscodeExtensions = with vscode-extensions;
+          [
+            jnoortheen.nix-ide
 
-          ms-python.python
-          ms-python.debugpy
-          ms-python.pylint
-          ms-python.vscode-pylance
-          ms-python.mypy-type-checker
+            ms-python.python
+            ms-python.debugpy
+            ms-python.pylint
+            ms-python.vscode-pylance
+            ms-python.mypy-type-checker
 
-          vscjava.vscode-java-pack
-          redhat.java
-          oracle.oracle-java
+            vscjava.vscode-java-pack
+            redhat.java
+            oracle.oracle-java
 
-          ms-vscode.cpptools
+            ms-vscode.cpptools
 
-          catppuccin.catppuccin-vsc
-          catppuccin.catppuccin-vsc-icons
+            catppuccin.catppuccin-vsc
+            catppuccin.catppuccin-vsc-icons
 
-          sumneko.lua
-        ] ++ vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "noctaliatheme";
-            publisher = "Noctalia";
-            version = "0.0.5";
-            sha256 = "sha256-aTSk3yYkBw5GrD0CbRL2wo3SlBffzBTDe1pZoZa1URQ=";
-          }
-        ];
+            sumneko.lua
+          ]
+          ++ vscode-utils.extensionsFromVscodeMarketplace [
+            {
+              name = "noctaliatheme";
+              publisher = "Noctalia";
+              version = "0.0.5";
+              sha256 = "sha256-aTSk3yYkBw5GrD0CbRL2wo3SlBffzBTDe1pZoZa1URQ=";
+            }
+          ];
       })
     ];
   };

@@ -49,7 +49,6 @@
     zen-data-loading-bar.url = "github:rasyidrafi/zen-deta-loading-bar";
     zen-data-loading-bar.flake = false;
 
-
     # Spotify (Spicetify)
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nix-gaming.url = "github:fufexan/nix-gaming";

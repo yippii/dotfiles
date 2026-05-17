@@ -13,24 +13,24 @@
       enable = true;
       settings = {
         bar = {
-          order = [ "default" ];
+          order = ["default"];
           default = {
             capsule = true;
-            capsule_groups = [ "brightness+vol" "buttons_left" "buttons_right" "buttons_mid" ];
+            capsule_groups = ["brightness+vol" "buttons_left" "buttons_right" "buttons_mid"];
             capsule_radius = 5.0;
-            center = [ "clock" "media" ];
-            end = [ "tray" "network" "bluetooth" "volume" "brightness" "battery" "clipboard" "control-center" "session" ];
+            center = ["clock" "media"];
+            end = ["tray" "network" "bluetooth" "volume" "brightness" "battery" "clipboard" "control-center" "session"];
             margin_edge = 5;
             margin_ends = 30;
             position = "left";
             radius = 7;
-            start = [ "launcher" "notifications" "workspaces" ];
+            start = ["launcher" "notifications" "workspaces"];
             widget_spacing = 3;
           };
         };
         desktop_widgets = {
           schema_version = 1;
-          widget_order = [ "desktop-widget-0000000000000001" "desktop-widget-0000000000000002" "desktop-widget-0000000000000003" ];
+          widget_order = ["desktop-widget-0000000000000001" "desktop-widget-0000000000000002" "desktop-widget-0000000000000003"];
           grid = {
             cell_size = 16;
             major_interval = 4;
@@ -75,16 +75,48 @@
           active_monitor_only = true;
           auto_hide = true;
           enabled = true;
-          pinned = [ "zen-beta" "dolphin" "kitty" ];
+          pinned = ["zen-beta" "dolphin" "kitty"];
+          radius = 10;
+          show_dots = true;
+        };
+        idle = {
+          behavior_order = ["lock" "screen-off" "suspend"];
+          behavior = {
+            lock = {
+              action = "lock";
+              enabled = true;
+              timeout = 600;
+            };
+            screen-off = {
+              action = "screen_off";
+              enabled = false;
+              timeout = 660;
+            };
+            suspend = {
+              action = "suspend";
+              enabled = false;
+              lock_before_suspend = true;
+              timeout = 900;
+            };
+          };
+        };
+        osd = {
+          position = "bottom_center";
         };
         shell = {
           corner_radius_scale = 0.5;
+          font_family = "MesloLGSDZ Nerd Font";
           password_style = "random";
           polkit_agent = true;
           settings_show_advanced = true;
           ui_scale = 0.949999988079071;
           animation = {
             speed = 1.5500000715255737;
+          };
+          panel = {
+            attach_clipboard = true;
+            attach_control_center = false;
+            transparency_mode = "soft";
           };
           screen_corners = {
             enabled = true;
@@ -95,8 +127,8 @@
           source = "wallpaper";
           wallpaper_scheme = "m3-fruit-salad";
           templates = {
-            builtin_ids = [ "gtk4" "gtk3" "kitty" "qt" "kcolorscheme" ];
-            community_ids = [ "spicetify" "pywalfox" "vscode" ];
+            builtin_ids = ["gtk4" "gtk3" "kitty" "qt" "kcolorscheme"];
+            community_ids = ["spicetify" "pywalfox" "vscode"];
           };
         };
         wallpaper = {
@@ -169,7 +201,7 @@
           workspaces = {
             capsule = true;
             capsule_group = "buttons_left";
-            display = "id";
+            display = "name";
           };
         };
       };
