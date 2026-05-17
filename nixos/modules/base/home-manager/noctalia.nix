@@ -38,8 +38,8 @@
           };
           widget = {
             desktop-widget-0000000000000001 = {
-              cx = 1454.75732421875;
-              cy = 292.0;
+              cx = 1589.0;
+              cy = 213.5;
               output = "eDP-1";
               rotation = 0.0;
               scale = 0.7739878296852112;
@@ -50,20 +50,20 @@
               };
             };
             desktop-widget-0000000000000002 = {
-              cx = 1454.491943359375;
-              cy = 400.20001220703125;
+              cx = 1588.734619140625;
+              cy = 321.70001220703125;
               output = "eDP-1";
               rotation = 0.0;
               scale = 1.0;
               type = "weather";
             };
             desktop-widget-0000000000000003 = {
-              cx = 1342.9959716796875;
-              cy = 135.6016082763672;
+              cx = 1589.0;
+              cy = 89.69999694824219;
               output = "eDP-1";
               rotation = 0.0;
-              scale = 1.6754032373428345;
-              type = "audio_visualizer";
+              scale = 1.0;
+              type = "sysmon";
               settings = {
                 aspect_ratio = 2.5;
                 bands = 32;
@@ -95,7 +95,7 @@
           source = "wallpaper";
           wallpaper_scheme = "m3-fruit-salad";
           templates = {
-            builtin_ids = [ "hyprland" "gtk4" "gtk3" "kitty" "qt" "kcolorscheme" ];
+            builtin_ids = [ "gtk4" "gtk3" "kitty" "qt" "kcolorscheme" ];
             community_ids = [ "spicetify" "pywalfox" "vscode" ];
           };
         };
