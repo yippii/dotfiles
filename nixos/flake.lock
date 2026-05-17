@@ -444,11 +444,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778972352,
-        "narHash": "sha256-08YliUWZlj+Stki4Ihv1sFyuVxIlms1Tde8JTPtz+tY=",
+        "lastModified": 1778976636,
+        "narHash": "sha256-xEvG1yLEy1P8eRx4C8k16b3+nHFAoqsMZjw4R1/di7s=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "d8dd6de8dc9d7f2c845f10246c77e0875ef79998",
+        "rev": "c4d53a116b988980d1d024399af9b201401cf224",
         "type": "github"
       },
       "original": {
@@ -514,7 +514,10 @@
         "sine": "sine",
         "sine-bootloader": "sine-bootloader",
         "spicetify-nix": "spicetify-nix",
-        "zen-browser": "zen-browser"
+        "zen-browser": "zen-browser",
+        "zen-context-menu": "zen-context-menu",
+        "zen-data-loading-bar": "zen-data-loading-bar",
+        "zen-icons": "zen-icons"
       }
     },
     "rust-overlay": {
@@ -656,6 +659,54 @@
       "original": {
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
+        "type": "github"
+      }
+    },
+    "zen-context-menu": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1778756519,
+        "narHash": "sha256-xxV5uM1E2C/+X9DkA75FG7jzxOtB/ESyaJor3wYDC+Y=",
+        "owner": "starry-AXQG",
+        "repo": "Context-Menu-Icons",
+        "rev": "d9639912ab9796fb62bdc2fe80fe059e9a7d674b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "starry-AXQG",
+        "repo": "Context-Menu-Icons",
+        "type": "github"
+      }
+    },
+    "zen-data-loading-bar": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1763115979,
+        "narHash": "sha256-RVi7YH/DnnzWK0F3mcblYguXNkyMTahMZZGVNb0XYLo=",
+        "owner": "rasyidrafi",
+        "repo": "zen-deta-loading-bar",
+        "rev": "da7aeb0825addfd737024a27237da61d22241809",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rasyidrafi",
+        "repo": "zen-deta-loading-bar",
+        "type": "github"
+      }
+    },
+    "zen-icons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772396445,
+        "narHash": "sha256-GvwDQFZvu5+qwqu85yZryj6bTd4UT4XeLtm8r/h17DM=",
+        "owner": "qumeqa",
+        "repo": "zen-icons",
+        "rev": "9525ce8de09211db2cb37a8da112199a8c0491b9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "qumeqa",
+        "repo": "zen-icons",
         "type": "github"
       }
     }

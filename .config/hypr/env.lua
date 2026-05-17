@@ -4,7 +4,7 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 
 -- QT
-hl.env("QT_QPA_PLATFORM" ,"wayland")
+hl.env("QT_QPA_PLATFORM", "wayland")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 -- Cursors
@@ -16,3 +16,4 @@ hl.env("GDK_SCALE", "1")
 hl.env("GTK_THEME", "adw-gtk3-dark")
 hl.env("GTK_ICON_THEME", "Papirus")
 
+hl.env("FREETYPE_PROPERTIES", "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0")

@@ -1,71 +1,71 @@
 hl.window_rule({
-    name = "web",
+	name = "web",
 
-    match = {
-        class = "firefox|zen.*",
-    },
+	match = {
+		class = "firefox|zen.*",
+	},
 
-    workspace = 1
+	workspace = 1,
 })
 
 hl.window_rule({
-    name = "communication",
+	name = "communication",
 
-    match = {
-        class = "discord|equibop|vesktop|whatsapp",
-    },
+	match = {
+		class = "discord|equibop|vesktop|whatsapp",
+	},
 
-    workspace = 2
+	workspace = 2,
 })
 
 hl.window_rule({
-    name = "music",
+	name = "music",
 
-    match = {
-        class = "feishin|Spotify|Supersonic|io.github.quodlibet.QuodLibet",
-        title = "Spotify( Free)?",
-    },
+	match = {
+		class = "feishin|Spotify|Supersonic|io.github.quodlibet.QuodLibet",
+		title = "Spotify( Free)?",
+	},
 
-    workspace = 3
+	workspace = 3,
 })
 
 hl.window_rule({
-    name = "IDE",
+	name = "IDE",
 
-    match = {
-        class = "code",
-    },
+	match = {
+		class = "code",
+	},
 
-    workspace = 4
+	workspace = 4,
 })
 
 hl.window_rule({
-    name = "Games",
+	name = "Games",
 
-    match = {
-        class = "steam*|Quaver|org.vinegarhq.Sober",
-        title = "Sober|Wuthering Waves|Endfield.exe|GRYPHLINK|HELLDIVERS.*|Strinova.*",
-    },
+	match = {
+		class = "steam*|Quaver|org.vinegarhq.Sober",
+		title = "Sober|Wuthering Waves|Endfield.exe|GRYPHLINK|HELLDIVERS.*|Strinova.*",
+	},
 
-    workspace = 5,
-    fullscreen = 1
+	workspace = 5,
+	fullscreen = 1,
 })
 
-hl.window_rule({ name = "Terminal", match = { class = "kitty", workspace = 6 }})
+hl.window_rule({ name = "Terminal", match = { class = "kitty" }, workspace = 6 })
 
-hl.window_rule({ name = "Floaties", match = { class = "xdg-desktop-portal-gtk", float = true }})
+hl.window_rule({ name = "Floaties", match = { class = "xdg-desktop-portal-gtk", float = true } })
 
 -- XWayland dragging fix
 hl.window_rule({
-    name  = "fix-xwayland-drags",
-    match = {
-        class      = "^$",
-        title      = "^$",
-        xwayland   = true,
-        float      = true,
-        fullscreen = false,
-        pin        = false,
-    },
+	name = "fix-xwayland-drags",
+	match = {
+		class = "^$",
+		title = "^$",
+		xwayland = true,
+		float = true,
+		fullscreen = false,
+		pin = false,
+	},
 
-    no_focus = true,
+	no_focus = true,
 })
