@@ -14,7 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: DeterminateSystems/nix-installer-action@main
-      - run: nix flake update
+      - run: nix flake update --flake ./nixos
+      - run: nix flake update --flake ./darwin
       - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore(flake): update flake.lock"
