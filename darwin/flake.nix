@@ -45,25 +45,11 @@
       url = "github:qmk/homebrew-qmk";
       flake = false;
     };
-
-    nixpkgs-patcher.url = "github:gepbird/nixpkgs-patcher";
   };
 
   outputs = {self, ...} @ inputs: {
-    darwinConfigurations.yippie-mac = inputs.nixpkgs-patcher.lib.darwinSystem {
+    darwinConfigurations.yippie-mac = inputs.nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-
-      nixpkgsPatcher.nix-darwin = inputs.nix-darwin;
-      nixpkgsPatcher.nixpkgs = inputs.nixpkgs;
-
-      nixpkgsPatcher.patches = pkgs:
-        with pkgs; [
-          (fetchurl {
-            name = "appstream.patch";
-            url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/515614.diff";
-            hash = "sha256-tq0rn1UHl9F0QPeQFyQe1hQ6fG247CORpHi4I53dABY=";
-          })
-        ];
 
       modules = [
         ./modules/hosts/darwin-mac/configuration.nix
