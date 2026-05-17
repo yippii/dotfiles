@@ -25,6 +25,7 @@
       self.nixosModules.desktop
       self.nixosModules.terminal
       self.nixosModules.boot
+      #self.nixosModules.comfyui
     ];
 
     boot.loader.efi.efiSysMountPoint = "/boot";
