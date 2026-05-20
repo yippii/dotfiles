@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{inputs, lib, ...}: {
   imports = [inputs.home-manager.darwinModules.home-manager];
 
   home-manager.overwriteBackup = true;
@@ -8,8 +8,7 @@
   home-manager.users.libor = {
     imports = [
       inputs.nix4nvchad.homeManagerModule
-      ./_modules/nvim.nix
-      ./_modules/starship.nix
+      (inputs.import-tree ./_modules)
     ];
 
     home.stateVersion = "26.05"; # Please read the comment before changing.

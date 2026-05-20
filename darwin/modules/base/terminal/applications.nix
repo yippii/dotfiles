@@ -30,6 +30,7 @@
     alejandra
     deadnix
     darwin.libiconv
+    android-tools
 
     (python314.withPackages (
       python-pkgs:

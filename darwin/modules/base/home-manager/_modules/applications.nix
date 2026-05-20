@@ -16,7 +16,7 @@
       ];
     })
 
-    nicotine-plus
+    #nicotine-plus
     qbittorrent
     signal-desktop
     discord
