@@ -22,14 +22,7 @@
         [
           "quiet"
           "splash"
-          "udev.log_level=0"
-          "udev.log_priority=0"
-          "usbcore.autosuspend=-1"
         ]
-
-        (lib.mkIf pkgs.stdenv.isx86_64 [
-          "acpi=force"
-        ])
       ];
 
       #loader.timeout = 0;
