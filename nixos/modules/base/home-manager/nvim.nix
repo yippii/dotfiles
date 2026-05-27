@@ -15,7 +15,7 @@
         dockerfile-language-server
         emmet-language-server
         nixd
-        (python3.withPackages (
+        (python314.withPackages (
           ps:
             with ps; [
               python-lsp-server

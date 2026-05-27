@@ -57,7 +57,6 @@
               );
           })
           vulkan-tools
-          inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.wine-discord-ipc-bridge
         ];
       })
     ];
