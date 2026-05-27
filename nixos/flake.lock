@@ -304,11 +304,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779682703,
-        "narHash": "sha256-+89u+znf0/h2ziuXzY4INyCF6AYqcMWD2LkEOJfUtQ0=",
+        "lastModified": 1779768228,
+        "narHash": "sha256-/dRavNAx/Mp67xcQQ3JBIMyf0cLoXqKedafB1+wksAE=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "8358d46120803ea055fe8e3ce5934450d47f5292",
+        "rev": "6e7a8414c0f547a86646eb0b56ebf89e7cc217a2",
         "type": "github"
       },
       "original": {
@@ -444,11 +444,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779758218,
-        "narHash": "sha256-EYPdiWD5Z2424VBbKYYUm5x1OU/RKO3iR/hq35aYVIg=",
+        "lastModified": 1779847152,
+        "narHash": "sha256-fO7MWOO1l90xjGPAuTWU3ZeuzTIFnecu/xWe/RV9L4E=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "519d828fbc148c5d3bdffb1b931459d5227988f8",
+        "rev": "f8fe44ad411cc32a7ecf0958a7362db22ccf509f",
         "type": "github"
       },
       "original": {
@@ -581,11 +581,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1779607677,
-        "narHash": "sha256-Ang2de6zfcFF8v7LWqSDD1n6bgYj0vN1PY5hi7lOLsM=",
+        "lastModified": 1779824049,
+        "narHash": "sha256-dWHVUjP03KSVG1PaLKA6j9EdxWSxSQvipMUIcSyuA/U=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "e69b824f3c4f4db836f47193723b6d37f93e0dc0",
+        "rev": "1362178e5f5f7a848c49fe9dee004ef8824f100a",
         "type": "github"
       },
       "original": {
@@ -649,11 +649,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779649538,
-        "narHash": "sha256-k256zgHyqJ/0siFdq5y4GSwJyYKhQnW83N9K8S7OMKo=",
+        "lastModified": 1779781734,
+        "narHash": "sha256-c2FZ7S/rhnCHcwPkc82GOxlCw88HKYBaJkLtMgi72p8=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "e8fbde26a92a8c078fb1355c9f7c8dba5f7eb9d6",
+        "rev": "ef7c137fea3d0d0624864db7aa1f068eed79b0fb",
         "type": "github"
       },
       "original": {
@@ -665,11 +665,11 @@
     "zen-context-menu": {
       "flake": false,
       "locked": {
-        "lastModified": 1779268924,
-        "narHash": "sha256-aKyYitkwIlKLdeeF02u1vcVhCu7OhoJyJDEmQB5Zao0=",
+        "lastModified": 1779816757,
+        "narHash": "sha256-vfIHc+992nRtFJMWsab1Xz8JonvQ7wpBbEWIaA4Vmrw=",
         "owner": "starry-AXQG",
         "repo": "Context-Menu-Icons",
-        "rev": "5f0c1ccf6a7222c9ef4c07a8a8eb2c520ba162e1",
+        "rev": "1f73010f4dd88082dd44ae773a2ebebb3fe43cef",
         "type": "github"
       },
       "original": {
