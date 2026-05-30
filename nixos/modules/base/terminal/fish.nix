@@ -17,8 +17,7 @@
         '';
 
         shellAliases = {
-          nixos-update-config = "sudo nixos-rebuild switch && sudo nix-collect-garbage -d";
-          nixos-update = "cd /etc/nixos && nix flake update && nh os switch && nh clean all -k 3 && cd ~";
+          nixos-update = "cd /etc/nixos && git pull && nix flake update && nh os switch && nh clean all -k 3 && cd ~";
         };
       };
     };
