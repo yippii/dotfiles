@@ -15,7 +15,6 @@
 
     # Noctalia Shell
     noctalia.url = "github:noctalia-dev/noctalia-shell/v5";
-    noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprland Tools
     hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
