@@ -50,6 +50,8 @@
 
     # Spotify (Spicetify)
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    # Gaming
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -59,6 +61,9 @@
     opencode.inputs.nixpkgs.follows = "nixpkgs-master";
 
     comfyui-nix.url = "github:utensils/comfyui-nix";
+
+    # Unpatched binaries
+    nix-alien.url = "github:thiagokokada/nix-alien";
 
     # Device Specific
 

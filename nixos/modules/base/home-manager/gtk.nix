@@ -35,6 +35,22 @@
       gtk4.theme = config.gtk.theme;
     };
 
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-cosmic
+        xdg-desktop-portal-hyprland
+      ];
+      config = {
+        hyprland = {
+          default = [ "hyprland" "gtk" ];
+          "org.freedesktop.impl.portal.ScreenCast" = [
+            "gnome"
+          ];
+        };
+      };
+    };
+
     dconf.settings = {
       "org/gnome/desktop/wm/preferences".button-layout = "appmenu:";
     };

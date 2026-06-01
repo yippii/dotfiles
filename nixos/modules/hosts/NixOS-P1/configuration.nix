@@ -32,7 +32,7 @@
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.timeout = 0;
 
-    boot.kernelPackages = pkgs.linuxPackages_6_19;
+    boot.kernelPackages = pkgs.linuxPackages_6_18;
 
     networking.hostName = "NixOS-P1";
     networking.networkmanager.enable = true;

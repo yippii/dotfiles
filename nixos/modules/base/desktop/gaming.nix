@@ -29,10 +29,6 @@
 
         programs.gamemode.enable = true;
 
-        programs.nix-ld = {
-          enable = true;
-        };
-
         environment.systemPackages = with pkgs; [
           mangohud
           osu-lazer-bin
