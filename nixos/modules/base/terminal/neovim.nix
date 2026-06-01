@@ -22,6 +22,8 @@
         python314Packages.python-lsp-server
         vscode-langservers-extracted
 
+        nixfmt
+        nixd
         google-java-format
         alejandra
         black

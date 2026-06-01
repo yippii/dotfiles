@@ -12,8 +12,8 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.cage}/bin/cage -s -d -- gtkgreet-launch";
           user = "yippie";
+          command = "${pkgs.cage}/bin/cage -s -d -- gtkgreet-launch";
         };
       };
     };

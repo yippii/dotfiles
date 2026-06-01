@@ -53,6 +53,13 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
 
+    # AI Stuff
+    opencode.url = "github:anomalyco/opencode";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    opencode.inputs.nixpkgs.follows = "nixpkgs-master";
+
+    comfyui-nix.url = "github:utensils/comfyui-nix";
+
     # Device Specific
 
     # UEFI Secure Boot

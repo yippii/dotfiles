@@ -12,8 +12,7 @@
 
     security.pam.services = {
       login.enableGnomeKeyring = true;
-      sddm.enableGnomeKeyring = true;
-      #sddm.fprintAuth = false;
+      greetd.enableGnomeKeyring = true;
     };
 
     security.polkit.enable = true;

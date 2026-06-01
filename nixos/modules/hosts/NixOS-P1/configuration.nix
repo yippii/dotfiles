@@ -25,21 +25,21 @@
       self.nixosModules.desktop
       self.nixosModules.terminal
       self.nixosModules.boot
-      #self.nixosModules.comfyui
+      self.nixosModules.AI
     ];
 
     boot.loader.efi.efiSysMountPoint = "/boot";
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.timeout = 0;
 
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot.kernelPackages = pkgs.linuxPackages_6_19;
 
     networking.hostName = "NixOS-P1";
     networking.networkmanager.enable = true;
 
     time.timeZone = "America/Toronto";
 
-    i18n.defaultLocale = "en_US.UTF-8";
+    i18n.defaultLocale = "fr_CA.UTF-8";
 
     services.printing.enable = true;
 
@@ -57,17 +57,9 @@
         "wheel"
         "networkmanager"
       ];
-      packages = with pkgs; [
-        starship
-      ];
     };
 
-    environment.systemPackages = with pkgs; [
-      wget
-      curl
-      git
-      libinput-gestures
-    ];
+    environment.systemPackages = [pkgs.libinput-gestures];
 
     hardware.graphics = {
       enable = true;
@@ -126,10 +118,7 @@
     # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
     system.stateVersion = "26.05"; # Did you read the comment?
 
-    nix.settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    nix.settings.experimental-features = ["nix-command" "flakes"];
 
     nixpkgs.config.allowUnfree = true;
   };

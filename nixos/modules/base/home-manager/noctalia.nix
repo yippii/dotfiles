@@ -85,7 +85,7 @@
             lock = {
               action = "lock";
               enabled = true;
-              timeout = 600;
+              timeout = 1200;
             };
             screen-off = {
               action = "screen_off";
@@ -105,10 +105,12 @@
         };
         shell = {
           corner_radius_scale = 0.5;
-          font_family = "MesloLGSDZ Nerd Font";
+          font_family = "MesloLGS Nerd Font";
           password_style = "random";
           polkit_agent = true;
+          screen_time_enabled = true;
           settings_show_advanced = true;
+          telemetry_enabled = true;
           ui_scale = 0.949999988079071;
           animation = {
             speed = 1.5500000715255737;
@@ -116,6 +118,7 @@
           panel = {
             attach_clipboard = true;
             attach_control_center = false;
+            session_placement = "centered";
             transparency_mode = "soft";
           };
           screen_corners = {
@@ -127,7 +130,7 @@
           source = "wallpaper";
           wallpaper_scheme = "m3-fruit-salad";
           templates = {
-            builtin_ids = ["gtk4" "gtk3" "kitty" "qt" "kcolorscheme"];
+            builtin_ids = ["gtk4" "gtk3" "kitty" "qt" "kcolorscheme" "hyprland"];
             community_ids = ["spicetify" "pywalfox" "vscode"];
           };
         };

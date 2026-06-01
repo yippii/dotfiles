@@ -3,11 +3,11 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.comfyui = {pkgs, ...}: {
+  flake.nixosModules.AI = {pkgs, ...}: {
     imports = [inputs.comfyui-nix.nixosModules.default];
 
     services.comfyui = {
-      enable = true;
+      enable = false;
       gpuSupport = "cuda"; # Enable NVIDIA GPU acceleration (recommended for most users)
       cudaCapabilities = ["8.9"];
       enableManager = true; # Enable the built-in ComfyUI Manager

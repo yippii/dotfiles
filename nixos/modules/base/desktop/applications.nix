@@ -58,6 +58,7 @@
             qbittorrent
             kdePackages.ark
             unrar
+            opencode-desktop
           ]
 
           (lib.mkIf pkgs.stdenv.isx86_64 [

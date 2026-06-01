@@ -1,4 +1,8 @@
-{inputs, lib, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   imports = [inputs.home-manager.darwinModules.home-manager];
 
   home-manager.overwriteBackup = true;
