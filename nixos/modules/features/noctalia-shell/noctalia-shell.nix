@@ -15,6 +15,7 @@
       ffmpeg
       wl-screenrec
       gifski
+      gpu-screen-recorder
     ];
   };
 }

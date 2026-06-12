@@ -59,6 +59,7 @@
             kdePackages.ark
             unrar
             opencode-desktop
+            spot
           ]
 
           (lib.mkIf pkgs.stdenv.isx86_64 [

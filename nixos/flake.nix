@@ -14,7 +14,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Noctalia Shell
-    noctalia.url = "github:noctalia-dev/noctalia-shell/v5";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
 
     # Hyprland Tools
     hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
