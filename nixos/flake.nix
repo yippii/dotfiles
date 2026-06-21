@@ -15,6 +15,8 @@
 
     # Noctalia Shell
     noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
+    noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprland Tools
     hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
@@ -68,7 +70,7 @@
     # Device Specific
 
     # UEFI Secure Boot
-    lanzaboote.url = "github:nix-community/lanzaboote/v1.0.0";
+    lanzaboote.url = "github:nix-community/lanzaboote/0403b4b7e8b2612657f0053a4c315e6c43eee9e6";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
 
     # Apple Silicon Macs

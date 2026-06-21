@@ -8,13 +8,27 @@
     pkgs,
     ...
   }: {
+    imports = [inputs.noctalia-greeter.nixosModules.default];
+
     services.greetd = {
       enable = true;
       settings = {
         default_session = {
           user = "yippie";
-          command = "${pkgs.cage}/bin/cage -s -d -- gtkgreet-launch";
         };
+      };
+    };
+
+    programs.noctalia-greeter = {
+      enable = true;
+      package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
+
+      # Optional configuration
+      greeter-args = "";
+      settings.cursor = {
+        theme = "catppuccin-macchiato-dark-cursors";
+        size = 24;
+        package = pkgs.catppuccin-cursors.macchiatoDark;
       };
     };
 
@@ -24,16 +38,5 @@
       fish
       bash
     '';
-
-    environment.systemPackages = with pkgs; [
-      (writeShellApplication {
-        name = "gtkgreet-launch";
-        runtimeInputs = [gtkgreet wlr-randr];
-        text = ''
-          wlr-randr --output eDP-1 --scale 2
-          gtkgreet
-        '';
-      })
-    ];
   };
 }
