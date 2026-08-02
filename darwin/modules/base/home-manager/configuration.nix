@@ -11,7 +11,7 @@
   home-manager.useUserPackages = true;
   home-manager.users.libor = {
     imports = [
-      inputs.nix4nvchad.homeManagerModule
+      inputs.nix4nvchad.homeManagerModules.default
       (inputs.import-tree ./_modules)
     ];
 

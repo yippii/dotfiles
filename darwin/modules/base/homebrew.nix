@@ -18,9 +18,6 @@
     taps = {
       "homebrew/homebrew-core" = inputs.homebrew-core;
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
-      "osx-cross/homebrew-arm" = inputs.homebrew-osx-cross-arm;
-      "osx-cross/homebrew-avr" = inputs.homebrew-osx-cross-avr;
-      "qmk/homebrew-qmk" = inputs.homebrew-qmk;
     };
 
     mutableTaps = false;
@@ -31,8 +28,6 @@
     enableFishIntegration = true;
 
     brews = [
-      "osx-cross/arm/arm-none-eabi-binutils"
-      "osx-cross/arm/arm-none-eabi-gcc@8"
       "libiconv"
     ];
 

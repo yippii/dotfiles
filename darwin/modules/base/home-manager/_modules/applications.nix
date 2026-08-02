@@ -19,9 +19,10 @@
     #nicotine-plus
     qbittorrent
     signal-desktop
-    discord
+    vesktop
     kitty
     notion-app
     daisydisk
+    opencode-desktop
   ];
 }

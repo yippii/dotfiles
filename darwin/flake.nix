@@ -30,21 +30,6 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-
-    homebrew-osx-cross-arm = {
-      url = "github:osx-cross/homebrew-arm";
-      flake = false;
-    };
-
-    homebrew-osx-cross-avr = {
-      url = "github:osx-cross/homebrew-avr";
-      flake = false;
-    };
-
-    homebrew-qmk = {
-      url = "github:qmk/homebrew-qmk";
-      flake = false;
-    };
   };
 
   outputs = {self, ...} @ inputs: {
