@@ -12,23 +12,43 @@
   };
 
   environment.systemPackages = with pkgs; [
+    # Nix
     nixfmt
     nixd
     nh
+
+    # Standard stuff
     git
     wget
     curl
+
+    # Terminal
     starship
     yt-dlp
+    pfetch
+
+    # Development
     platformio
     qmk
+
+    # Java
     openjdk
     maven
     gradle
+
+    # C
+    gcc
+    llvm
+
+    # JS
     nodejs
+
+    # Formatters
     statix
     alejandra
     deadnix
+
+    # Misc
     darwin.libiconv
     android-tools
 
