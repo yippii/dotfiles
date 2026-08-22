@@ -21,6 +21,7 @@
     git
     wget
     curl
+    ffmpeg
 
     # Terminal
     starship
