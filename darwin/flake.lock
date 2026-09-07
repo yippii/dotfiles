@@ -40,11 +40,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1788658192,
-        "narHash": "sha256-hJrJ6uTIgvGwESKAMteNDcZdwZpPG+Gw3wIvgPB4FTs=",
+        "lastModified": 1788742538,
+        "narHash": "sha256-DWvl9ymHatPpl59CXTa+rXia6l4hvB3fku4iaUZSW7Y=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "12dacf7a2d21d04686eb8bb56e03900d846fdd25",
+        "rev": "7f6cf6fdb5eacb2fea93643eba3154371f4cc2c7",
         "type": "github"
       },
       "original": {
@@ -56,11 +56,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1788658018,
-        "narHash": "sha256-rszgtZCfumTggf3QZWgxUbd4muA0cVZ9u9uR/Y8scro=",
+        "lastModified": 1788740969,
+        "narHash": "sha256-7jFst7EG3cogpUknjtbdh3ftZYnAVQUrkQE6lGZwe8c=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "f53abc01366afb8463a79ab974b058b7479fc8a8",
+        "rev": "06e5b4b845d60fb9983432200ddb67932cb78136",
         "type": "github"
       },
       "original": {
@@ -163,11 +163,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1787900134,
-        "narHash": "sha256-5GWj0FI2uOwKNpXkmpWrSFDe1rCaNBCUQ8d+HDtFQPI=",
-        "rev": "83199d0d373dd3ac2b9a1996b1d0263f76ab7a4c",
+        "lastModified": 1788614874,
+        "narHash": "sha256-PRK1fSEiAcO29DkUoOlsVLGYRK3h1YKVr+qQJB0VcYQ=",
+        "rev": "c043004d1c6985732bcc1cbc5a9c9aecbbb4e0f0",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1063296.83199d0d373d/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1068089.c043004d1c69/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -210,11 +210,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1788263070,
-        "narHash": "sha256-Mw163zYcjr59hB2JMC1iKU1Y69SNKZ2r/haXZ07UWQY=",
+        "lastModified": 1788683578,
+        "narHash": "sha256-bERpuakmPAC2b36zgXy6OXh+SkZUjbaV+vV2sPmm6p8=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "27ff19b00338052e8a504e1d1a34efad82c4bb26",
+        "rev": "a4ef43fb13e3615f36e5a0935aabe8cc29363dc9",
         "type": "github"
       },
       "original": {
