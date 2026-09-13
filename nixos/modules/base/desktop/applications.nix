@@ -62,11 +62,11 @@
             spot
           ]
 
-          (lib.mkIf pkgs.stdenv.isx86_64 [
+          (lib.mkIf pkgs.stdenv.hostPlatform.isx86_64 [
             discord
           ])
 
-          (lib.mkIf pkgs.stdenv.isAarch64 [
+          (lib.mkIf pkgs.stdenv.hostPlatform.isAarch64 [
             vesktop
           ])
         ];

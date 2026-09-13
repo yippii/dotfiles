@@ -11,7 +11,7 @@
     imports = [inputs.spicetify-nix.nixosModules.default];
 
     programs.spicetify = lib.mkMerge [
-      (lib.mkIf pkgs.stdenv.isx86_64 {
+      (lib.mkIf pkgs.stdenv.hostPlatform.isx86_64 {
         enable = true;
         theme = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system}.themes.hazy;
 
@@ -22,7 +22,7 @@
         ];
       })
 
-      (lib.mkIf pkgs.stdenv.isAarch64 {
+      (lib.mkIf pkgs.stdenv.hostPlatform.isAarch64 {
         enable = false;
       })
     ];

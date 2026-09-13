@@ -18,14 +18,70 @@
             capsule = true;
             capsule_groups = ["brightness+vol" "buttons_left" "buttons_right" "buttons_mid"];
             capsule_radius = 5.0;
-            center = ["clock" "media"];
-            end = ["tray" "network" "bluetooth" "volume" "brightness" "battery" "clipboard" "control-center" "session"];
+            center = ["group:g2" "widget"];
+            end = ["group:g1" "group:g4" "clipboard" "control-center" "session"];
             margin_edge = 5;
             margin_ends = 30;
             position = "left";
             radius = 7;
-            start = ["launcher" "notifications" "workspaces"];
+            start = ["group:g3" "workspaces"];
             widget_spacing = 3;
+            capsule_group = [
+              {
+                accordion = false;
+                accordion_direction = "end";
+                enabled = true;
+                fill = "surface_variant";
+                id = "g1";
+                members = ["tray" "recorder"];
+                opacity = 1.0;
+                padding = 6.0;
+                radius = 5.0;
+              }
+              {
+                accordion = false;
+                accordion_direction = "end";
+                enabled = true;
+                fill = "surface_variant";
+                id = "g2";
+                members = ["clock" "media"];
+                opacity = 1.0;
+                padding = 6.0;
+                radius = 5.0;
+              }
+              {
+                accordion = false;
+                accordion_direction = "end";
+                enabled = true;
+                fill = "surface_variant";
+                id = "g3";
+                members = ["launcher" "notifications"];
+                opacity = 1.0;
+                padding = 6.0;
+                radius = 5.0;
+              }
+              {
+                accordion = false;
+                accordion_direction = "end";
+                enabled = true;
+                fill = "surface_variant";
+                id = "g4";
+                members = ["network" "bluetooth" "volume" "brightness" "battery"];
+                opacity = 1.0;
+                padding = 6.0;
+                radius = 5.0;
+                widget_spacing = 10;
+              }
+            ];
+          };
+        };
+        calendar = {
+          enabled = true;
+          account = {
+            liboris20 = {
+              name = "Boris Li";
+              type = "google";
+            };
           };
         };
         desktop_widgets = {
@@ -38,9 +94,13 @@
           };
           widget = {
             desktop-widget-0000000000000001 = {
+              box_height = 0.0;
+              box_width = 0.0;
               cx = 1589.0;
               cy = 213.5;
               output = "eDP-1";
+              placement_height = 1067.0;
+              placement_width = 1707.0;
               rotation = 0.0;
               scale = 0.7739878296852112;
               type = "audio_visualizer";
@@ -50,17 +110,25 @@
               };
             };
             desktop-widget-0000000000000002 = {
+              box_height = 0.0;
+              box_width = 0.0;
               cx = 1588.734619140625;
               cy = 321.70001220703125;
               output = "eDP-1";
+              placement_height = 1067.0;
+              placement_width = 1707.0;
               rotation = 0.0;
               scale = 1.0;
               type = "weather";
             };
             desktop-widget-0000000000000003 = {
+              box_height = 0.0;
+              box_width = 0.0;
               cx = 1589.0;
               cy = 89.69999694824219;
               output = "eDP-1";
+              placement_height = 1067.0;
+              placement_width = 1707.0;
               rotation = 0.0;
               scale = 1.0;
               type = "sysmon";
@@ -75,8 +143,10 @@
           active_monitor_only = true;
           auto_hide = true;
           enabled = true;
+          launcher_position = "start";
           pinned = ["zen-beta" "dolphin" "kitty"];
           radius = 10;
+          reserve_space = false;
           show_dots = true;
         };
         idle = {
@@ -100,8 +170,66 @@
             };
           };
         };
+        location = {
+          auto_locate = true;
+        };
+        lockscreen = {
+          blur_intensity = 0.5399999879300594;
+          blurred_desktop = true;
+        };
+        lockscreen_widgets = {
+          enabled = true;
+          schema_version = 1;
+          widget_order = ["lockscreen-login-box@eDP-1"];
+          grid = {
+            cell_size = 16;
+            major_interval = 4;
+            visible = true;
+          };
+          widget = {
+            "lockscreen-login-box@eDP-1" = {
+              box_height = 196.0;
+              box_width = 810.0;
+              cx = 853.5;
+              cy = 796.5;
+              output = "eDP-1";
+              placement_height = 1067.0;
+              placement_width = 1707.0;
+              rotation = 0.0;
+              type = "login_box";
+              settings = {
+                center_password_text = false;
+                layout = "regular";
+                show_caps_lock = true;
+                show_keyboard_layout = true;
+                show_login_button = true;
+                show_media = true;
+                show_session_buttons = true;
+                show_unlock_hint = true;
+                show_weather = true;
+              };
+            };
+          };
+        };
         osd = {
           position = "bottom_center";
+        };
+        plugins = {
+          enabled = ["noctalia/screen_recorder" "noctalia/translator" "piero-93/thinkpad-fan"];
+          source = [
+            {
+              auto_update = true;
+              kind = "git";
+              location = "https://github.com/noctalia-dev/official-plugins";
+              name = "official";
+            }
+            {
+              auto_update = true;
+              kind = "git";
+              location = "https://github.com/noctalia-dev/community-plugins";
+              name = "community";
+            }
+          ];
         };
         shell = {
           corner_radius_scale = 0.5;
@@ -113,7 +241,7 @@
           telemetry_enabled = true;
           ui_scale = 0.949999988079071;
           animation = {
-            speed = 1.5500000715255737;
+            speed = 1.5500000715255735;
           };
           panel = {
             attach_clipboard = true;
@@ -189,6 +317,9 @@
             capsule = true;
             capsule_group = "buttons_left";
           };
+          recorder = {
+            type = "noctalia/screen_recorder:recorder";
+          };
           session = {
             capsule = true;
             capsule_group = "buttons_right";
@@ -201,10 +332,13 @@
             capsule_group = "brightness+vol";
             show_label = false;
           };
+          widget = {
+            type = "piero-93/thinkpad-fan:widget";
+          };
           workspaces = {
             capsule = true;
             capsule_group = "buttons_left";
-            display = "name";
+            label_source = "name";
           };
         };
       };

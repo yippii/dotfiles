@@ -9,7 +9,7 @@
     ...
   }:
     lib.mkMerge [
-      (lib.mkIf pkgs.stdenv.isx86_64 {
+      (lib.mkIf pkgs.stdenv.hostPlatform.isx86_64 {
         boot.kernelModules = ["ntsync"];
 
         programs.steam = {

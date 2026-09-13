@@ -59,8 +59,6 @@
 
     # AI Stuff
     opencode.url = "github:anomalyco/opencode";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
-    opencode.inputs.nixpkgs.follows = "nixpkgs-master";
 
     comfyui-nix.url = "github:utensils/comfyui-nix";
 
