@@ -16,6 +16,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Umbriel WM
+    umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
+
     # Noctalia Shell
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";

@@ -20,6 +20,7 @@
       (lib.mkIf (!(config.networking.hostName == "yippie-nextcloud")) {
         imports = [
           self.homeModules.zen-browser
+          self.homeModules.umbriel
           self.homeModules.noctalia
           self.homeModules.qt
           self.homeModules.gtk

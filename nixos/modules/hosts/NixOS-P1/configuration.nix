@@ -18,7 +18,7 @@
       inputs.lanzaboote.nixosModules.lanzaboote
 
       self.nixosModules.NixOS-P1Hardware
-      self.nixosModules.hyprland
+      self.nixosModules.umbriel
       self.nixosModules.noctalia-shell
       self.nixosModules.desktop
       self.nixosModules.terminal
@@ -33,7 +33,6 @@
     boot.kernelPackages = pkgs.linuxPackages_6_18;
 
     networking.hostName = "NixOS-P1";
-    networking.networkmanager.enable = true;
 
     time.timeZone = "America/Toronto";
 
