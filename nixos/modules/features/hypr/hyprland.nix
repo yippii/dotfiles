@@ -29,7 +29,6 @@
       kitty
       app2unit
       papirus-icon-theme
-      polkit_gnome
       hyprlock
       hypridle
     ];

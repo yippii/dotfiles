@@ -22,9 +22,13 @@
           nodejs
           cargo
           unzip
+          gnumake
+          gnu-efi
+          gcc
+          binutils
         ]
 
-        (lib.mkIf pkgs.stdenv.isAarch64 [
+        (lib.mkIf pkgs.stdenv.hostPlatform.isAarch64 [
           asahi-bless
           asahi-nvram
           asahi-fwextract

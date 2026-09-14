@@ -13,8 +13,12 @@
     services.gvfs.enable = true;
 
     services.flatpak.enable = true;
-    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-    xdg.portal.config.common.default = "gtk";
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [xdg-desktop-portal-hyprland xdg-desktop-portal-gtk];
+      config.common.default = ["hyprland" "gtk"];
+    };
 
     programs.nh = {
       enable = true;
@@ -59,7 +63,6 @@
             kdePackages.ark
             unrar
             opencode-desktop
-            spot
           ]
 
           (lib.mkIf pkgs.stdenv.hostPlatform.isx86_64 [
@@ -69,7 +72,7 @@
           (lib.mkIf pkgs.stdenv.hostPlatform.isAarch64 [
             vesktop
           ])
-        ];
+      ];
 
       sessionVariables.NIXOS_OZONE_WL = "1";
     };

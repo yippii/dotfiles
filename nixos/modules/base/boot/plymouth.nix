@@ -12,7 +12,7 @@
     boot = {
       plymouth = {
         enable = true;
-        theme = "bgrt";
+        #theme = "bgrt";
         extraConfig = "ShowDelay=5";
       };
 

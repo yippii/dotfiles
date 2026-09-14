@@ -7,7 +7,7 @@
     imports = [inputs.comfyui-nix.nixosModules.default];
 
     services.comfyui = {
-      enable = false;
+      enable = true;
       gpuSupport = "cuda"; # Enable NVIDIA GPU acceleration (recommended for most users)
       cudaCapabilities = ["8.9"];
       enableManager = true; # Enable the built-in ComfyUI Manager
@@ -15,6 +15,7 @@
       listenAddress = "0.0.0.0"; # Use "0.0.0.0" for network access
       dataDir = "/var/lib/comfyui";
       openFirewall = true;
+      extraArgs = ["--highvram" "--reserve-vram 0.5" "--cache-none" "--enable-manager"];
     };
   };
 }

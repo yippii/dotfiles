@@ -1,0 +1,25 @@
+scheme: "Noctalia Generated"
+author: "Noctalia Shell Dynamic Engine"
+colors:
+  # Background Tones (Dark to Light)
+  base00: "#121318"       # Default Background
+  base01: "#45464f"       # Lighter Background (Status bars)
+  base02: "#b4c5ff"       # Selection Background
+  base03: "#e3e2e9"           # Comments, Invisibles
+
+  # Foreground Tones (Light to Dark)
+  base04: "#c6c6d0" # Dark Foreground (Status bars)
+  base05: "#e3e2e9"   # Default Foreground / Text
+  base06: "#1b2d61"          # Light Foreground
+  base07: "#2b3042"         # Inverse Foreground
+
+  # Accent / Syntax Colors
+  base08: "#ffb4ab"           # Variables, Red
+  base09: "#ffb4ab"        # Integers, Orange
+  base0A: "#c1c5dd"        # Classes, Yellow
+  base0B: "#b4c5ff"         # Strings, Green
+  base0C: "#c1c5dd"          # Regex, Cyan
+  base0D: "#e2bbdb"          # Functions, Blue
+  base0E: "#b4c5ff"       # Keywords, Magenta
+  base0F: "#e2bbdb"         # Deprecated, Brown
+

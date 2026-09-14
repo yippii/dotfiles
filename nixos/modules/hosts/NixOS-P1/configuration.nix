@@ -17,8 +17,6 @@
 
       inputs.lanzaboote.nixosModules.lanzaboote
 
-      inputs.hyprdynamicmonitors.nixosModules.default
-
       self.nixosModules.NixOS-P1Hardware
       self.nixosModules.hyprland
       self.nixosModules.noctalia-shell

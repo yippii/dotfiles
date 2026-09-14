@@ -23,6 +23,7 @@
           self.homeModules.noctalia
           self.homeModules.qt
           self.homeModules.gtk
+          self.homeModules.theming
         ];
       })
 

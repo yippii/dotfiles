@@ -18,8 +18,15 @@
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Hyprland Tools
-    hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
+    # Theming with Stylix
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    matugen = {
+      url = "github:InioX/Matugen";
+  };
 
     # Neovim Configuration
     nix4nvchad.url = "github:nix-community/nix4nvchad";
