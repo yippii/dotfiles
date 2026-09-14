@@ -5,6 +5,9 @@
     # NixOS Base
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # Determinate Nix
+    determinate-nix.url = "github:DeterminateSystems/nix-src";
+
     # Dendritic Pattern
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
@@ -23,10 +26,6 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    matugen = {
-      url = "github:InioX/Matugen";
-  };
 
     # Neovim Configuration
     nix4nvchad.url = "github:nix-community/nix4nvchad";

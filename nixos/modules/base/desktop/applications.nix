@@ -28,7 +28,10 @@
     };
 
     nix = {
+      package = inputs.determinate-nix.packages.${pkgs.stdenv.hostPlatform.system}.default;
       settings = {
+        lazy-trees = true;
+        eval-cores = 0;
         substituters = [
           "https://nix-community.cachix.org"
           "https://cache.nixos.org/"
@@ -51,7 +54,6 @@
           [
             quodlibet
             easyeffects
-            github-desktop
             android-tools
             sublime-merge
             # animeko
@@ -72,7 +74,7 @@
           (lib.mkIf pkgs.stdenv.hostPlatform.isAarch64 [
             vesktop
           ])
-      ];
+        ];
 
       sessionVariables.NIXOS_OZONE_WL = "1";
     };
