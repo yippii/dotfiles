@@ -29,7 +29,7 @@
           tint_intensity = 0.30000001192092896;
         };
         bar = {
-          order = [ "default" ];
+          order = ["default"];
           default = {
             auto_hide = false;
             background_opacity = 0.699999988079071;
@@ -41,11 +41,11 @@
             capsule_padding = 6.0;
             capsule_radius = 5.0;
             capsule_thickness = 0.7599999904632568;
-            center = [ "widget" "group:g2" ];
+            center = ["widget" "group:g2"];
             concave_edge_corners = true;
             contact_shadow = false;
             enabled = true;
-            end = [ "group:g1" "group:g4" "clipboard" "control-center" "session" ];
+            end = ["group:g1" "group:g4" "clipboard" "control-center" "session"];
             font_scale = 1.0;
             font_weight = 500;
             hover_highlight = true;
@@ -66,54 +66,58 @@
             shadow = true;
             show_on_workspace_switch = true;
             smart_auto_hide = true;
-            start = [ "group:g3" "workspaces" ];
+            start = ["group:g3" "workspaces"];
             thickness = 40;
             widget_spacing = 3;
             dead_zone = {
-              
             };
-            capsule_group = [ {
-              accordion = false;
-              accordion_direction = "end";
-              enabled = true;
-              fill = "surface_variant";
-              id = "g1";
-              members = [ "tray" "recorder" ];
-              opacity = 0.0;
-              padding = 6.0;
-              radius = 5.0;
-            } {
-              accordion = false;
-              accordion_direction = "end";
-              enabled = true;
-              fill = "surface_variant";
-              id = "g2";
-              members = [ "clock" "media" ];
-              opacity = 0.0;
-              padding = 6.0;
-              radius = 5.0;
-            } {
-              accordion = false;
-              accordion_direction = "end";
-              enabled = true;
-              fill = "surface_variant";
-              id = "g3";
-              members = [ "launcher" "notifications" ];
-              opacity = 0.0;
-              padding = 6.0;
-              radius = 5.0;
-            } {
-              accordion = false;
-              accordion_direction = "end";
-              enabled = true;
-              fill = "surface_variant";
-              id = "g4";
-              members = [ "network" "bluetooth" "volume" "brightness" "battery" ];
-              opacity = 0.0;
-              padding = 6.0;
-              radius = 5.0;
-              widget_spacing = 10;
-            } ];
+            capsule_group = [
+              {
+                accordion = false;
+                accordion_direction = "end";
+                enabled = true;
+                fill = "surface_variant";
+                id = "g1";
+                members = ["tray" "recorder"];
+                opacity = 0.0;
+                padding = 6.0;
+                radius = 5.0;
+              }
+              {
+                accordion = false;
+                accordion_direction = "end";
+                enabled = true;
+                fill = "surface_variant";
+                id = "g2";
+                members = ["clock" "media"];
+                opacity = 0.0;
+                padding = 6.0;
+                radius = 5.0;
+              }
+              {
+                accordion = false;
+                accordion_direction = "end";
+                enabled = true;
+                fill = "surface_variant";
+                id = "g3";
+                members = ["launcher" "notifications"];
+                opacity = 0.0;
+                padding = 6.0;
+                radius = 5.0;
+              }
+              {
+                accordion = false;
+                accordion_direction = "end";
+                enabled = true;
+                fill = "surface_variant";
+                id = "g4";
+                members = ["network" "bluetooth" "volume" "brightness" "battery"];
+                opacity = 0.0;
+                padding = 6.0;
+                radius = 5.0;
+                widget_spacing = 10;
+              }
+            ];
           };
         };
         battery = {
@@ -121,7 +125,7 @@
         };
         brightness = {
           enable_ddcutil = false;
-          ignore_mmids = [  ];
+          ignore_mmids = [];
           minimum_brightness = 0.0;
           sync_all_monitors = false;
         };
@@ -132,7 +136,7 @@
           refresh_minutes = 15;
           account = {
             liboris20 = {
-              calendars = [  ];
+              calendars = [];
               color = "";
               credential_source = "secret-service";
               name = "Boris Li";
@@ -146,7 +150,7 @@
           };
         };
         control_center = {
-          hidden_tabs = [  ];
+          hidden_tabs = [];
           show_session_button = true;
           show_shortcut_labels = true;
           sidebar = "compact";
@@ -156,24 +160,31 @@
             show_events_card = true;
             show_week_numbers = false;
           };
-          shortcuts = [ {
-            type = "wifi";
-          } {
-            type = "bluetooth";
-          } {
-            type = "caffeine";
-          } {
-            type = "nightlight";
-          } {
-            type = "notification";
-          } {
-            type = "power_profile";
-          } ];
+          shortcuts = [
+            {
+              type = "wifi";
+            }
+            {
+              type = "bluetooth";
+            }
+            {
+              type = "caffeine";
+            }
+            {
+              type = "nightlight";
+            }
+            {
+              type = "notification";
+            }
+            {
+              type = "power_profile";
+            }
+          ];
         };
         desktop_widgets = {
           enabled = true;
           schema_version = 1;
-          widget_order = [ "desktop-widget-0000000000000002" "desktop-widget-0000000000000004" "desktop-widget-0000000000000005" "desktop-widget-0000000000000006" "desktop-widget-0000000000000007" ];
+          widget_order = ["desktop-widget-0000000000000002" "desktop-widget-0000000000000004" "desktop-widget-0000000000000005" "desktop-widget-0000000000000006" "desktop-widget-0000000000000007"];
           grid = {
             cell_size = 8;
             major_interval = 4;
@@ -192,7 +203,6 @@
               rotation = 0.0;
               type = "weather";
               settings = {
-                
               };
             };
             desktop-widget-0000000000000004 = {
@@ -250,7 +260,6 @@
               rotation = 0.0;
               type = "media_player";
               settings = {
-                
               };
             };
             desktop-widget-0000000000000007 = {
@@ -297,8 +306,8 @@
           main_axis_padding = 16;
           margin_edge = 0;
           margin_ends = 0;
-          monitors = [  ];
-          pinned = [ "zen-beta" "dolphin" "kitty" ];
+          monitors = [];
+          pinned = ["zen-beta" "dolphin" "kitty"];
           position = "bottom";
           radius = 10;
           radius_bottom_left = 10;
@@ -313,24 +322,24 @@
           smart_auto_hide = false;
         };
         hooks = {
-          battery_charging = [  ];
-          battery_discharging = [  ];
-          battery_percentage_changed = [  ];
-          battery_plugged = [  ];
-          bluetooth_disabled = [  ];
-          bluetooth_enabled = [  ];
-          colors_changed = [  ];
-          logging_out = [  ];
-          power_profile_changed = [  ];
-          rebooting = [  ];
-          session_locked = [  ];
-          session_unlocked = [  ];
-          shutting_down = [  ];
-          started = [  ];
-          theme_mode_changed = [  ];
-          wallpaper_changed = [  ];
-          wifi_disabled = [  ];
-          wifi_enabled = [  ];
+          battery_charging = [];
+          battery_discharging = [];
+          battery_percentage_changed = [];
+          battery_plugged = [];
+          bluetooth_disabled = [];
+          bluetooth_enabled = [];
+          colors_changed = [];
+          logging_out = [];
+          power_profile_changed = [];
+          rebooting = [];
+          session_locked = [];
+          session_unlocked = [];
+          shutting_down = [];
+          started = [];
+          theme_mode_changed = [];
+          wallpaper_changed = [];
+          wifi_disabled = [];
+          wifi_enabled = [];
         };
         hot_corners = {
           delay_ms = 0;
@@ -353,7 +362,7 @@
           };
         };
         idle = {
-          behavior_order = [ "lock" "screen-off" "suspend" ];
+          behavior_order = ["lock" "screen-off" "suspend"];
           pre_action_fade_seconds = 2.0;
           behavior = {
             lock = {
@@ -383,17 +392,17 @@
           };
         };
         keybinds = {
-          cancel = [ "Escape" ];
-          copy = [ "Ctrl+c" ];
-          delete = [ "Delete" ];
-          down = [ "Down" ];
-          left = [ "Left" ];
-          right = [ "Right" ];
-          save = [ "Ctrl+s" ];
-          tab_next = [ "Tab" ];
-          tab_previous = [ "Shift+ISO_Left_Tab" ];
-          up = [ "Up" ];
-          validate = [ "Return" "KP_Enter" "space" ];
+          cancel = ["Escape"];
+          copy = ["Ctrl+c"];
+          delete = ["Delete"];
+          down = ["Down"];
+          left = ["Left"];
+          right = ["Right"];
+          save = ["Ctrl+s"];
+          tab_next = ["Tab"];
+          tab_previous = ["Shift+ISO_Left_Tab"];
+          up = ["Up"];
+          validate = ["Return" "KP_Enter" "space"];
         };
         location = {
           address = "";
@@ -409,14 +418,14 @@
           enabled = true;
           fingerprint = true;
           lock_before_suspend = true;
-          monitors = [  ];
+          monitors = [];
           tint_intensity = 0.30000001192092896;
           wallpaper = "";
         };
         lockscreen_widgets = {
           enabled = true;
           schema_version = 1;
-          widget_order = [ "lockscreen-login-box@eDP-1" ];
+          widget_order = ["lockscreen-login-box@eDP-1"];
           grid = {
             cell_size = 16;
             major_interval = 4;
@@ -463,7 +472,7 @@
           keep_dismissed_in_history = true;
           layer = "top";
           max_visible = 0;
-          monitors = [  ];
+          monitors = [];
           offset_x = 20;
           offset_y = 8;
           position = "top_right";
@@ -475,7 +484,7 @@
           background_opacity = 0.3999999761581421;
           border = true;
           enabled = true;
-          monitors = [  ];
+          monitors = [];
           offset_x = 20;
           offset_y = 8;
           orientation = "horizontal";
@@ -501,22 +510,24 @@
           };
         };
         plugin_settings = {
-          
         };
         plugins = {
           auto_update = "all";
-          enabled = [ "noctalia/screen_recorder" "noctalia/translator" "piero-93/thinkpad-fan" ];
-          source = [ {
-            enabled = true;
-            kind = "git";
-            location = "https://github.com/noctalia-dev/official-plugins";
-            name = "official";
-          } {
-            enabled = true;
-            kind = "git";
-            location = "https://github.com/noctalia-dev/community-plugins";
-            name = "community";
-          } ];
+          enabled = ["noctalia/screen_recorder" "noctalia/translator" "piero-93/thinkpad-fan"];
+          source = [
+            {
+              enabled = true;
+              kind = "git";
+              location = "https://github.com/noctalia-dev/official-plugins";
+              name = "official";
+            }
+            {
+              enabled = true;
+              kind = "git";
+              location = "https://github.com/noctalia-dev/community-plugins";
+              name = "community";
+            }
+          ];
         };
         shell = {
           app_icon_colorize = false;
@@ -559,7 +570,6 @@
             auto_sync = false;
           };
           keyboard_layout = {
-            
           };
           launcher = {
             app_grid = false;
@@ -567,18 +577,17 @@
             categories = true;
             compact = false;
             fetch_exchange_rates = true;
-            pinned = [  ];
+            pinned = [];
             provider_prefix = "/";
             show_app_actions = false;
             show_app_origin_indicator = true;
             show_icons = true;
             sort_by_usage = true;
             dmenu = {
-              
             };
           };
           mpris = {
-            blacklist = [  ];
+            blacklist = [];
           };
           panel = {
             borders = true;
@@ -633,54 +642,59 @@
             grid_columns = 5;
             show_shortcuts = true;
             power = {
-              
             };
-            actions = [ {
-              action = "lock";
-              command = "";
-              countdown_seconds = 0.0;
-              enabled = true;
-              glyph = "";
-              label = "";
-              shortcut = "1";
-              variant = "default";
-            } {
-              action = "logout";
-              command = "";
-              countdown_seconds = 0.0;
-              enabled = true;
-              glyph = "";
-              label = "";
-              shortcut = "2";
-              variant = "default";
-            } {
-              action = "lock_and_suspend";
-              command = "";
-              countdown_seconds = 0.0;
-              enabled = true;
-              glyph = "";
-              label = "";
-              shortcut = "3";
-              variant = "default";
-            } {
-              action = "reboot";
-              command = "";
-              countdown_seconds = 0.0;
-              enabled = true;
-              glyph = "";
-              label = "";
-              shortcut = "4";
-              variant = "default";
-            } {
-              action = "shutdown";
-              command = "";
-              countdown_seconds = 0.0;
-              enabled = true;
-              glyph = "";
-              label = "";
-              shortcut = "5";
-              variant = "destructive";
-            } ];
+            actions = [
+              {
+                action = "lock";
+                command = "";
+                countdown_seconds = 0.0;
+                enabled = true;
+                glyph = "";
+                label = "";
+                shortcut = "1";
+                variant = "default";
+              }
+              {
+                action = "logout";
+                command = "";
+                countdown_seconds = 0.0;
+                enabled = true;
+                glyph = "";
+                label = "";
+                shortcut = "2";
+                variant = "default";
+              }
+              {
+                action = "lock_and_suspend";
+                command = "";
+                countdown_seconds = 0.0;
+                enabled = true;
+                glyph = "";
+                label = "";
+                shortcut = "3";
+                variant = "default";
+              }
+              {
+                action = "reboot";
+                command = "";
+                countdown_seconds = 0.0;
+                enabled = true;
+                glyph = "";
+                label = "";
+                shortcut = "4";
+                variant = "default";
+              }
+              {
+                action = "shutdown";
+                command = "";
+                countdown_seconds = 0.0;
+                enabled = true;
+                glyph = "";
+                label = "";
+                shortcut = "5";
+                variant = "destructive";
+              }
+            ];
           };
           shadow = {
             alpha = 0.3999999761581421;
@@ -743,8 +757,8 @@
           source = "wallpaper";
           wallpaper_scheme = "m3-fruit-salad";
           templates = {
-            builtin_ids = [ "gtk4" "gtk3" "kitty" "qt" "kcolorscheme" "hyprland" ];
-            community_ids = [ "spicetify" "pywalfox" "vscode" ];
+            builtin_ids = ["gtk4" "gtk3" "kitty" "qt" "kcolorscheme" "hyprland"];
+            community_ids = ["spicetify" "pywalfox" "vscode"];
             enable_builtin_templates = true;
             enable_community_templates = true;
             user.base16 = {
@@ -762,7 +776,7 @@
           fill_color = "";
           fill_mode = "crop";
           per_monitor_directories = false;
-          transition = [ "fade" "wipe" "disc" "stripes" "zoom" "honeycomb" ];
+          transition = ["fade" "wipe" "disc" "stripes" "zoom" "honeycomb"];
           transition_duration = 1500.0;
           transition_on_startup = false;
           automation = {

@@ -22,7 +22,7 @@
         base04 = "#596C7C";
         base05 = "#6E8496";
         base06 = "#829DAF";
-        base07 = "#97B5C9";
+        base07 = "#accee4";
         base08 = "#1C1A1E";
         base09 = "#262126";
         base0A = "#1C1D22";

@@ -10,25 +10,27 @@
   }: {
     imports = [inputs.noctalia-greeter.nixosModules.default];
 
-    services.greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          user = "yippie";
+    services = {
+      greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            user = "yippie";
+          };
         };
       };
-    };
 
-    programs.noctalia-greeter = {
-      enable = true;
-      package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      displayManager.noctalia-greeter = {
+        enable = true;
+        package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
-      # Optional configuration
-      greeter-args = "";
-      settings.cursor = {
-        theme = "catppuccin-macchiato-dark-cursors";
-        size = 24;
-        package = pkgs.catppuccin-cursors.macchiatoDark;
+        # Optional configuration
+        greeter-args = "";
+        settings.cursor = {
+          theme = "catppuccin-macchiato-dark-cursors";
+          size = 24;
+          package = pkgs.catppuccin-cursors.macchiatoDark;
+        };
       };
     };
 

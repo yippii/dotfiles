@@ -22,7 +22,7 @@
       enable = true;
       style = {
         name = "Darkly";
-        package = with pkgs; [ darkly ];
+        package = with pkgs; [darkly];
       };
       platformTheme.name = "qtct";
       kde.settings.kdeglobals.General.TerminalApplication = "kitty";
