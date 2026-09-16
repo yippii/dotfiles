@@ -19,54 +19,54 @@
           ];
         };
       };
-    };
 
-    devices.disk.main = {
-      device = "/dev/nvme0n1";
-      type = "disk";
-    };
-
-    content.type = "gpt";
-
-    content.partitions.esp = {
-      name = "Boot";
-      size = "2G";
-      type = "EF00";
-
-      content = {
-        type = "filesystem";
-        format = "vfat";
-        mountpoint = "/boot";
+      devices.disk.main = {
+        device = "/dev/nvme0n1";
+        type = "disk";
       };
-    };
 
-    content.partitions.swap = {
-      name = "Swap";
-      size = "4G";
+      content.type = "gpt";
 
-      content = {
-        type = "swap";
-        resumeDevice = true;
+      content.partitions.esp = {
+        name = "Boot";
+        size = "2G";
+        type = "EF00";
+
+        content = {
+          type = "filesystem";
+          format = "vfat";
+          mountpoint = "/boot";
+        };
       };
-    };
 
-    content.partitions.root = {
-      name = "NixOS";
-      size = "100%";
+      content.partitions.swap = {
+        name = "Swap";
+        size = "4G";
 
-      content = {
-        type = "btrfs";
-        extraArgs = ["-f"];
+        content = {
+          type = "swap";
+          resumeDevice = true;
+        };
+      };
 
-        subvolumes = {
-          "/persistent" = {
-            mountOptions = ["subvol=persistent" "noatime"];
-            mountpoint = "/persistent";
-          };
+      content.partitions.root = {
+        name = "NixOS";
+        size = "100%";
 
-          "/nix" = {
-            mountOptions = ["subvol=nix" "noatime"];
-            mountpoint = "/nix";
+        content = {
+          type = "btrfs";
+          extraArgs = ["-f"];
+
+          subvolumes = {
+            "/persistent" = {
+              mountOptions = ["subvol=persistent" "noatime"];
+              mountpoint = "/persistent";
+            };
+
+            "/nix" = {
+              mountOptions = ["subvol=nix" "noatime"];
+              mountpoint = "/nix";
+            };
           };
         };
       };
