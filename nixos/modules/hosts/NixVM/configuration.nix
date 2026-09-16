@@ -13,11 +13,16 @@
     ...
   }: {
     imports = [
+      self.nixosModules.homeManager
+
       self.nixosModules.NixVMHardware
-      self.nixosModules.hyprland
+      
+      inputs.lanzaboote.nixosModules.lanzaboote
+      self.nixosModules.umbriel
       self.nixosModules.noctalia-shell
       self.nixosModules.desktop
       self.nixosModules.terminal
+      self.nixosModules.boot
     ];
 
     boot.loader.grub.enable = true;
