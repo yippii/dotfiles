@@ -27,8 +27,10 @@
     # Theming with Stylix
     stylix = {
       url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Qt Darkly Widgets
+    darkly.url = "github:Bali10050/Darkly";
 
     # Neovim Configuration
     nix4nvchad.url = "github:nix-community/nix4nvchad";

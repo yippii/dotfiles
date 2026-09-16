@@ -15,7 +15,7 @@
       listenAddress = "0.0.0.0"; # Use "0.0.0.0" for network access
       dataDir = "/var/lib/comfyui";
       openFirewall = true;
-      extraArgs = ["--highvram" "--reserve-vram 0.5" "--cache-none" "--enable-manager"];
+      extraArgs = [];
     };
   };
 }

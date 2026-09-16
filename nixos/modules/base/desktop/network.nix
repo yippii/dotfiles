@@ -11,6 +11,8 @@
       dns = "systemd-resolved";
     };
 
+    services.cloudflare-warp.enable = true;
+
     services.resolved = {
       enable = true;
       #settings.Resolve = {

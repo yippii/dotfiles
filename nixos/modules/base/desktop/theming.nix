@@ -6,9 +6,13 @@
   flake.nixosModules.desktop = {pkgs, ...}: {
     imports = [inputs.stylix.nixosModules.stylix];
 
-    environment.systemPackages = with pkgs; [
-      matugen
-    ];
+    environment.systemPackages = [inputs.darkly.packages.${pkgs.stdenv.hostPlatform.system}.darkly-qt5];
+
+    qt = {
+      enable = true;
+    #  style = "breeze";
+      platformTheme = "qt5ct";
+    };
 
     stylix = {
       enable = true;
@@ -16,21 +20,21 @@
         scheme = "Noctalia Generated";
         author = "Noctalia Shell Dynamic Engine";
         base00 = "#10131c";
-        base01 = "#414659";
-        base02 = "#5cd5fb";
-        base03 = "#e1e1ef";
-        base04 = "#c1c5dd";
+        base01 = "#10131c";
+        base02 = "#414659";
+        base03 = "#10131c";
+        base04 = "#003543";
         base05 = "#e1e1ef";
         base06 = "#003543";
-        base07 = "#003543";
+        base07 = "#e1e1ef";
         base08 = "#ffb4ab";
         base09 = "#ffb4ab";
         base0A = "#87d1eb";
-        base0B = "#5cd5fb";
+        base0B = "#b4c5ff";
         base0C = "#87d1eb";
-        base0D = "#b4c5ff";
-        base0E = "#5cd5fb";
-        base0F = "#b4c5ff";
+        base0D = "#5cd5fb";
+        base0E = "#b4c5ff";
+        base0F = "#5cd5fb";
       };
       polarity = "dark";
       autoEnable = true;
@@ -60,7 +64,11 @@
       targets = {
         fish.enable = false;
         spicetify.enable = false;
-        qt.enable = false;
+        gtksourceview.enable = false;
+        qt = {
+          enable = true;
+          polarity.enable = true;
+        };
       };
     };
   };

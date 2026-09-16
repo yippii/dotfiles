@@ -65,15 +65,11 @@
             kdePackages.ark
             unrar
             opencode-desktop
-          ]
-
-          (lib.mkIf pkgs.stdenv.hostPlatform.isx86_64 [
-            discord
-          ])
-
-          (lib.mkIf pkgs.stdenv.hostPlatform.isAarch64 [
             vesktop
-          ])
+            kdePackages.kinfocenter
+            vlc
+            mpv
+          ]
         ];
 
       sessionVariables.NIXOS_OZONE_WL = "1";

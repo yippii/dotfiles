@@ -6,35 +6,51 @@
   flake.homeModules.qt = {
     pkgs,
     config,
+    lib,
     ...
   }: {
-    home.packages = with pkgs; [
-      kdePackages.dolphin
-      kdePackages.kimageformats
-      kdePackages.kdegraphics-thumbnailers
-      kdePackages.ffmpegthumbs
-      kdePackages.qtimageformats
-      libsForQt5.qt5ct
-      qt6Packages.qt6ct
+    home.packages = lib.mkMerge [
+      (with pkgs; [
+        kdePackages.dolphin
+        kdePackages.kimageformats
+        kdePackages.kdegraphics-thumbnailers
+        kdePackages.ffmpegthumbs
+        kdePackages.qtimageformats
+        libsForQt5.qt5ct
+        qt6Packages.qt6ct
+      ])
+
+      [
+        inputs.darkly.packages.${pkgs.stdenv.hostPlatform.system}.darkly-qt5
+      ]
     ];
 
     qt = {
       enable = true;
-      style = {
-        name = "Darkly";
-        package = with pkgs; [darkly];
-      };
+      #style = {
+      #  name = "Darkly";
+      #  package = [pkgs.darkly inputs.darkly.packages.${pkgs.stdenv.hostPlatform.system}.darkly-qt5];
+      #};
       platformTheme.name = "qtct";
       kde.settings.kdeglobals.General.TerminalApplication = "kitty";
       kde.settings.kdeglobals.Icons.Theme = config.gtk.iconTheme.name;
       kde.settings.kdeglobals.UISettings.ColorScheme = "*";
 
-      qt6ctSettings = {
+      qt5ctSettings = {
         Appearance = {
-          color_scheme_path = "/home/yippie/.config/qt6ct/colors/noctalia.conf";
+      #    color_scheme_path = "/home/yippie/.config/qt6ct/colors/noctalia.conf";
           custom_palette = true;
           icon_theme = "Papirus-Dark";
-          style = "Darkly";
+      #    style = "Breeze";
+        };
+      };
+
+      qt6ctSettings = {
+        Appearance = {
+      #    color_scheme_path = "/home/yippie/.config/qt6ct/colors/noctalia.conf";
+          custom_palette = true;
+          icon_theme = "Papirus-Dark";
+      #    style = "Darkly";
         };
       };
     };

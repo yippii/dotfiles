@@ -18,7 +18,5 @@
     security.polkit.enable = true;
 
     #services.fprintd.enable = true;
-
-    security.soteria.enable = true;
   };
 }

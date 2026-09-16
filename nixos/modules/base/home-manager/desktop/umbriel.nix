@@ -32,7 +32,7 @@
           hdr = "auto"; # off, on, auto, or fullscreen
           sdr_white = 203; # SDR reference white in cd/m2 during HDR
           workspace_axis = "horizontal"; # vertical or horizontal workspace arrangement
-          min_workspaces = 6;
+          min_workspaces = 7;
         };
 
         input = {
@@ -103,7 +103,7 @@
           }
 
           {
-            match.app_id = "org.VinegarHQ.Sober";
+            match.app_id = "org.vinegarhq.Sober";
             default_workspace = 5;
           }
 
@@ -127,6 +127,14 @@
           {
             match.xdg_tag = "^proton-game$";
             default_fullscreen = true;
+          }
+
+          {
+            match.app_id = "dev.noctalia.*";
+            default_floating = true;
+            blur = true;
+            blur_optimized = false;
+            opacity = 0.90;
           }
         ];
 
@@ -157,6 +165,7 @@
 
         keybinds = {
           "Mod+T" = "spawn:app2unit kitty";
+          "Mod+E" = "spawn:app2unit dolphin";
           "Mod+Shift+E" = "spawn:app2unit code";
           "Mod+Q" = "window-close";
           "Mod+F" = "spawn:app2unit zen-beta";
@@ -209,7 +218,7 @@
           "Mod+Shift+9" = "window-move-to-workspace:9";
           "Mod+Shift+0" = "window-move-to-workspace:10";
 
-          "Insert" = "spawn:quodlibet";
+          "Insert" = "spawn:app2unit quodlibet";
 
           "Ctrl+F1" = {
             action = "spawn:noctalia msg volume-mute";
