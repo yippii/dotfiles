@@ -1,4 +1,8 @@
-{inputs, self, ...}: {
+{
+  inputs,
+  self,
+  ...
+}: {
   flake.nixosModules.terminal = {pkgs, ...}: {
     # Font Packages
     fonts.packages = with pkgs; [

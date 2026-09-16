@@ -10,7 +10,7 @@
 
     qt = {
       enable = true;
-    #  style = "breeze";
+      #  style = "breeze";
       platformTheme = "qt5ct";
     };
 

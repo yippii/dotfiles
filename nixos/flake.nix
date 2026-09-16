@@ -2,6 +2,7 @@
   description = "yippie nix flake";
 
   inputs = {
+    # -------- BASIC --------
     # NixOS Base
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -13,9 +14,20 @@
     import-tree.url = "github:vic/import-tree";
 
     # Home Manager
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
+    # Impermenance
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    preservation.url = "github:nix-community/preservation";
+
+    # -------- DESKTOP --------
     # Umbriel WM
     umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
 
@@ -25,20 +37,22 @@
     noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
 
     # Theming with Stylix
-    stylix = {
-      url = "github:nix-community/stylix";
-    };
+    stylix.url = "github:nix-community/stylix";
 
     # Qt Darkly Widgets
     darkly.url = "github:Bali10050/Darkly";
 
     # Neovim Configuration
-    nix4nvchad.url = "github:nix-community/nix4nvchad";
-    nix4nvchad.inputs.nixpkgs.follows = "nixpkgs";
-    nix4nvchad.inputs.nvchad-starter.follows = "nvchad-starter";
+    nix4nvchad = {
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nvchad-starter.follows = "nvchad-starter";
+    };
 
-    nvchad-starter.url = "github:yippii/nvchad-starter";
-    nvchad-starter.flake = false;
+    nvchad-starter = {
+      url = "github:yippii/nvchad-starter";
+      flake = false;
+    };
 
     # Zen Browser
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
@@ -70,13 +84,12 @@
 
     # AI Stuff
     opencode.url = "github:anomalyco/opencode";
-
     comfyui-nix.url = "github:utensils/comfyui-nix";
 
     # Unpatched binaries
     nix-alien.url = "github:thiagokokada/nix-alien";
 
-    # Device Specific
+    # -------- Device Specific --------
 
     # UEFI Secure Boot
     lanzaboote.url = "github:nix-community/lanzaboote/0403b4b7e8b2612657f0053a4c315e6c43eee9e6";

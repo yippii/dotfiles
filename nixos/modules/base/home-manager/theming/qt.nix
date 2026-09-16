@@ -38,19 +38,19 @@
 
       qt5ctSettings = {
         Appearance = {
-      #    color_scheme_path = "/home/yippie/.config/qt6ct/colors/noctalia.conf";
+          #    color_scheme_path = "/home/yippie/.config/qt6ct/colors/noctalia.conf";
           custom_palette = true;
           icon_theme = "Papirus-Dark";
-      #    style = "Breeze";
+          #    style = "Breeze";
         };
       };
 
       qt6ctSettings = {
         Appearance = {
-      #    color_scheme_path = "/home/yippie/.config/qt6ct/colors/noctalia.conf";
+          #    color_scheme_path = "/home/yippie/.config/qt6ct/colors/noctalia.conf";
           custom_palette = true;
           icon_theme = "Papirus-Dark";
-      #    style = "Darkly";
+          #    style = "Darkly";
         };
       };
     };

@@ -16,13 +16,14 @@
       self.nixosModules.homeManager
 
       self.nixosModules.NixVMHardware
-      
+
       inputs.lanzaboote.nixosModules.lanzaboote
       self.nixosModules.umbriel
       self.nixosModules.noctalia-shell
       self.nixosModules.desktop
       self.nixosModules.terminal
       self.nixosModules.boot
+      self.nixosModules.impermanance
     ];
 
     boot.loader.grub.enable = true;
@@ -67,8 +68,6 @@
       curl
       git
     ];
-
-    environment.variables.LIBGL_ALWAYS_SOFTWARE = 1;
 
     virtualisation.vmware.guest.enable = true;
 
