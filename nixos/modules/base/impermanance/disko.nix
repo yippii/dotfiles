@@ -6,8 +6,8 @@
   flake.nixosModules.impermanance = {pkgs, ...}: {
     imports = [inputs.disko.nixosModules.disko];
 
-    filesystem."/nix".neededForBoot = true;
-    filesystem."/persistent".neededForBoot = true;
+    fileSystems."/nix".neededForBoot = true;
+    fileSystems."/persistent".neededForBoot = true;
 
     disko = {
       devices.nodev = {
