@@ -40,18 +40,6 @@
       time.timeZone = "America/Toronto";
 
       i18n.defaultLocale = "en_US.UTF-8";
-
-      users.users.yippie = {
-        isNormalUser = true;
-        extraGroups = [
-          "wheel"
-          "networkmanager"
-        ];
-        packages = with pkgs; [
-          starship
-        ];
-      };
-
       customSettings.disableDesktop = false;
 
       environment.systemPackages = with pkgs; [

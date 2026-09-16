@@ -48,14 +48,6 @@
     services.libinput.enable = true;
     services.touchegg.enable = true;
 
-    users.users.yippie = {
-      isNormalUser = true;
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-      ];
-    };
-
     environment.systemPackages = [pkgs.libinput-gestures];
 
     hardware.graphics = {

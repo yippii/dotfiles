@@ -6,6 +6,8 @@
   flake.nixosModules.impermanance = {pkgs, ...}: {
     imports = [inputs.preservation.nixosModules.default];
 
+    boot.tmp.cleanOnBoot = true;
+
     preservation = {
       enable = true;
 
@@ -17,12 +19,15 @@
           "/var/lib/fprint"
           "/var/lib/fwupd"
           "/var/lib/libvirt"
+          "/var/lib/nixos"
+          "/etc/NetworkManager/system-conncetions"
           "/var/lib/power-profiles-daemon"
           "/var/lib/systemd/coredump"
           "/var/lib/systemd/rfkill"
           "/var/lib/systemd/timers"
           "/var/lib/sbctl"
           "/var/log"
+          "/tmp"
           {
             directory = "/var/lib/nixos";
             inInitrd = true;
