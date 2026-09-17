@@ -8,11 +8,8 @@
     pkgs,
     ...
   }: {
-<<<<<<< HEAD
     environment.systemPackages = [pkgs.kitty.terminfo];
 
-=======
->>>>>>> refs/remotes/origin/main
     services.openssh = {
       enable = true;
 
@@ -21,13 +18,8 @@
       settings = {
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = true;
-<<<<<<< HEAD
         PermitRootLogin = "yes";
         AllowUsers = ["yippie" "root"];
-=======
-        PermitRootLogin = "no";
-        AllowUsers = ["yippie"];
->>>>>>> refs/remotes/origin/main
       };
     };
   };

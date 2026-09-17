@@ -8,19 +8,14 @@
     pkgs,
     ...
   }: {
-<<<<<<< HEAD
     services.logind.settings.Login.HandleLidSwitch = "ignore";
     services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
 
     environment.systemPackages = with pkgs; [exiftool ffmpeg];
-=======
-    services.logind.lidSwitch = "ignore";
-    services.logind.lidSwitchExternalPower = "ignore";
->>>>>>> refs/remotes/origin/main
 
     services.nextcloud = {
       enable = true;
-      package = pkgs.nextcloud33;
+      package = pkgs.nextcloud34;
       hostName = "yippie-nextcloud.drake-istrian.ts.net";
       https = true;
 
@@ -28,22 +23,16 @@
 
       configureRedis = true;
 
-<<<<<<< HEAD
-      config.dbtype = "sqlite";
       config.adminuser = null;
-=======
-      config.adminpassFile = "/etc/nextcloud-pass";
       config.dbtype = "sqlite";
       config.overwriteProtocol = "https";
->>>>>>> refs/remotes/origin/main
 
       extraAppsEnable = true;
       extraApps = {
         inherit (config.services.nextcloud.package.packages.apps) news contacts calendar tasks;
-<<<<<<< HEAD
         memories = pkgs.fetchNextcloudApp {
-          sha256 = "sha256-B+O78qjBQbmMnFAvH/5a+YBive+rkBG9AKTX7G3qNR0=";
-          url = "https://github.com/pulsejet/memories/releases/download/v8.0.1/memories.tar.gz";
+          sha256 = "sha256-xrGXpjBVvW4qtlrPynGh8c2ImmJ/u0itqHETZND0nzA=";
+          url = "https://github.com/pulsejet/memories/releases/download/v9.0.1/memories.tar.gz";
           license = "agpl3Only";
         };
       };
@@ -64,31 +53,12 @@
         mail_smtpport = 587;
         mail_smtpauth = true;
       };
-=======
-      };
-
-      settings.trusted_domains = [
-        "yippie-nextcloud.drake-istrian.ts.net"
-      ];
->>>>>>> refs/remotes/origin/main
     };
 
     services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
       enableACME = false;
       sslCertificate = "/var/lib/tailscale/certs/yippie-nextcloud.drake-istrian.ts.net.crt";
       sslCertificateKey = "/var/lib/tailscale/certs/yippie-nextcloud.drake-istrian.ts.net.key";
-<<<<<<< HEAD
-    };
-
-    services.avahi = {
-      enable = true;
-      nssmdns4 = true;
-      publish = {
-        enable = true;
-        addresses = true;
-        workstation = true;
-      };
-=======
 
       listen = [
         {
@@ -101,7 +71,16 @@
           port = 443;
         }
       ];
->>>>>>> refs/remotes/origin/main
+    };
+
+    services.avahi = {
+      enable = true;
+      nssmdns4 = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        workstation = true;
+      };
     };
 
     networking.firewall.allowedTCPPorts = [80 443];
