@@ -9,7 +9,6 @@
       };
     };
 
-    # 4. 放行本地防火牆的 HTTP/HTTPS 以及 Tailscale 埠
     networking.firewall.allowedTCPPorts = [ 80 443 ];
     networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
@@ -28,7 +27,7 @@
         config = {
             # Refer to https://github.com/dani-garcia/vaultwarden/blob/main/.env.template
             SIGNUPS_ALLOWED = true;
-
+            DOMAIN = "https://yippie-nextcloud.drake-istrian.ts.net";
             ROCKET_ADDRESS = "127.0.0.1";
             ROCKET_PORT = 8222;
             ROCKET_LOG = "critical";

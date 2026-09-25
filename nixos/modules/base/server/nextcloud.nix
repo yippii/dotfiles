@@ -10,6 +10,7 @@
   }: {
     services.nextcloud = {
       enable = true;
+      enableNginx = true;
       package = pkgs.nextcloud35;
       hostName = "yippie-nextcloud.drake-istrian.ts.net";
       https = true;
@@ -33,6 +34,7 @@
       ];
     };
 
+/*
     services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
       enableACME = false;
       sslCertificate = "/var/lib/tailscale/certs/yippie-nextcloud.drake-istrian.ts.net.crt";
@@ -50,6 +52,7 @@
         }
       ];
     };
+*/
 
     networking.firewall.allowedTCPPorts = [80 443];
   };
