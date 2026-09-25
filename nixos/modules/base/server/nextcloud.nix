@@ -10,7 +10,7 @@
   }: {
     services.nextcloud = {
       enable = true;
-      package = pkgs.nextcloud33;
+      package = pkgs.nextcloud35;
       hostName = "yippie-nextcloud.drake-istrian.ts.net";
       https = true;
 
