@@ -24,11 +24,12 @@
 
       extraAppsEnable = true;
       extraApps = {
-        inherit (config.services.nextcloud.package.packages.apps) news contacts calendar tasks;
+        inherit (config.services.nextcloud.package.packages.apps) contacts calendar music onlyoffice tasks;
       };
 
       settings.trusted_domains = [
         "yippie-nextcloud.drake-istrian.ts.net"
+        "192.168.0.92"
       ];
     };
 
