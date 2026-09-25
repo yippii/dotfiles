@@ -26,9 +26,6 @@
       self.nixosModules.impermanance
     ];
 
-    boot.loader.grub.enable = true;
-    boot.loader.grub.efiSupport = true;
-    boot.loader.grub.device = "nodev";
     boot.loader.efi.efiSysMountPoint = "/boot";
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -37,12 +34,6 @@
     networking.networkmanager.enable = true;
 
     time.timeZone = "America/Toronto";
-
-    i18n.defaultLocale = "en_US.UTF-8";
-    console = {
-      font = "Lat2-Terminus16";
-      useXkbConfig = true; # use xkb.options in tty.
-    };
 
     services.printing.enable = true;
 

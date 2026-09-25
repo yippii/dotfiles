@@ -105,7 +105,15 @@
           {
             match.app_id = "org.vinegarhq.Sober";
             default_workspace = 5;
+            default_fullscreen = true;
           }
+
+          {
+            match.xdg_tag = "^proton-game$";
+            default_workspace = 5;
+            default_fullscreen = true;
+          }
+
 
           {
             match.app_id = "kitty";
@@ -122,11 +130,6 @@
           {
             match.title = "^(Open File|Select|Choose a wallpaper|Open Folder|Save As|Library|Choose Where to Download|File Operation Progress|Rename|Copy Files|Move Files|Search Files)";
             default_floating = true;
-          }
-
-          {
-            match.xdg_tag = "^proton-game$";
-            default_fullscreen = true;
           }
 
           {

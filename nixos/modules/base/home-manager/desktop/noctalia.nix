@@ -34,7 +34,7 @@
           tint_intensity = 0.30000001192092896;
         };
         bar = {
-          order = ["default"];
+          order = [ "default" ];
           default = {
             auto_hide = false;
             background_opacity = 0.699999988079071;
@@ -46,11 +46,11 @@
             capsule_padding = 6.0;
             capsule_radius = 5.0;
             capsule_thickness = 0.7599999904632568;
-            center = ["widget" "group:g2"];
+            center = [ "widget" "clock" "media" ];
             concave_edge_corners = true;
             contact_shadow = false;
             enabled = true;
-            end = ["group:g1" "group:g4" "clipboard" "control-center" "session"];
+            end = [ "group:g1" "group:g4" "clipboard" "control-center" "session" ];
             font_scale = 1.0;
             font_weight = 500;
             hover_highlight = true;
@@ -71,58 +71,44 @@
             shadow = true;
             show_on_workspace_switch = true;
             smart_auto_hide = true;
-            start = ["group:g3" "workspaces"];
+            start = [ "group:g3" "workspaces" ];
             thickness = 40;
             widget_spacing = 3;
             dead_zone = {
+              
             };
-            capsule_group = [
-              {
-                accordion = false;
-                accordion_direction = "end";
-                enabled = true;
-                fill = "surface_variant";
-                id = "g1";
-                members = ["tray" "recorder"];
-                opacity = 0.0;
-                padding = 6.0;
-                radius = 5.0;
-              }
-              {
-                accordion = false;
-                accordion_direction = "end";
-                enabled = true;
-                fill = "surface_variant";
-                id = "g2";
-                members = ["clock" "media"];
-                opacity = 0.0;
-                padding = 6.0;
-                radius = 5.0;
-              }
-              {
-                accordion = false;
-                accordion_direction = "end";
-                enabled = true;
-                fill = "surface_variant";
-                id = "g3";
-                members = ["launcher" "notifications"];
-                opacity = 0.0;
-                padding = 6.0;
-                radius = 5.0;
-              }
-              {
-                accordion = false;
-                accordion_direction = "end";
-                enabled = true;
-                fill = "surface_variant";
-                id = "g4";
-                members = ["network" "bluetooth" "volume" "brightness" "battery"];
-                opacity = 0.0;
-                padding = 6.0;
-                radius = 5.0;
-                widget_spacing = 10;
-              }
-            ];
+            capsule_group = [ {
+              accordion = false;
+              accordion_direction = "end";
+              enabled = true;
+              fill = "surface_variant";
+              id = "g1";
+              members = [ "tray" ];
+              opacity = 0.0;
+              padding = 6.0;
+              radius = 5.0;
+            } {
+              accordion = false;
+              accordion_direction = "end";
+              enabled = true;
+              fill = "surface_variant";
+              id = "g3";
+              members = [ "launcher" "notifications" "bar" "status_2" ];
+              opacity = 0.0;
+              padding = 6.0;
+              radius = 5.0;
+            } {
+              accordion = false;
+              accordion_direction = "end";
+              enabled = true;
+              fill = "surface_variant";
+              id = "g4";
+              members = [ "recorder" "network" "warp_2" "bluetooth" "volume" "brightness" "battery" ];
+              opacity = 0.0;
+              padding = 6.0;
+              radius = 5.0;
+              widget_spacing = 10;
+            } ];
           };
         };
         battery = {
@@ -130,7 +116,7 @@
         };
         brightness = {
           enable_ddcutil = false;
-          ignore_mmids = [];
+          ignore_mmids = [  ];
           minimum_brightness = 0.0;
           sync_all_monitors = false;
         };
@@ -141,7 +127,7 @@
           refresh_minutes = 15;
           account = {
             liboris20 = {
-              calendars = [];
+              calendars = [  ];
               color = "";
               credential_source = "secret-service";
               name = "Boris Li";
@@ -155,70 +141,62 @@
           };
         };
         control_center = {
-          hidden_tabs = [];
+          hidden_tabs = [  ];
           show_session_button = true;
-          show_shortcut_labels = true;
+          show_shortcut_labels = false;
           sidebar = "compact";
-          sidebar_section = "compact";
-          width = 700;
+          sidebar_section = "none";
+          width = 800;
           calendar = {
             show_events_card = true;
             show_week_numbers = false;
           };
-          shortcuts = [
-            {
-              type = "wifi";
-            }
-            {
-              type = "bluetooth";
-            }
-            {
-              type = "caffeine";
-            }
-            {
-              type = "nightlight";
-            }
-            {
-              type = "notification";
-            }
-            {
-              type = "power_profile";
-            }
-          ];
+          shortcuts = [ {
+            type = "wifi";
+          } {
+            type = "bluetooth";
+          } {
+            type = "caffeine";
+          } {
+            type = "notification";
+          } {
+            type = "power_profile";
+          } ];
         };
         desktop_widgets = {
           enabled = true;
           schema_version = 1;
-          widget_order = ["desktop-widget-0000000000000002" "desktop-widget-0000000000000004" "desktop-widget-0000000000000005" "desktop-widget-0000000000000006" "desktop-widget-0000000000000007"];
+          widget_order = [ "desktop-widget-0000000000000002" "desktop-widget-0000000000000004" "desktop-widget-0000000000000005" "desktop-widget-0000000000000006" "desktop-widget-0000000000000007" ];
           grid = {
             cell_size = 8;
             major_interval = 4;
-            visible = false;
+            visible = true;
           };
           widget = {
             desktop-widget-0000000000000002 = {
               box_height = 112.0;
               box_width = 192.0;
-              cx = 1593.0;
-              cy = 369.5;
+              cx = 1493.1458740234375;
+              cy = 324.0;
               enabled = true;
               output = "eDP-1";
-              placement_height = 1067.0;
-              placement_width = 1707.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "weather";
               settings = {
+                
               };
             };
             desktop-widget-0000000000000004 = {
               box_height = 112.0;
               box_width = 192.0;
-              cx = 1593.0;
-              cy = 501.5;
+              cx = 1493.1458740234375;
+              cy = 444.0;
               enabled = true;
               output = "eDP-1";
-              placement_height = 1067.0;
-              placement_width = 1707.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "sysmon";
               settings = {
@@ -229,12 +207,12 @@
             desktop-widget-0000000000000005 = {
               box_height = 112.0;
               box_width = 192.0;
-              cx = 1593.0;
-              cy = 237.5;
+              cx = 1493.1458740234375;
+              cy = 204.00001525878906;
               enabled = true;
               output = "eDP-1";
-              placement_height = 1067.0;
-              placement_width = 1707.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "volume";
               settings = {
@@ -256,26 +234,27 @@
             desktop-widget-0000000000000006 = {
               box_height = 160.0;
               box_width = 368.0;
-              cx = 541.5;
-              cy = 565.5;
+              cx = 507.55712890625;
+              cy = 529.9906005859375;
               enabled = true;
               output = "eDP-1";
-              placement_height = 1067.0;
-              placement_width = 1707.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "media_player";
               settings = {
+                
               };
             };
             desktop-widget-0000000000000007 = {
               box_height = 64.0;
               box_width = 88.0;
-              cx = 551.7734375;
-              cy = 610.52734375;
+              cx = 517.1865844726562;
+              cy = 572.1905517578125;
               enabled = true;
               output = "eDP-1";
-              placement_height = 1067.0;
-              placement_width = 1707.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "audio_visualizer";
               settings = {
@@ -288,7 +267,7 @@
         };
         dock = {
           active_monitor_only = true;
-          active_opacity = 1.0;
+          active_opacity = 0.8999999761581421;
           active_scale = 1.0;
           auto_hide = true;
           background_opacity = 0.3999999761581421;
@@ -311,8 +290,8 @@
           main_axis_padding = 16;
           margin_edge = 0;
           margin_ends = 0;
-          monitors = [];
-          pinned = ["zen-beta" "dolphin" "kitty"];
+          monitors = [  ];
+          pinned = [ "zen-beta" "org.kde.dolphin" "kitty" ];
           position = "bottom";
           radius = 10;
           radius_bottom_left = 10;
@@ -327,24 +306,24 @@
           smart_auto_hide = false;
         };
         hooks = {
-          battery_charging = [];
-          battery_discharging = [];
-          battery_percentage_changed = [];
-          battery_plugged = [];
-          bluetooth_disabled = [];
-          bluetooth_enabled = [];
-          colors_changed = [];
-          logging_out = [];
-          power_profile_changed = [];
-          rebooting = [];
-          session_locked = [];
-          session_unlocked = [];
-          shutting_down = [];
-          started = [];
-          theme_mode_changed = [];
-          wallpaper_changed = [];
-          wifi_disabled = [];
-          wifi_enabled = [];
+          battery_charging = [  ];
+          battery_discharging = [  ];
+          battery_percentage_changed = [  ];
+          battery_plugged = [  ];
+          bluetooth_disabled = [  ];
+          bluetooth_enabled = [  ];
+          colors_changed = [  ];
+          logging_out = [  ];
+          power_profile_changed = [  ];
+          rebooting = [  ];
+          session_locked = [  ];
+          session_unlocked = [  ];
+          shutting_down = [  ];
+          started = [  ];
+          theme_mode_changed = [  ];
+          wallpaper_changed = [  ];
+          wifi_disabled = [  ];
+          wifi_enabled = [  ];
         };
         hot_corners = {
           delay_ms = 0;
@@ -367,7 +346,7 @@
           };
         };
         idle = {
-          behavior_order = ["lock" "screen-off" "suspend"];
+          behavior_order = [ "lock" "screen-off" "suspend" ];
           pre_action_fade_seconds = 2.0;
           behavior = {
             lock = {
@@ -397,17 +376,17 @@
           };
         };
         keybinds = {
-          cancel = ["Escape"];
-          copy = ["Ctrl+c"];
-          delete = ["Delete"];
-          down = ["Down"];
-          left = ["Left"];
-          right = ["Right"];
-          save = ["Ctrl+s"];
-          tab_next = ["Tab"];
-          tab_previous = ["Shift+ISO_Left_Tab"];
-          up = ["Up"];
-          validate = ["Return" "KP_Enter" "space"];
+          cancel = [ "Escape" ];
+          copy = [ "Ctrl+c" ];
+          delete = [ "Delete" ];
+          down = [ "Down" ];
+          left = [ "Left" ];
+          right = [ "Right" ];
+          save = [ "Ctrl+s" ];
+          tab_next = [ "Tab" ];
+          tab_previous = [ "Shift+ISO_Left_Tab" ];
+          up = [ "Up" ];
+          validate = [ "Return" "KP_Enter" "space" ];
         };
         location = {
           address = "";
@@ -423,67 +402,66 @@
           enabled = true;
           fingerprint = true;
           lock_before_suspend = true;
-          monitors = [];
+          monitors = [  ];
           tint_intensity = 0.30000001192092896;
           wallpaper = "";
         };
         lockscreen_widgets = {
           enabled = true;
           schema_version = 1;
-          widget_order = [
-            "lockscreen-widget-000000000000000c"
-            "lockscreen-widget-000000000000001b"
-            "lockscreen-widget-000000000000000a"
-            "lockscreen-widget-000000000000000b"
-            "lockscreen-widget-000000000000000e"
-            "lockscreen-widget-0000000000000009"
-            "lockscreen-widget-0000000000000001"
-            "lockscreen-login-box@eDP-1"
-            "lockscreen-widget-0000000000000002"
-            "lockscreen-widget-0000000000000003"
-            "lockscreen-widget-0000000000000005"
-            "lockscreen-widget-0000000000000008"
-            "lockscreen-widget-000000000000000d"
-            "lockscreen-widget-000000000000000f"
-            "lockscreen-widget-0000000000000011"
-            "lockscreen-widget-0000000000000012"
-            "lockscreen-widget-0000000000000013"
-            "lockscreen-widget-0000000000000014"
-            "lockscreen-widget-0000000000000015"
-            "lockscreen-widget-0000000000000016"
-            "lockscreen-widget-0000000000000017"
-            "lockscreen-widget-0000000000000018"
-            "lockscreen-widget-0000000000000019"
-            "lockscreen-widget-000000000000001a"
-            "lockscreen-widget-000000000000001d"
-            "lockscreen-widget-000000000000001e"
-            "lockscreen-widget-000000000000001f"
-            "lockscreen-widget-0000000000000020"
-            "lockscreen-widget-0000000000000021"
-          ];
+          widget_order = [ "lockscreen-login-box@WL-1" "lockscreen-widget-000000000000000c" "lockscreen-widget-000000000000001b" "lockscreen-widget-000000000000000a" "lockscreen-widget-000000000000000b" "lockscreen-widget-000000000000000e" "lockscreen-widget-0000000000000009" "lockscreen-widget-0000000000000001" "lockscreen-login-box@eDP-1" "lockscreen-widget-0000000000000003" "lockscreen-widget-0000000000000005" "lockscreen-widget-0000000000000008" "lockscreen-widget-000000000000000d" "lockscreen-widget-000000000000000f" "lockscreen-widget-0000000000000011" "lockscreen-widget-0000000000000012" "lockscreen-widget-0000000000000013" "lockscreen-widget-0000000000000014" "lockscreen-widget-0000000000000015" "lockscreen-widget-0000000000000016" "lockscreen-widget-0000000000000017" "lockscreen-widget-0000000000000018" "lockscreen-widget-0000000000000019" "lockscreen-widget-000000000000001a" "lockscreen-widget-000000000000001d" "lockscreen-widget-000000000000001e" "lockscreen-widget-000000000000001f" "lockscreen-widget-0000000000000020" "lockscreen-widget-0000000000000021" "lockscreen-widget-0000000000000022" "lockscreen-widget-0000000000000023" ];
           grid = {
             cell_size = 8;
             major_interval = 4;
             visible = true;
           };
           widget = {
-            "lockscreen-login-box@eDP-1" = {
-              box_height = 150.0;
-              box_width = 810.0;
-              cx = 960.0;
-              cy = 951.0;
-              output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+            "lockscreen-login-box@WL-1" = {
+              box_height = 196.0;
+              box_width = 756.0;
+              cx = 394.0;
+              cy = 804.0;
+              enabled = true;
+              output = "WL-1";
+              placement_height = 986.0;
+              placement_width = 788.0;
               rotation = 0.0;
               type = "login_box";
               settings = {
                 background_color = "surface_variant";
                 background_opacity = 0.88;
-                background_radius = 20.0;
+                background_radius = 12.0;
+                center_password_text = false;
+                input_opacity = 1.0;
+                input_radius = 6.0;
+                layout = "regular";
+                show_caps_lock = true;
+                show_keyboard_layout = true;
+                show_login_button = true;
+                show_media = true;
+                show_session_buttons = true;
+                show_unlock_hint = true;
+                show_weather = true;
+              };
+            };
+            "lockscreen-login-box@eDP-1" = {
+              box_height = 150.0;
+              box_width = 810.0;
+              cx = 800.0;
+              cy = 880.5555419921875;
+              enabled = true;
+              output = "eDP-1";
+              placement_height = 1000.0;
+              placement_width = 1600.0;
+              rotation = 0.0;
+              type = "login_box";
+              settings = {
+                background_color = "surface_variant";
+                background_opacity = 0.88;
+                background_radius = 32.0;
                 center_password_text = true;
                 input_opacity = 1.0;
-                input_radius = 10.0;
+                input_radius = 20.0;
                 layout = "regular";
                 show_caps_lock = true;
                 show_keyboard_layout = true;
@@ -497,11 +475,12 @@
             lockscreen-widget-0000000000000001 = {
               box_height = 368.0;
               box_width = 464.0;
-              cx = 952.0;
-              cy = 468.0;
+              cx = 793.75;
+              cy = 434.57098388671875;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "clock";
               settings = {
@@ -512,19 +491,21 @@
                 center_text = true;
                 clock_style = "digital";
                 font_family = "Google Sans Flex";
-                format = "{:%H:%M}\n";
+                format = ''
+      {:%H:%M}
+      '';
                 shadow = false;
-                title = "";
               };
             };
             lockscreen-widget-0000000000000003 = {
               box_height = 32.0;
               box_width = 80.0;
-              cx = 1589.221923828125;
-              cy = 978.1924438476562;
+              cx = 1324.3516845703125;
+              cy = 905.7337036132812;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.2617993950843811;
               type = "label";
               settings = {
@@ -540,32 +521,32 @@
             lockscreen-widget-0000000000000005 = {
               box_height = 112.0;
               box_width = 208.0;
-              cx = 840.0;
-              cy = 572.0;
+              cx = 689.75;
+              cy = 528.0;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "volume";
               settings = {
                 background = true;
                 background_color = "on_secondary";
                 background_opacity = 0.5;
-                background_radius = 0;
-                color = "surface";
+                background_radius = 9;
                 shadow = false;
-                title = "";
               };
             };
             lockscreen-widget-0000000000000008 = {
               box_height = 24.0;
               box_width = 328.0;
-              cx = 948.0;
-              cy = 464.0;
+              cx = 790.0;
+              cy = 429.629638671875;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
-              rotation = -0.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
+              rotation = 0.0;
               type = "clock";
               settings = {
                 background = false;
@@ -580,11 +561,12 @@
             lockscreen-widget-0000000000000009 = {
               box_height = 374.9442443847656;
               box_width = 475.6770324707031;
-              cx = 950.58740234375;
-              cy = 474.017333984375;
+              cx = 792.1561279296875;
+              cy = 438.9049987792969;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = -0.1333654522895813;
               type = "label";
               settings = {
@@ -598,12 +580,13 @@
             lockscreen-widget-000000000000000a = {
               box_height = 144.0;
               box_width = 800.0;
-              cx = 944.0;
-              cy = 964.0;
+              cx = 786.6666259765625;
+              cy = 892.5927124023438;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
-              rotation = -0.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
+              rotation = 0.0;
               type = "label";
               settings = {
                 background_color = "on_secondary";
@@ -615,11 +598,12 @@
             lockscreen-widget-000000000000000b = {
               box_height = 928.8473510742188;
               box_width = 2487.954833984375;
-              cx = 730.8377685546875;
+              cx = 609.0314331054688;
               cy = 0.0;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = -0.27045175433158875;
               type = "label";
               settings = {
@@ -632,11 +616,12 @@
             lockscreen-widget-000000000000000c = {
               box_height = 657.2086791992188;
               box_width = 2403.496826171875;
-              cx = 1135.51171875;
-              cy = 1080.0;
+              cx = 0.0;
+              cy = 1000.0;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = -0.27045175433158875;
               type = "label";
               settings = {
@@ -644,46 +629,43 @@
                 background_color = "on_secondary";
                 background_opacity = 0.3;
                 shadow = false;
-                show_events = false;
-                show_week_numbers = false;
                 title = " ";
               };
             };
             lockscreen-widget-000000000000000d = {
               box_height = 152.0;
               box_width = 160.0;
-              cx = 224.0;
-              cy = 264.0;
+              cx = 186.66665649414062;
+              cy = 244.44444274902344;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "label";
               settings = {
                 background = false;
                 background_opacity = 1.0;
                 background_radius = 10;
-                forecast_days = 2;
                 shadow = false;
-                show_forecast = true;
                 title = " ";
               };
             };
             lockscreen-widget-000000000000000e = {
               box_height = 152.0;
               box_width = 160.0;
-              cx = 224.0;
-              cy = 264.0;
+              cx = 186.66665649414062;
+              cy = 244.44444274902344;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.5235987901687622;
               type = "label";
               settings = {
                 background = false;
                 background_opacity = 1.0;
                 background_radius = 10;
-                hide_when_no_media = true;
                 shadow = false;
                 title = " ";
               };
@@ -691,11 +673,12 @@
             lockscreen-widget-000000000000000f = {
               box_height = 152.0;
               box_width = 160.0;
-              cx = 224.0;
-              cy = 264.0;
+              cx = 186.66665649414062;
+              cy = 244.44444274902344;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 1.0471975803375244;
               type = "label";
               settings = {
@@ -710,11 +693,12 @@
             lockscreen-widget-0000000000000011 = {
               box_height = 112.0;
               box_width = 112.0;
-              cx = 1779.5025634765625;
-              cy = 120.49742126464844;
+              cx = 1482.9188232421875;
+              cy = 111.57168579101562;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.5235987901687622;
               type = "label";
               settings = {
@@ -723,21 +707,19 @@
                 background_opacity = 1.0;
                 background_radius = 20;
                 color = "secondary";
-                display = "gauge";
                 shadow = false;
-                stat = "cpu_usage";
-                stat2 = "cpu_temp";
                 title = " ";
               };
             };
             lockscreen-widget-0000000000000012 = {
               box_height = 64.0;
               box_width = 64.0;
-              cx = 1628.413818359375;
-              cy = 156.7179718017578;
+              cx = 1357.0115966796875;
+              cy = 145.10923767089844;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = -0.2617993950843811;
               type = "label";
               settings = {
@@ -750,11 +732,12 @@
             lockscreen-widget-0000000000000013 = {
               box_height = 56.0;
               box_width = 56.0;
-              cx = 1790.2486572265625;
-              cy = 266.24871826171875;
+              cx = 1491.8739013671875;
+              cy = 246.52658081054688;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.5235987901687622;
               type = "label";
               settings = {
@@ -768,11 +751,12 @@
             lockscreen-widget-0000000000000014 = {
               box_height = 96.0;
               box_width = 96.0;
-              cx = 80.0;
-              cy = 105.21224975585938;
+              cx = 66.66666412353516;
+              cy = 97.41874694824219;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.2617993950843811;
               type = "label";
               settings = {
@@ -786,11 +770,12 @@
             lockscreen-widget-0000000000000015 = {
               box_height = 56.0;
               box_width = 56.0;
-              cx = 265.75128173828125;
-              cy = 76.0;
+              cx = 221.45941162109375;
+              cy = 70.37036895751953;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.5235987901687622;
               type = "label";
               settings = {
@@ -798,25 +783,19 @@
                 background_color = "on_secondary";
                 background_opacity = 1.0;
                 background_radius = 32;
-                bands = 20;
-                centered = false;
-                color_1 = "on_surface";
-                color_2 = "on_surface";
-                mirrored = true;
-                reversed = true;
-                show_when_idle = false;
                 title = " ";
               };
             };
             lockscreen-widget-0000000000000016 = {
               box_height = 152.0;
               box_width = 800.0;
-              cx = 960.0;
-              cy = 750.13671875;
+              cx = 800.0;
+              cy = 694.571044921875;
+              enabled = true;
               flip_y = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = -3.1415927410125732;
               type = "audio_visualizer";
               settings = {
@@ -833,117 +812,108 @@
             lockscreen-widget-0000000000000017 = {
               box_height = 0.0;
               box_width = 0.0;
-              cx = 952.5;
-              cy = 244.0;
+              cx = 793.75;
+              cy = 225.92591857910156;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "label";
               settings = {
                 background = false;
                 color = "surface";
-                display = "gauge";
                 font_family = "JetBrainsMono NF ExtraLight";
                 shadow = false;
-                stat = "cpu_temp";
-                stat2 = "cpu_temp";
                 title = "L   O   C   K   E   D";
               };
             };
             lockscreen-widget-0000000000000018 = {
               box_height = 40.0;
               box_width = 144.0;
-              cx = 1022.58740234375;
-              cy = 540.0;
+              cx = 872.0000610351562;
+              cy = 492.0;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "button";
               settings = {
                 background = true;
                 color = "secondary";
-                display = "gauge";
                 glyph = "noctalia";
                 label = " Noctalia v5";
-                shadow = false;
-                stat = "ram_pct";
-                stat2 = "cpu_temp";
                 variant = "ghost";
               };
             };
             lockscreen-widget-0000000000000019 = {
               box_height = 40.0;
               box_width = 128.0;
-              cx = 1016.37890625;
-              cy = 568.640625;
+              cx = 856.1561279296875;
+              cy = 523.25927734375;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "button";
               settings = {
                 background = true;
-                background_color = "on_surface";
-                background_padding = 0;
-                background_radius = 0;
                 color = "primary";
-                glyph = "hyprland";
+                glyph = "umbriel";
                 hover_background = "hover";
                 label = " Umbriel";
-                title = "";
                 variant = "ghost";
               };
             };
             lockscreen-widget-000000000000001a = {
               box_height = 32.0;
               box_width = 208.0;
-              cx = 1064.0;
-              cy = 604.0;
+              cx = 904.0;
+              cy = 559.25927734375;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.0;
               type = "button";
               settings = {
                 background = true;
-                background_color = "on_surface_variant";
-                background_padding = 0;
-                background_radius = 0;
                 color = "on_secondary";
                 glyph = "lock-filled";
                 hover_background = "hover";
                 label = " L'appareil est verrouillé   ";
-                title = "";
                 variant = "destructive";
               };
             };
             lockscreen-widget-000000000000001b = {
               box_height = 40.0;
               box_width = 808.0;
-              cx = 946.96875;
-              cy = 854.1923828125;
+              cx = 790.6666259765625;
+              cy = 784.0;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
-              rotation = -0.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
+              rotation = 0.0;
               type = "label";
               settings = {
                 background_color = "on_secondary";
-                background_radius = 20;
+                background_radius = 15;
                 title = " ";
               };
             };
             lockscreen-widget-000000000000001d = {
               box_height = 120.0;
               box_width = 120.0;
-              cx = 248.0;
-              cy = 228.0;
+              cx = 206.66665649414062;
+              cy = 211.1111297607422;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
-              rotation = -0.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
+              rotation = 0.0;
               type = "label";
               settings = {
                 background = true;
@@ -957,11 +927,12 @@
             lockscreen-widget-000000000000001e = {
               box_height = 120.0;
               box_width = 120.0;
-              cx = 248.0;
-              cy = 228.0;
+              cx = 206.66665649414062;
+              cy = 211.1111297607422;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = -0.5235987901687622;
               type = "label";
               settings = {
@@ -976,11 +947,12 @@
             lockscreen-widget-000000000000001f = {
               box_height = 120.0;
               box_width = 120.0;
-              cx = 249.32052612304688;
-              cy = 227.22598266601562;
+              cx = 207.76710510253906;
+              cy = 210.39442443847656;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = -1.0471975803375244;
               type = "label";
               settings = {
@@ -995,11 +967,12 @@
             lockscreen-widget-0000000000000020 = {
               box_height = 120.0;
               box_width = 120.0;
-              cx = 1793.9615478515625;
-              cy = 114.24871063232422;
+              cx = 1494.9681396484375;
+              cy = 105.78584289550781;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = -1.0471975803375244;
               type = "label";
               settings = {
@@ -1014,11 +987,12 @@
             lockscreen-widget-0000000000000021 = {
               box_height = 48.0;
               box_width = 48.0;
-              cx = 318.14361572265625;
-              cy = 95.66973876953125;
+              cx = 265.1196594238281;
+              cy = 88.58309936523438;
+              enabled = true;
               output = "eDP-1";
-              placement_height = 1080.0;
-              placement_width = 1920.0;
+              placement_height = 1000.0;
+              placement_width = 1600.0;
               rotation = 0.5235987901687622;
               type = "label";
               settings = {
@@ -1027,6 +1001,41 @@
                 background_padding = 0;
                 background_radius = 32;
                 title = " ";
+              };
+            };
+            lockscreen-widget-0000000000000022 = {
+              box_height = 0.0;
+              box_width = 0.0;
+              cx = 1544.5;
+              cy = 943.0;
+              enabled = true;
+              output = "eDP-1";
+              placement_height = 1000.0;
+              placement_width = 1600.0;
+              rotation = 0.0;
+              type = "yocraft/battery-widget:widget";
+              settings = {
+                hide_full = false;
+                hide_plugged = false;
+                label_content = "time";
+                show_label = true;
+              };
+            };
+            lockscreen-widget-0000000000000023 = {
+              box_height = 136.0;
+              box_width = 232.0;
+              cx = 1334.3529052734375;
+              cy = 819.7059326171875;
+              enabled = true;
+              output = "eDP-1";
+              placement_height = 1000.0;
+              placement_width = 1600.0;
+              rotation = 0.2617993950843811;
+              type = "sticker";
+              settings = {
+                background = false;
+                image_path = "/home/yippie/Projects/dotfiles-private/talala.png";
+                opacity = 1.0;
               };
             };
           };
@@ -1046,7 +1055,7 @@
           keep_dismissed_in_history = true;
           layer = "top";
           max_visible = 0;
-          monitors = [];
+          monitors = [  ];
           offset_x = 20;
           offset_y = 8;
           position = "top_right";
@@ -1058,7 +1067,7 @@
           background_opacity = 0.3999999761581421;
           border = true;
           enabled = true;
-          monitors = [];
+          monitors = [  ];
           offset_x = 20;
           offset_y = 8;
           orientation = "horizontal";
@@ -1084,24 +1093,30 @@
           };
         };
         plugin_settings = {
+          "mindnbytes/nix-status" = {
+            flake_dir = "/etc/nixos";
+            nixos_configuration = "NixOS-P1";
+            use_themed_logos = true;
+          };
+          "noctalia/bitwarden" = {
+            login_placement = "attached";
+            unlock_placement = "attached";
+          };
         };
         plugins = {
           auto_update = "all";
-          enabled = ["noctalia/screen_recorder" "noctalia/translator" "piero-93/thinkpad-fan"];
-          source = [
-            {
-              enabled = true;
-              kind = "git";
-              location = "https://github.com/noctalia-dev/official-plugins";
-              name = "official";
-            }
-            {
-              enabled = true;
-              kind = "git";
-              location = "https://github.com/noctalia-dev/community-plugins";
-              name = "community";
-            }
-          ];
+          enabled = [ "noctalia/screen_recorder" "noctalia/translator" "piero-93/thinkpad-fan" "yocraft/battery-widget" "noctalia/bitwarden" "samuelskovbakke/calculator-plus" "levi/warp" "mindnbytes/nix-status" "rylos/tailnet" "noctalia/umbriel-companion" "noctalia/wallpaper_depth" ];
+          source = [ {
+            enabled = true;
+            kind = "git";
+            location = "https://github.com/noctalia-dev/official-plugins";
+            name = "official";
+          } {
+            enabled = true;
+            kind = "git";
+            location = "https://github.com/noctalia-dev/community-plugins";
+            name = "community";
+          } ];
         };
         shell = {
           app_icon_colorize = false;
@@ -1117,7 +1132,7 @@
           corner_radius_scale = 0.5;
           date_format = "%A, %x";
           disable_mipmaps = false;
-          external_ip_enabled = false;
+          external_ip_enabled = true;
           font_family = "MesloLGS Nerd Font";
           input_borders = true;
           launch_apps_as_systemd_services = false;
@@ -1136,6 +1151,7 @@
           show_location = true;
           telemetry_enabled = true;
           time_format = "{:%H:%M}";
+          umbriel_overview_type_to_launch_enabled = true;
           animation = {
             enabled = true;
             speed = 1.5500000715255737;
@@ -1144,6 +1160,7 @@
             auto_sync = false;
           };
           keyboard_layout = {
+            
           };
           launcher = {
             app_grid = false;
@@ -1151,23 +1168,24 @@
             categories = true;
             compact = false;
             fetch_exchange_rates = true;
-            pinned = [];
+            pinned = [  ];
             provider_prefix = "/";
             show_app_actions = false;
             show_app_origin_indicator = true;
             show_icons = true;
             sort_by_usage = true;
             dmenu = {
+              
             };
           };
           mpris = {
-            blacklist = [];
+            blacklist = [  ];
           };
           panel = {
             borders = true;
             clipboard_placement = "floating";
             clipboard_position = "center";
-            control_center_placement = "floating";
+            control_center_placement = "attached";
             control_center_position = "top_right";
             floating_layer = "overlay";
             floating_offset = 8;
@@ -1175,7 +1193,7 @@
             launcher_position = "center";
             list_item_background = false;
             open_near_click_clipboard = false;
-            open_near_click_control_center = false;
+            open_near_click_control_center = true;
             open_near_click_launcher = false;
             open_near_click_session = false;
             open_near_click_wallpaper = false;
@@ -1200,6 +1218,7 @@
           screenshot = {
             annotate = false;
             close_on_copy = true;
+            close_on_save = true;
             confirm_region = false;
             copy_to_clipboard = true;
             directory = "";
@@ -1210,65 +1229,61 @@
             remember_last_region = false;
             save_to_file = true;
             show_cursor = false;
+            skip_annotate_on_copy_save = false;
           };
           session = {
             grid = false;
             grid_columns = 5;
             show_shortcuts = true;
             power = {
+              
             };
-            actions = [
-              {
-                action = "lock";
-                command = "";
-                countdown_seconds = 0.0;
-                enabled = true;
-                glyph = "";
-                label = "";
-                shortcut = "1";
-                variant = "default";
-              }
-              {
-                action = "logout";
-                command = "";
-                countdown_seconds = 0.0;
-                enabled = true;
-                glyph = "";
-                label = "";
-                shortcut = "2";
-                variant = "default";
-              }
-              {
-                action = "lock_and_suspend";
-                command = "";
-                countdown_seconds = 0.0;
-                enabled = true;
-                glyph = "";
-                label = "";
-                shortcut = "3";
-                variant = "default";
-              }
-              {
-                action = "reboot";
-                command = "";
-                countdown_seconds = 0.0;
-                enabled = true;
-                glyph = "";
-                label = "";
-                shortcut = "4";
-                variant = "default";
-              }
-              {
-                action = "shutdown";
-                command = "";
-                countdown_seconds = 0.0;
-                enabled = true;
-                glyph = "";
-                label = "";
-                shortcut = "5";
-                variant = "destructive";
-              }
-            ];
+            actions = [ {
+              action = "lock";
+              command = "";
+              countdown_seconds = 0.0;
+              enabled = true;
+              glyph = "";
+              label = "";
+              shortcut = "1";
+              variant = "default";
+            } {
+              action = "logout";
+              command = "";
+              countdown_seconds = 0.0;
+              enabled = true;
+              glyph = "";
+              label = "";
+              shortcut = "2";
+              variant = "default";
+            } {
+              action = "lock_and_suspend";
+              command = "";
+              countdown_seconds = 0.0;
+              enabled = true;
+              glyph = "";
+              label = "";
+              shortcut = "3";
+              variant = "default";
+            } {
+              action = "reboot";
+              command = "";
+              countdown_seconds = 0.0;
+              enabled = true;
+              glyph = "";
+              label = "";
+              shortcut = "4";
+              variant = "default";
+            } {
+              action = "shutdown";
+              command = "";
+              countdown_seconds = 0.0;
+              enabled = true;
+              glyph = "";
+              label = "";
+              shortcut = "5";
+              variant = "destructive";
+            } ];
           };
           shadow = {
             alpha = 0.3999999761581421;
@@ -1331,13 +1346,23 @@
           source = "wallpaper";
           wallpaper_scheme = "m3-fruit-salad";
           templates = {
-            builtin_ids = ["gtk4" "gtk3" "kitty" "qt" "kcolorscheme" "hyprland"];
-            community_ids = ["spicetify" "pywalfox" "vscode"];
+            builtin_ids = [ "gtk3" "gtk4" "hyprland" "kcolorscheme" "kitty" "qt" "umbriel" ];
+            community_ids = [ "spicetify" "vscode" ];
             enable_builtin_templates = true;
             enable_community_templates = true;
-            user.base16 = {
-              input_path = "$XDG_CONFIG_HOME/noctalia/base16/base16.yaml";
-              output_path = "$XDG_CONFIG_HOME/noctalia/base16/base16_generated.yaml";
+            user = {
+              base16 = {
+                compare_to = "";
+                enabled = true;
+                hook_async = true;
+                index = 0;
+                input_path = "$XDG_CONFIG_HOME/noctalia/base16/base16.yaml";
+                output_path = [ "$XDG_CONFIG_HOME/noctalia/base16/base16_generated.yaml" ];
+                output_path_dynamic = "";
+                post_action = "";
+                post_hook = "";
+                pre_hook = "";
+              };
             };
           };
         };
@@ -1350,7 +1375,7 @@
           fill_color = "";
           fill_mode = "crop";
           per_monitor_directories = false;
-          transition = ["fade" "wipe" "disc" "stripes" "zoom" "honeycomb"];
+          transition = [ "fade" "wipe" "disc" "stripes" "zoom" "honeycomb" ];
           transition_duration = 1500.0;
           transition_on_startup = false;
           automation = {
@@ -1374,29 +1399,37 @@
             title_scroll = "none";
             type = "active_window";
           };
+          bar = {
+            type = "noctalia/umbriel-companion:bar";
+          };
+          bar_2 = {
+            type = "rylos/tailnet:bar";
+          };
+          bar_3 = {
+            type = "noctalia/umbriel-companion:bar";
+          };
+          bar_4 = {
+            type = "noctalia/wallpaper_depth:bar";
+          };
           battery = {
             capsule = true;
             type = "battery";
           };
           brightness = {
             capsule = true;
-            capsule_group = "brightness+vol";
             show_label = false;
             type = "brightness";
           };
           clipboard = {
             capsule = true;
-            capsule_group = "buttons_right";
             type = "clipboard";
           };
           clock = {
             capsule = true;
-            capsule_group = "buttons_mid";
             type = "clock";
           };
           control-center = {
             capsule = true;
-            capsule_group = "buttons_right";
             type = "control-center";
           };
           cpu = {
@@ -1417,7 +1450,6 @@
           };
           launcher = {
             capsule = true;
-            capsule_group = "buttons_left";
             glyph = "rocket";
             type = "launcher";
           };
@@ -1430,11 +1462,13 @@
             type = "lock_keys";
           };
           media = {
+            album_art_only = true;
             art_size = 16.0;
             capsule = true;
-            capsule_group = "buttons_mid";
+            hide_artist = true;
             max_length = 800;
             min_length = 80.0;
+            show_progress = true;
             title_scroll = "none";
             type = "media";
           };
@@ -1453,7 +1487,6 @@
           };
           notifications = {
             capsule = true;
-            capsule_group = "buttons_left";
             type = "notifications";
           };
           output_volume = {
@@ -1469,12 +1502,17 @@
           };
           session = {
             capsule = true;
-            capsule_group = "buttons_right";
             type = "session";
           };
           spacer = {
             interactive = false;
             type = "spacer";
+          };
+          status = {
+            type = "mindnbytes/nix-status:status";
+          };
+          status_2 = {
+            type = "mindnbytes/nix-status:status";
           };
           temp = {
             stat = "cpu_temp";
@@ -1486,16 +1524,20 @@
           };
           volume = {
             capsule = true;
-            capsule_group = "brightness+vol";
             show_label = false;
             type = "volume";
+          };
+          warp = {
+            type = "levi/warp:warp";
+          };
+          warp_2 = {
+            type = "levi/warp:warp";
           };
           widget = {
             type = "piero-93/thinkpad-fan:widget";
           };
           workspaces = {
             capsule = true;
-            capsule_group = "buttons_left";
             capsule_opacity = 0.0;
             capsule_radius = 10;
             label_source = "name";

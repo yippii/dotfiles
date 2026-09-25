@@ -8,8 +8,6 @@
     pkgs,
     ...
   }: {
-    environment.systemPackages = [pkgs.kitty.terminfo];
-
     services.openssh = {
       enable = true;
 
@@ -18,8 +16,8 @@
       settings = {
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = true;
-        PermitRootLogin = "yes";
-        AllowUsers = ["yippie" "root"];
+        PermitRootLogin = "no";
+        AllowUsers = ["yippie"];
       };
     };
   };
