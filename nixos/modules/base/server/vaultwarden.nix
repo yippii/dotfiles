@@ -27,7 +27,7 @@
         config = {
             # Refer to https://github.com/dani-garcia/vaultwarden/blob/main/.env.template
             SIGNUPS_ALLOWED = true;
-            DOMAIN = "https://yippie-nextcloud.drake-istrian.ts.net";
+            DOMAIN = "https://vaultwarden.local";
             ROCKET_ADDRESS = "127.0.0.1";
             ROCKET_PORT = 8222;
             ROCKET_LOG = "critical";

@@ -34,9 +34,11 @@
     };
 
     services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
+      /*
       enableACME = false;
       sslCertificate = "/var/lib/tailscale/certs/yippie-nextcloud.drake-istrian.ts.net.crt";
       sslCertificateKey = "/var/lib/tailscale/certs/yippie-nextcloud.drake-istrian.ts.net.key";
+      */
 
       listen = [
         {
