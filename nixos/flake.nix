@@ -83,7 +83,7 @@
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
 
     # AI Stuff
-    opencode.url = "github:anomalyco/opencode";
+    #opencode.url = "github:anomalyco/opencode";
     comfyui-nix.url = "github:utensils/comfyui-nix";
 
     # Unpatched binaries
