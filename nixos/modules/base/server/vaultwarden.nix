@@ -1,17 +1,5 @@
 {self, inputs, ...}: {
   flake.nixosModules.server = {pkgs, ...}: {
-    services.caddy = {
-      enable = true;
-      virtualHosts."yippie-nextcloud.drake-istrian.ts.net" = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:8222
-        '';
-      };
-    };
-
-    networking.firewall.allowedTCPPorts = [ 80 443 ];
-    networking.firewall.trustedInterfaces = [ "tailscale0" ];
-
     services.vaultwarden = {
         enable = true;
         # Needed to enable postgresql
