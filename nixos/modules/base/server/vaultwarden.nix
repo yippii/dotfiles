@@ -1,5 +1,18 @@
 {self, inputs, ...}: {
   flake.nixosModules.server = {pkgs, ...}: {
+    services.caddy = {
+      enable = true;
+      virtualHosts."yippie-nextcloud.drake-istrian.ts.net" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:8222
+        '';
+      };
+    };
+
+    # 4. 放行本地防火牆的 HTTP/HTTPS 以及 Tailscale 埠
+    networking.firewall.allowedTCPPorts = [ 80 443 ];
+    networking.firewall.trustedInterfaces = [ "tailscale0" ];
+
     services.vaultwarden = {
         enable = true;
         # Needed to enable postgresql
@@ -7,16 +20,14 @@
         dbBackend = "postgresql";
 
         # automatically inject Nginx and Postgres config
-        configureNginx = true;
         configurePostgres = true;
-        domain = "yippie-nextcloud.drake-istrian.ts.net";
 
         # in order to avoid having ADMIN_TOKEN and SMTP_PASSWORD in the nix store, it can also be set with the help of an environment file
         # be aware that this file must be created by hand (or via secrets management like sops)
         environmentFile = "/var/lib/vaultwarden/vaultwarden.env";
         config = {
             # Refer to https://github.com/dani-garcia/vaultwarden/blob/main/.env.template
-            SIGNUPS_ALLOWED = false;
+            SIGNUPS_ALLOWED = true;
 
             ROCKET_ADDRESS = "127.0.0.1";
             ROCKET_PORT = 8222;
