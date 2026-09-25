@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.nextcloud = {
+  flake.nixosModules.server = {
     lib,
     pkgs,
     ...

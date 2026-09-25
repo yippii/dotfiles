@@ -3,14 +3,11 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.nextcloud = {
+  flake.nixosModules.server = {
     config,
     pkgs,
     ...
   }: {
-    services.logind.lidSwitch = "ignore";
-    services.logind.lidSwitchExternalPower = "ignore";
-
     services.nextcloud = {
       enable = true;
       package = pkgs.nextcloud33;
