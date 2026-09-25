@@ -9,7 +9,7 @@
     ...
   }: {
 
-    environment.systemPackages = [pkgs.kitty-terminfo];
+    environment.systemPackages = [pkgs.kitty.terminfo];
 
     services.openssh = {
       enable = true;
