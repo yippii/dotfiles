@@ -19,7 +19,7 @@
       self.nixosModules.NixOS-NextcloudHardware
       self.nixosModules.terminal
       self.nixosModules.boot
-      self.nixosModules.nextcloud
+      self.nixosModules.server
     ];
 
     options.customSettings.disableDesktop = lib.mkEnableOption "Affect home-manager for desktop functionalities, such as Noctalia Shell";
