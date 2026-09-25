@@ -31,5 +31,7 @@
             SMTP_FROM_NAME = "Yippie's Bitwarden server";
         };
     };
+
+    networking.firewall.allowedTCPPorts = [8222];
   };
 }
