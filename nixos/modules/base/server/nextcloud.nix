@@ -11,7 +11,7 @@
     services.nextcloud = {
       enable = true;
       package = pkgs.nextcloud35;
-      hostName = "yippie-nextcloud.drake-istrian.ts.net";
+      hostName = "192.168.0.92";
       https = true;
 
       database.createLocally = true;
