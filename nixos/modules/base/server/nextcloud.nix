@@ -27,6 +27,7 @@
       };
 
       settings = {
+        overwriteprotocol = "https";
         trusted_domains = [
           "yippie-nextcloud.drake-istrian.ts.net"
           "192.168.0.92"
