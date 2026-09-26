@@ -20,7 +20,6 @@
 
       config.adminpassFile = "/etc/nextcloud-pass";
       config.dbtype = "sqlite";
-      config.overwriteProtocol = "https";
 
       extraAppsEnable = true;
       extraApps = {
