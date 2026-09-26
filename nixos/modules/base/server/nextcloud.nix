@@ -11,7 +11,7 @@
     services.nextcloud = {
       enable = true;
       package = pkgs.nextcloud35;
-      hostName = "yippie-nextcloud.drake-istrian.ts.net/nextcloud";
+      hostName = "yippie-nextcloud.drake-istrian.ts.net";
       https = true;
 
       database.createLocally = true;
@@ -27,10 +27,18 @@
         inherit (config.services.nextcloud.package.packages.apps) contacts calendar music onlyoffice tasks;
       };
 
-      settings.trusted_domains = [
-        "yippie-nextcloud.drake-istrian.ts.net"
-        "192.168.0.92"
-      ];
+      settings = {
+        trusted_domains = [
+          "yippie-nextcloud.drake-istrian.ts.net"
+          "192.168.0.92"
+        ];
+
+        overwriteprotocol = "http";
+        overwritehost = "127.0.0.1";
+        overwritewebroot = "/nextcloud";
+        overwrite.cli.url = "http://127.0.0.1/nextcloud/";
+        htaccess.RewriteBase = "/nextcloud";
+      };
     };
   };
 }
