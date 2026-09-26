@@ -22,7 +22,7 @@
         '';
       };
 
-      "localhost" = {
+      "localhost".locations = {
         "/nextcloud/" = {
           priority = 9999;
           extraConfig = ''
@@ -56,7 +56,7 @@
         };
       };
 
-      "yippie-nextcloud" = {
+      "yippie-nextcloud".locations = {
         extraConfig = ''
           access_log /var/log/nginx/yippie-nextcloud.access.log;
           error_log /var/log/nginx/yippie-nextcloud.error.log;
@@ -95,7 +95,7 @@
         };
       };
     };
-    
+
     networking.firewall.allowedTCPPorts = [80 443];
   };
 }
