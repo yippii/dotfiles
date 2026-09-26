@@ -1,4 +1,8 @@
-{self, inputs, ...}: {
+{
+  self,
+  inputs,
+  ...
+}: {
   flake.nixosModules.terminal = {pkgs, ...}: {
     users.users.yippie = {
       isNormalUser = true;
@@ -11,6 +15,6 @@
 
     users.groups.docker = {
       members = ["yippie"];
-     };
+    };
   };
 }

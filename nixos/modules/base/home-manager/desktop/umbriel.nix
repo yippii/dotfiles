@@ -114,7 +114,6 @@
             default_fullscreen = true;
           }
 
-
           {
             match.app_id = "kitty";
             default_workspace = 6;

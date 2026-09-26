@@ -36,6 +36,11 @@
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Superfile (TUI File Manager)
+    zed = {
+      url = "github:zed-industries/zed";
+    };
+
     # Theming with Stylix
     stylix.url = "github:nix-community/stylix";
 

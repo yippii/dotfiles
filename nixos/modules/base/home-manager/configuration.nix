@@ -30,6 +30,7 @@
 
       {
         imports = [
+          self.homeModules.zed
           self.homeModules.nvim
           self.homeModules.misc
         ];

@@ -38,6 +38,7 @@
           "https://noctalia.cachix.org"
           "https://nixos-apple-silicon.cachix.org"
           "https://comfyui.cachix.org"
+          "https://zed.cachix.org"
           #"https://cache.nixos-cuda.org"
         ];
         trusted-public-keys = [
@@ -45,6 +46,7 @@
           "nixos-apple-silicon.cachix.org-1:8psDu5SA5dAD7qA0zMy5UT292TxeEPzIz8VVEr2Js20="
           "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
           "comfyui.cachix.org-1:33mf9VzoIjzVbp0zwj+fT51HG0y31ZTK3nzYZAX0rec="
+          "zed.cachix.org-1:/pHQ6dpMsAZk2DiP4WCL0p9YDNKWj2Q5FL20bNmw1cU="
           #"cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
         ];
       };
@@ -52,45 +54,44 @@
 
     environment = {
       systemPackages = with pkgs;
-        lib.mkMerge [
-          [
-            quodlibet
-            easyeffects
-            android-tools
-            sublime-merge
-            # animeko
-            ani-cli
-            yt-dlp
-            signal-desktop
-            nicotine-plus
-            qbittorrent
-            kdePackages.ark
-            unrar
-            opencode-desktop
-            vesktop
-            kdePackages.kinfocenter
-            vlc
-            mpv
+        [
+          quodlibet
+          easyeffects
+          android-tools
+          sublime-merge
+          # animeko
+          ani-cli
+          yt-dlp
+          signal-desktop
+          nicotine-plus
+          qbittorrent
+          kdePackages.ark
+          unrar
+          opencode-desktop
+          vesktop
+          kdePackages.kinfocenter
+          vlc
+          mpv
+          superfile
 
+          uxplay
+          # Ensure GStreamer plugins are available for rendering audio/video
+          gst_all_1.gstreamer
+          gst_all_1.gst-plugins-good
+          gst_all_1.gst-plugins-bad
 
-            uxplay
-            # Ensure GStreamer plugins are available for rendering audio/video
-            gst_all_1.gstreamer
-            gst_all_1.gst-plugins-good
-            gst_all_1.gst-plugins-bad
-
-            libpulseaudio
-            glib
-            libX11
-            libXext
-            libXrender
-            libXrandr
-            libXdamage
-            libXcursor
-            libXcomposite
-            libayatana-appindicator
-          ]
-        ];
+          libpulseaudio
+          glib
+          libX11
+          libXext
+          libXrender
+          libXrandr
+          libXdamage
+          libXcursor
+          libXcomposite
+          libayatana-appindicator
+        ]
+        ++ [inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default];
 
       sessionVariables.NIXOS_OZONE_WL = "1";
     };

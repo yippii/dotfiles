@@ -56,6 +56,7 @@
         spicetify.enable = false;
         gtksourceview.enable = false;
         zen-browser.enable = false;
+        zed.enable = false;
       };
     };
   };
