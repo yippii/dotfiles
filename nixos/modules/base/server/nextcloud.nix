@@ -27,11 +27,16 @@
       };
 
       settings = {
-        overwriteprotocol = "https";
         trusted_domains = [
           "yippie-nextcloud.drake-istrian.ts.net"
           "192.168.0.92"
         ];
+
+        overwriteprotocol = "https";
+        overwritehost = "yippie-nextcloud.drake-istrian.ts.net";
+        overwritewebroot = "/nextcloud";
+        overwrite.cli.url = "http://yippie-nextcloud.drake-istrian.ts.net/nextcloud/";
+        htaccess.RewriteBase = "/nextcloud";
       };
     };
   };

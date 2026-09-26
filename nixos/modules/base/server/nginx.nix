@@ -1,26 +1,26 @@
-{self, inputs, ...}: {
+{
+  self,
+  inputs,
+  ...
+}: {
   flake.nixosModules.server = {config, ...}: {
     services.nginx.enable = true;
     services.nginx.virtualHosts = {
-      ${config.services.nextcloud.hostName} = {
-        enableACME = false;
-        sslCertificate = "/var/lib/tailscale/certs/yippie-nextcloud.drake-istrian.ts.net.crt";
-        sslCertificateKey = "/var/lib/tailscale/certs/yippie-nextcloud.drake-istrian.ts.net.key";
-
+      "yippie-nextcloud.drake-istrian.ts.net/nextcloud" = {
         listen = [
           {
-            addr = "localhost";
+            addr = "127.0.0.1";
             port = 80;
           }
-
-          {
-            addr = "localhost";
-            port = 443;
-          }
         ];
+
+        extraConfig = ''
+          access_log /var/log/nginx/${config.services.nextcloud.hostName}.access.log;
+          error_log /var/log/nginx/${config.services.nextcloud.hostName}.error.log;
+        '';
       };
     };
-    
+
     networking.firewall.allowedTCPPorts = [80 443];
   };
 }
