@@ -11,7 +11,7 @@
     services.nextcloud = {
       enable = true;
       package = pkgs.nextcloud35;
-      hostName = "127.0.0.1";
+      hostName = "yippie-nextcloud.drake-istrian.ts.net";
       https = true;
 
       database.createLocally = true;
@@ -32,10 +32,10 @@
           "192.168.0.92"
         ];
 
-        overwriteprotocol = "http";
-        overwritehost = "127.0.0.1";
+        overwriteprotocol = "https";
+        overwritehost = "yippie-nextcloud.drake-istrian.ts.net";
         overwritewebroot = "/nextcloud";
-        overwrite.cli.url = "http://127.0.0.1/nextcloud/";
+        overwrite.cli.url = "http://yippie-nextcloud.drake-istrian.ts.net/nextcloud/";
         htaccess.RewriteBase = "/nextcloud";
       };
     };
