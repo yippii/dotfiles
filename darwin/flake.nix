@@ -30,11 +30,6 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-
-    tonhowtf-tap = {
-      url = "github:tonhowtf/homebrew-tap";
-      flake = false;
-    };
   };
 
   outputs = {self, ...} @ inputs: {

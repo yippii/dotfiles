@@ -18,7 +18,6 @@
     taps = {
       "homebrew/homebrew-core" = inputs.homebrew-core;
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
-      "tonhowtf/tap" = inputs.tonhowtf-tap;
     };
 
     mutableTaps = true;
@@ -39,7 +38,6 @@
       "github"
       "cloudflare-warp"
       "vorssaint"
-      "tonhowtf/tap/omniget"
     ];
 
     onActivation = {
