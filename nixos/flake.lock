@@ -162,11 +162,11 @@
         "nixpkgs-regression": "nixpkgs-regression"
       },
       "locked": {
-        "lastModified": 1791465135,
-        "narHash": "sha256-9prV+Nfkt/Fs4N8cvDe3bsNZ/bQWW/FWiUrZbw1OYdg=",
+        "lastModified": 1791393505,
+        "narHash": "sha256-FDGAdtKjoefuz0xeif0coXhJmlw5Ha+C5uGwx9WuYAI=",
         "owner": "DeterminateSystems",
         "repo": "nix-src",
-        "rev": "ea7e9be2050705f62414cd8657bb656b52477d40",
+        "rev": "7aedbf0ddf1af806a07006ea7ce42dc2b46d0683",
         "type": "github"
       },
       "original": {
@@ -512,11 +512,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791484883,
-        "narHash": "sha256-iKxFHJrg7Sltwhq3ssCZYQ4CFEDVvReVVuVuO9dj3sE=",
+        "lastModified": 1791306979,
+        "narHash": "sha256-KuLePuhwJM9NLt/gTLHzXaOoSZKGoB3m7NfXjiQ98HY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "dfadbe5162d5e86bc0808badec8f346f81b4b3f0",
+        "rev": "fae6e9e42c3b762ab47635cddcfaf6f52374a61b",
         "type": "github"
       },
       "original": {
@@ -860,11 +860,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1791456040,
-        "narHash": "sha256-H83yz/do+hjOO0uujHyH8RgtIQP2v7Mw+cLwcZK/xKc=",
+        "lastModified": 1791260994,
+        "narHash": "sha256-Miqqk/ammqnTUxaoCyvtwoPeLbI1ksFyLxi/CazZpWY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e7439b6b14ad3cc35d05608ebca9bce01a25f5f8",
+        "rev": "151fa4e8ddfdd8dd25d945ad94ed54a13de9f6e4",
         "type": "github"
       },
       "original": {
@@ -934,11 +934,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1791493355,
-        "narHash": "sha256-FGSRW221nZGuufoGsi74r8yolpZa03N5eAUS8wlXLmg=",
+        "lastModified": 1791427429,
+        "narHash": "sha256-FzM3cunGIn8oDC1afUsXzGdfI/tK5HjPOHzHXFIAVx4=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "3e159ec301f8916e3bfd17c178258fa030f40e39",
+        "rev": "3e059de4aec58ba5b81f6c366b2b234a58f5ab0a",
         "type": "github"
       },
       "original": {
@@ -1305,11 +1305,11 @@
         "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
       },
       "locked": {
-        "lastModified": 1791499731,
-        "narHash": "sha256-ukzJID5/4nUejV7AoSDb2K++fmDAQvICzSfBCzPDoio=",
+        "lastModified": 1791411507,
+        "narHash": "sha256-7Jmh2wXIQD4s/EC96RsgPAkwTWNZQGrrkzfFevHP3y0=",
         "ref": "refs/heads/main",
-        "rev": "fd674e16c49a1a04486a590050fe8e616400aa6f",
-        "revCount": 1205,
+        "rev": "93faf20b1da8e980e591a313db712fec2428ef9f",
+        "revCount": 1196,
         "type": "git",
         "url": "https://github.com/noctalia-dev/umbriel"
       },
@@ -1347,11 +1347,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1791486427,
-        "narHash": "sha256-WcWmKkFgWZ54oeE4aNwmT39omK2owQMdXzTM1w2Fg/E=",
+        "lastModified": 1791411960,
+        "narHash": "sha256-57vHZxopUYvAPz35W+PGrSs4HpUHbNNwYraMLZDN9jw=",
         "owner": "zed-industries",
         "repo": "zed",
-        "rev": "9ab0715969e9854f2efe61a9d782e7698e5fe6d2",
+        "rev": "cb73ee1d45db3babb14f21efe83f229fcb334d99",
         "type": "github"
       },
       "original": {
@@ -1370,11 +1370,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791435089,
-        "narHash": "sha256-BpS+S99I5/oUAelESZqO8cSK7JyZ3C1SL7EsIv3icvI=",
+        "lastModified": 1791367832,
+        "narHash": "sha256-MSFMvb579iNOOx89nEAligQJaLB6Qv1QfAw31eC4JIU=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "be226e4c3efaaa2a6ae2d8852839f93d31e6ece9",
+        "rev": "a2caf7fe6fb6e4786591acb9cdf1306db1b011f7",
         "type": "github"
       },
       "original": {
@@ -1386,11 +1386,11 @@
     "zen-context-menu": {
       "flake": false,
       "locked": {
-        "lastModified": 1791436865,
-        "narHash": "sha256-qiYwSYYidoAIsjzII4fI8ID+g/QCiQo8PiKBbJZLeUI=",
+        "lastModified": 1791375029,
+        "narHash": "sha256-1uFC8umk6791rR2Sl5H6keKRmRadSBwmbm3y24s6JEA=",
         "owner": "starry-AXQG",
         "repo": "Context-Menu-Icons",
-        "rev": "e05aaf388d2c6ba416d3ab9a567b8c4997540a40",
+        "rev": "2964ccb837598d3972529cbfdaee4bd27b73ed78",
         "type": "github"
       },
       "original": {
