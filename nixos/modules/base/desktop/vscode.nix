@@ -8,6 +8,7 @@
       mypy
       nixd
       nixfmt
+      nil
       python314Packages.debugpy
       python314Packages.pylance
       pylint

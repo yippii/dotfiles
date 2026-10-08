@@ -13,12 +13,21 @@
         general = {
           autostart = ["noctalia"];
           mod_key = "Super";
+          xwayland = true;
+          xwayland_native_resolution = true;
         };
 
         include = {
           optional.files = [
             "noctalia.toml"
           ];
+        };
+
+        appearance = {
+          prefer_no_csd = true;
+          corner_radius = 15;
+          drag_opacity = 0.75;
+          opaque_fullscreen = true;
         };
 
         output.eDP-1 = {
@@ -75,26 +84,30 @@
             blur_optimized = false;
           }
 
+          # Browser
           {
             match.app_id = "zen-beta";
             default_workspace = 1;
             default_focused = true;
           }
 
+          # Communication
           {
-            match.app_id = "discord";
+            match.app_id = "discord|vesktop";
             default_workspace = 2;
             default_focused = false;
           }
 
+          # Music
           {
-            match.app_id = "quodlibet";
+            match.app_id = "quodlibet|.*Apple Music.*";
             default_workspace = 3;
             default_focused = true;
           }
 
+          # Editors
           {
-            match.app_id = "code";
+            match.app_id = "code|dev.zed.Zed.*";
             default_workspace = 4;
             default_focused = true;
             opacity = 0.90;
@@ -102,18 +115,14 @@
             blur_popups = false;
           }
 
+          # Games
           {
-            match.app_id = "org.vinegarhq.Sober";
+            match.app_id = "org.vinegarhq.Sober|.*osu!.*|^proton-game$";
             default_workspace = 5;
             default_fullscreen = true;
           }
 
-          {
-            match.xdg_tag = "^proton-game$";
-            default_workspace = 5;
-            default_fullscreen = true;
-          }
-
+          # Terminal
           {
             match.app_id = "kitty";
             default_workspace = 6;
