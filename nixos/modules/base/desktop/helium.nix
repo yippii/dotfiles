@@ -1,6 +1,10 @@
-{self, inputs, ...}: {
+{
+  self,
+  inputs,
+  ...
+}: {
   flake.nixosModules.desktop = {pkgs, ...}: {
-    imports = [ inputs.helium-browser.nixosModules.default ];
+    imports = [inputs.helium-browser.nixosModules.default];
 
     programs.helium = {
       enable = true;
@@ -14,7 +18,7 @@
         "PasswordManagerEnabled" = false;
         "SyncDisabled" = true;
         "SpellcheckEnabled" = true;
-        "SpellcheckLanguage" = [ "en-US" ];
+        "SpellcheckLanguage" = ["en-US"];
       };
     };
   };
