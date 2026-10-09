@@ -32,7 +32,7 @@
 
       boot.lanzaboote.enable = lib.mkForce false;
 
-      boot.kernelPackages = pkgs.linuxPackages_latest;
+      boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
 
       networking.hostName = "yippie-nextcloud";
       networking.networkmanager.enable = true;

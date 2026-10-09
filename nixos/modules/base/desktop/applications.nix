@@ -39,6 +39,7 @@
           "https://nixos-apple-silicon.cachix.org"
           "https://comfyui.cachix.org"
           "https://zed.cachix.org"
+          "https://cache.xinux.uz"
           #"https://cache.nixos-cuda.org"
         ];
         trusted-public-keys = [
@@ -47,6 +48,7 @@
           "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
           "comfyui.cachix.org-1:33mf9VzoIjzVbp0zwj+fT51HG0y31ZTK3nzYZAX0rec="
           "zed.cachix.org-1:/pHQ6dpMsAZk2DiP4WCL0p9YDNKWj2Q5FL20bNmw1cU="
+          "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="
           #"cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
         ];
       };

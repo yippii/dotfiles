@@ -6,6 +6,9 @@
     # NixOS Base
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # CachyOS Kernel
+    cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+
     # Determinate Nix
     determinate-nix.url = "github:DeterminateSystems/nix-src";
 
@@ -63,6 +66,11 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.inputs.home-manager.follows = "home-manager";
+
+    helium-browser = {
+      url = "github:oxcl/nix-flake-helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Sine Mod
     sine.url = "github:CosmoCreeper/Sine?rev=a48b73d32a074d710a1193294d432a62e436b8cf";
