@@ -7,7 +7,6 @@
     services.vaultwarden = {
       enable = true;
 
-      environmentFile = "/var/lib/vaultwarden/vaultwarden.env";
       config = {
         SIGNUPS_ALLOWED = true;
         DOMAIN = "https://yippie-nextcloud.drake-istrian.ts.net";
