@@ -25,12 +25,12 @@
           self.homeModules.qt
           self.homeModules.gtk
           self.homeModules.theming
+          self.homeModules.zed
         ];
       })
 
       {
         imports = [
-          self.homeModules.zed
           self.homeModules.nvim
           self.homeModules.misc
         ];
