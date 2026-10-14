@@ -10,7 +10,6 @@
       config = {
         SIGNUPS_ALLOWED = true;
         DOMAIN = "https://yippie-nextcloud.drake-istrian.ts.net";
-        ROCKET_ADDRESS = "yippie-nextcloud.drake-istrian.ts.net";
         ROCKET_PORT = 8222;
         ROCKET_LOG = "critical";
         WEB_VAULT_ENABLED = true;
