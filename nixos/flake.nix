@@ -39,7 +39,9 @@
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Superfile (TUI File Manager)
+    # Declarative Flatpak
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
     zed = {
       url = "github:zed-industries/zed";
     };
