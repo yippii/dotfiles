@@ -1,4 +1,8 @@
-{self, inputs, ...}: {
+{
+  self,
+  inputs,
+  ...
+}: {
   flake.nixosModules.terminal = {pkgs, ...}: {
     nixpkgs.overlays = [
       (final: prev: {
