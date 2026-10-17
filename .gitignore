@@ -24,3 +24,4 @@
 /.config/nicotine
 /.config/mozilla
 /.config/go/telemetry
+.config/nicotine/
