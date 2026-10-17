@@ -24,9 +24,7 @@
         audio = {
           enable_overdrive = false;
           enable_sounds = false;
-          notification_sound = "";
           sound_volume = 0.5;
-          volume_change_sound = "";
         };
         backdrop = {
           blur_intensity = 0.5;
@@ -297,7 +295,6 @@
           main_axis_padding = 16;
           margin_edge = 0;
           margin_ends = 0;
-          monitors = [];
           pinned = ["zen-beta" "org.kde.dolphin" "kitty"];
           position = "bottom";
           radius = 10;

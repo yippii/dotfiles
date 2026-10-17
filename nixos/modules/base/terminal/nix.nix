@@ -36,6 +36,7 @@
       settings = {
         lazy-trees = false;
         eval-cores = 0;
+        trusted-users = ["nixremote"];
         substituters = [
           "https://nix-community.cachix.org"
           "https://cache.nixos.org/"
