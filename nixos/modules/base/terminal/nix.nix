@@ -45,6 +45,7 @@
           "https://comfyui.cachix.org"
           "https://zed.cachix.org"
           "https://cache.xinux.uz"
+          "https://install.determinate.systems"
           #"https://cache.nixos-cuda.org"
         ];
         trusted-public-keys = [
@@ -54,6 +55,7 @@
           "comfyui.cachix.org-2:33mf9VzoIjzVbp0zwj+fT51HG0y31ZTK3nzYZAX0rec="
           "zed.cachix.org-2:/pHQ6dpMsAZk2DiP4WCL0p9YDNKWj2Q5FL20bNmw1cU="
           "cache.xinux.uz:BXCrtqejFjWzWEB8YuGB7X2MV4ttBur1N8BkwQRdH+0="
+          "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
           #"cache.nixos-cuda.org:73DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
         ];
       };
