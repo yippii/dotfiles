@@ -18,7 +18,6 @@
 
       configureRedis = true;
 
-      config.adminpassFile = "/etc/nextcloud-pass";
       config.dbtype = "sqlite";
 
       extraAppsEnable = true;
