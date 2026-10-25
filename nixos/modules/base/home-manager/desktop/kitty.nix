@@ -1,4 +1,8 @@
-{self, inputs, ...}: {
+{
+  self,
+  inputs,
+  ...
+}: {
   flake.homeModules.desktop = {pkgs, ...}: {
     programs.kitty = {
       enable = true;
@@ -21,7 +25,7 @@
         inactive_tab_font_style = "normal";
 
         window_margin_width = 5;
-        initial_window_width  = 960;
+        initial_window_width = 960;
         initial_window_height = 310;
 
         shell = "fish";

@@ -1,4 +1,8 @@
-{self, inputs, ...}: {
+{
+  self,
+  inputs,
+  ...
+}: {
   flake.homeModules.terminal = {
     programs.fastfetch = {
       enable = true;
@@ -17,8 +21,8 @@
         "modules" = [
           "break"
           {
-              "type" = "title";
-              "keyWidth" = 10;
+            "type" = "title";
+            "keyWidth" = 10;
           }
           "break"
           {
@@ -37,14 +41,14 @@
             "keyColor" = "33";
           }
           {
-                "type" = "shell";
-                "key" = " ";
-                "keyColor" = "33";
+            "type" = "shell";
+            "key" = " ";
+            "keyColor" = "33";
           }
           {
-                "type" = "terminal";
-                "key" = " ";
-                "keyColor" = "33";
+            "type" = "terminal";
+            "key" = " ";
+            "keyColor" = "33";
           }
           {
             "type" = "wm";
@@ -67,7 +71,6 @@
             "symbol" = "circle";
           }
         ];
-
       };
     };
   };
