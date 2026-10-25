@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.terminal = {pkgs, ...}: {
+  flake.nixosModules.terminal = {config, lib, pkgs, ...}: {
     programs.nh = {
       enable = true;
       clean.enable = true;
@@ -15,7 +15,6 @@
     };
 
     nix = {
-      package = inputs.determinate-nix.packages.${pkgs.stdenv.hostPlatform.system}.default;
       settings = {
         lazy-trees = false;
         eval-cores = 0;
@@ -44,6 +43,8 @@
           #"cache.nixos-cuda.org:73DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
         ];
       };
-    };
+    } //
+    (lib.mkIf (!(config.networking.hostName == "yippie-nextcloud"))
+      {package = inputs.determinate-nix.packages.${pkgs.stdenv.hostPlatform.system}.default;});
   };
 }
