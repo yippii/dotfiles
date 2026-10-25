@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.noctalia = {pkgs, ...}: {
+  flake.homeModules.desktop = {pkgs, ...}: {
     imports = [inputs.noctalia.homeModules.default];
 
     home.packages = with pkgs; [
@@ -11,7 +11,6 @@
       bitwarden-cli
       glib
       kdePackages.kdeconnect-kde
-      smartmontools
     ];
 
     programs.noctalia = {
@@ -1142,7 +1141,7 @@
           external_ip_enabled = true;
           font_family = "MesloLGS Nerd Font";
           input_borders = true;
-          launch_apps_as_systemd_services = false;
+          launch_apps_as_systemd_services = true;
           launch_apps_custom_command = "";
           niri_overview_type_to_launch_enabled = false;
           offline_mode = false;

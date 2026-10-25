@@ -35,9 +35,8 @@
     umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
 
     # Noctalia Shell
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.url = "github:noctalia-dev/noctalia-shell/cachix";
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
-    noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
 
     # Declarative Flatpak
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
@@ -83,8 +82,6 @@
     # Sine Mod Plugins
     nebula-zen.url = "github:JustAdumbPrsn/Zen-Nebula";
     nebula-zen.flake = false;
-    zen-icons.url = "github:qumeqa/zen-icons";
-    zen-icons.flake = false;
     zen-context-menu.url = "github:starry-AXQG/Context-Menu-Icons";
     zen-context-menu.flake = false;
     zen-data-loading-bar.url = "github:rasyidrafi/zen-deta-loading-bar";
@@ -97,8 +94,10 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Vice Clip
+    vice.url = "github:splitshotz/Vice";
+
     # AI Stuff
-    #opencode.url = "github:anomalyco/opencode";
     comfyui-nix.url = "github:utensils/comfyui-nix";
 
     # Unpatched binaries

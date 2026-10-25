@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.umbriel = {pkgs, ...}: {
+  flake.homeModules.desktop = {pkgs, ...}: {
     imports = [inputs.umbriel.homeModules.default];
 
     programs.umbriel = {
@@ -177,7 +177,7 @@
         keybinds = {
           "Mod+T" = "spawn:app2unit kitty";
           "Mod+E" = "spawn:app2unit dolphin";
-          "Mod+Shift+E" = "spawn:app2unit code";
+          "Mod+Shift+E" = "spawn:app2unit zed";
           "Mod+Q" = "window-close";
           "Mod+F" = "spawn:app2unit zen-beta";
           "Mod+L" = "spawn:systemctl suspend";

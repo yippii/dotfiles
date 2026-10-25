@@ -3,11 +3,11 @@
   inputs,
   ...
 }: {
-  flake.homeModules.zed = {pkgs, ...}: {
+  flake.homeModules.desktop = {pkgs, ...}: {
     programs.zed-editor = {
       enable = true;
       package = inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default;
-      extensions = ["nix" "toml" "elixir" "make" "java" "html" "latex"];
+      extensions = ["nix" "toml" "elixir" "make" "java" "html" "latex" "lua"];
 
       userSettings = {
         vim_mode = true;

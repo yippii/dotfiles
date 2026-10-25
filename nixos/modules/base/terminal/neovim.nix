@@ -28,7 +28,6 @@
         alejandra
         black
         python314Packages.autopep8
-        python314Packages.autoflake
       ])
     ];
   };

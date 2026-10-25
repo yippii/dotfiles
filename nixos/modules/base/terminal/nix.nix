@@ -4,31 +4,14 @@
   ...
 }: {
   flake.nixosModules.terminal = {pkgs, ...}: {
-    nixpkgs.overlays = [
-      (final: prev: {
-        nix-output-monitor = prev.nix-output-monitor.override {
-          extraComposeFunctions = [
-            (prev.haskell.lib.compose.appendPatch (
-              prev.fetchpatch2 {
-                url = "https://patch-diff.githubusercontent.com/raw/maralorn/nix-output-monitor/pull/321.patch";
-                relative = "nix-output-monitor";
-                hash = "sha256-uleti4hBzGN/uQS7CxUi4FaVs+fy+Q/rmqDPNPXBNiM=";
-              }
-            ))
-          ];
-        };
-
-        nh = prev.nh.override {
-          inherit (final) nix-output-monitor;
-        };
-      })
-    ];
-
     programs.nh = {
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/etc/nixos";
+      package = pkgs.nh.override {
+        nix-output-monitor = pkgs.nix-output-monitor;
+      };
     };
 
     nix = {
@@ -46,6 +29,7 @@
           "https://zed.cachix.org"
           "https://cache.xinux.uz"
           "https://install.determinate.systems"
+          "https://zed-industries.cachix.org"
           #"https://cache.nixos-cuda.org"
         ];
         trusted-public-keys = [
@@ -56,6 +40,7 @@
           "zed.cachix.org-2:/pHQ6dpMsAZk2DiP4WCL0p9YDNKWj2Q5FL20bNmw1cU="
           "cache.xinux.uz:BXCrtqejFjWzWEB8YuGB7X2MV4ttBur1N8BkwQRdH+0="
           "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
+          "zed-industries.cachix.org-1:QW3RoXK0Lm4ycmU5/3bmYRd3MLf4RbTGPqRulGlX5W0="
           #"cache.nixos-cuda.org:73DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
         ];
       };

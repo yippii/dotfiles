@@ -17,7 +17,6 @@
       };
 
       consoleLogLevel = 0;
-      initrd.verbose = false;
       kernelParams = lib.mkMerge [
         [
           "quiet"

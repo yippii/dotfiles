@@ -24,7 +24,6 @@
           quodlibet
           easyeffects
           android-tools
-          sublime-merge
           # animeko
           ani-cli
           yt-dlp
@@ -39,25 +38,10 @@
           vlc
           mpv
           superfile
-
-          uxplay
-          # Ensure GStreamer plugins are available for rendering audio/video
-          gst_all_1.gstreamer
-          gst_all_1.gst-plugins-good
-          gst_all_1.gst-plugins-bad
-
-          libpulseaudio
-          glib
-          libX11
-          libXext
-          libXrender
-          libXrandr
-          libXdamage
-          libXcursor
-          libXcomposite
-          libayatana-appindicator
         ]
-        ++ [inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default];
+        ++ [inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default]
+
+        ++ [self.packages.${pkgs.stdenv.hostPlatform.system}.tmog];
 
       sessionVariables.NIXOS_OZONE_WL = "1";
     };
