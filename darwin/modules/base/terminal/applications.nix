@@ -38,8 +38,8 @@
     gradle
 
     # C
-    gcc
-    llvm
+    #gcc
+    #llvm
 
     # JS
     nodejs

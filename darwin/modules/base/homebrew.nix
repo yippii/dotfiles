@@ -18,6 +18,7 @@
     taps = {
       "homebrew/homebrew-core" = inputs.homebrew-core;
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
+      "desktop-plus/tap" = inputs.desktop-plus-tap;
     };
 
     mutableTaps = true;
@@ -38,6 +39,7 @@
       "github"
       "cloudflare-warp"
       "vorssaint"
+      "desktop-plus/tap/desktop-plus"
     ];
 
     onActivation = {

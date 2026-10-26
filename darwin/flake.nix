@@ -30,6 +30,11 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+
+    desktop-plus-tap = {
+      url = "github:desktop-plus/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs = {self, ...} @ inputs: {
