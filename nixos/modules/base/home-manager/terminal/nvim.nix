@@ -3,7 +3,7 @@
   self,
   ...
 }: {
-  flake.homeModules.nvim = {pkgs, ...}: {
+  flake.homeModules.terminal = {pkgs, ...}: {
     imports = [
       inputs.nix4nvchad.homeManagerModules.default
     ];

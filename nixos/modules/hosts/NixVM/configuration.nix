@@ -28,8 +28,6 @@
 
     boot.loader.efi.efiSysMountPoint = "/boot";
 
-    boot.kernelPackages = pkgs.linuxPackages_latest;
-
     networking.hostName = "NixVM";
     networking.networkmanager.enable = true;
 

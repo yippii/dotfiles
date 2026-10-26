@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.gtk = {
+  flake.homeModules.theming = {
     pkgs,
     config,
     ...

@@ -3,7 +3,7 @@
   inputs,
   ...
 }: {
-  flake.homeModules.zen-browser = {
+  flake.homeModules.desktop = {
     lib,
     config,
     pkgs,
@@ -31,18 +31,18 @@
       src = inputs.sine;
       src_1 = inputs.nebula-zen;
       src_2 = inputs.sine-bootloader;
-      src_3 = inputs.zen-icons;
-      src_4 = inputs.zen-context-menu;
-      src_5 = inputs.zen-data-loading-bar;
+      src_3 = inputs.zen-context-menu;
+      src_4 = inputs.zen-data-loading-bar;
 
       buildInputs = [pkgs.jq];
 
       installPhase = ''
-        # Installing Sine
+        # --- STEP 1: Bootstrapping Sine ---
         mkdir -p $out/JS
         cp --no-preserve=mode -r $src/{sine.sys.mjs,engine} $out/JS
         cp --no-preserve=mode -r $src_2/profile/utils $src/locales $out
 
+        # --- STEP 2: Installing Sine Mods ---
         # Installing Nebula
         mkdir -p $out/sine-mods
         cp --no-preserve=mode -r $src_1 $out/sine-mods/Nebula
@@ -56,20 +56,20 @@
           "enabled": true
         })' $out/sine-mods/mods.json > $out/sine-mods/mods.json.tmp
 
-        # installing Zen Icons
-        cp --no-preserve=mode -r $src_3 $out/sine-mods/new-icons
-        jq --arg key "new-icons" --slurpfile new $src_3/theme.json  \
+        # installing Context Menu Icons
+        cp --no-preserve=mode -r $src_3 $out/sine-mods/context-menu-icons
+        jq --arg key "context-menu-icons" --slurpfile new $src_3/theme.json  \
         '.[$key] = ($new[0] + {
           "stars": 1233,
           "origin": "store",
-          "preferences": "",
+          "preferences": "preferences.json",
           "no-updates": false,
           "enabled": true
         })' $out/sine-mods/mods.json.tmp > $out/sine-mods/mods.json.tmp2
 
-        # installing Context Menu Icons
-        cp --no-preserve=mode -r $src_4 $out/sine-mods/context-menu-icons
-        jq --arg key "context-menu-icons" --slurpfile new $src_4/theme.json  \
+        # installing Zen Data Loading Bar
+        cp --no-preserve=mode -r $src_4 $out/sine-mods/c9ee0d97-d2d6-40fd-8f85-549fe000b868
+        jq --arg key "c9ee0d97-d2d6-40fd-8f85-549fe000b868" --slurpfile new $src_4/theme.json  \
         '.[$key] = ($new[0] + {
           "stars": 1233,
           "origin": "store",
@@ -78,24 +78,13 @@
           "enabled": true
         })' $out/sine-mods/mods.json.tmp2 > $out/sine-mods/mods.json.tmp3
 
-        # installing Zen Data Loading Bar
-        cp --no-preserve=mode -r $src_5 $out/sine-mods/c9ee0d97-d2d6-40fd-8f85-549fe000b868
-        jq --arg key "c9ee0d97-d2d6-40fd-8f85-549fe000b868" --slurpfile new $src_5/theme.json  \
-        '.[$key] = ($new[0] + {
-          "stars": 1233,
-          "origin": "store",
-          "preferences": "preferences.json",
-          "no-updates": false,
-          "enabled": true
-        })' $out/sine-mods/mods.json.tmp3 > $out/sine-mods/mods.json.tmp4
-
-
-
+        # --- Post Step 2 Cleanup ---
         rm $out/sine-mods/mods.json.tmp
         rm $out/sine-mods/mods.json.tmp2
         rm $out/sine-mods/mods.json.tmp3
-        mv $out/sine-mods/mods.json.tmp4 $out/sine-mods/mods.json
         ln -s $out/sine-mods/Nebula/README.md $out/sine-mods/Nebula/readme.md
+
+        # --- STEP 3: Custom patches on Sine Mods ---
         # Modifying Nebula
         cp --no-preserve=mode ${pkgs.nixos-icons}/share/icons/hicolor/1024x1024/apps/nix-snowflake.png $out/sine-mods/Nebula/nebula/modules
         substituteInPlace $out/sine-mods/Nebula/nebula/modules/topbar-buttons.css \

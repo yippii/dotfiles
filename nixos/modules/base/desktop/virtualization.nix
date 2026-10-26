@@ -5,6 +5,6 @@
 }: {
   flake.nixosModules.desktop = {pkgs, ...}: {
     # VMWare Workstation
-    virtualisation.vmware.host.enable = pkgs.stdenv.hostPlatform.isx86_64;
+    #virtualisation.vmware.host.enable = pkgs.stdenv.hostPlatform.isx86_64;
   };
 }

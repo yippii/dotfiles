@@ -19,19 +19,14 @@
     home-manager.users.yippie = lib.mkMerge [
       (lib.mkIf (!(config.networking.hostName == "yippie-nextcloud")) {
         imports = [
-          self.homeModules.zen-browser
-          self.homeModules.umbriel
-          self.homeModules.noctalia
-          self.homeModules.qt
-          self.homeModules.gtk
+          self.homeModules.desktop
           self.homeModules.theming
         ];
       })
 
       {
         imports = [
-          self.homeModules.zed
-          self.homeModules.nvim
+          self.homeModules.terminal
           self.homeModules.misc
         ];
       }
@@ -39,7 +34,7 @@
 
     home-manager.users.root = {
       imports = [
-        self.homeModules.nvim
+        self.homeModules.terminal
         self.homeModules.misc
       ];
 

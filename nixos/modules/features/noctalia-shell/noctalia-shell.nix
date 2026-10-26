@@ -4,8 +4,12 @@
   ...
 }: {
   flake.nixosModules.noctalia-shell = {pkgs, ...}: {
-    services.upower = {
+    imports = [inputs.noctalia.nixosModules.default];
+
+    programs.noctalia = {
       enable = true;
+      recommendedServices.enable = true;
+      systemd.enable = true;
     };
 
     services.dbus.packages = with pkgs; [
@@ -13,7 +17,6 @@
     ];
 
     environment.systemPackages = with pkgs; [
-      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       grim
       slurp
       tesseract

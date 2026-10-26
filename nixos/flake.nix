@@ -6,6 +6,9 @@
     # NixOS Base
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # CachyOS Kernel
+    cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+
     # Determinate Nix
     determinate-nix.url = "github:DeterminateSystems/nix-src";
 
@@ -32,11 +35,12 @@
     umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
 
     # Noctalia Shell
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.url = "github:noctalia-dev/noctalia-shell/cachix";
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
-    noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Superfile (TUI File Manager)
+    # Declarative Flatpak
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
     zed = {
       url = "github:zed-industries/zed";
     };
@@ -64,6 +68,11 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.inputs.home-manager.follows = "home-manager";
 
+    helium-browser = {
+      url = "github:oxcl/nix-flake-helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Sine Mod
     sine.url = "github:CosmoCreeper/Sine?rev=a48b73d32a074d710a1193294d432a62e436b8cf";
     sine.flake = false;
@@ -73,8 +82,6 @@
     # Sine Mod Plugins
     nebula-zen.url = "github:JustAdumbPrsn/Zen-Nebula";
     nebula-zen.flake = false;
-    zen-icons.url = "github:qumeqa/zen-icons";
-    zen-icons.flake = false;
     zen-context-menu.url = "github:starry-AXQG/Context-Menu-Icons";
     zen-context-menu.flake = false;
     zen-data-loading-bar.url = "github:rasyidrafi/zen-deta-loading-bar";
@@ -87,8 +94,10 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Vice Clip
+    vice.url = "github:splitshotz/Vice";
+
     # AI Stuff
-    #opencode.url = "github:anomalyco/opencode";
     comfyui-nix.url = "github:utensils/comfyui-nix";
 
     # Unpatched binaries
