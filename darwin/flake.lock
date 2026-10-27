@@ -17,6 +17,22 @@
         "type": "github"
       }
     },
+    "desktop-plus-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792924778,
+        "narHash": "sha256-CSNj+K2HAIWMmHSST6P58g6ZEsZ74isTy6mHo5IYR9A=",
+        "owner": "desktop-plus",
+        "repo": "homebrew-tap",
+        "rev": "edf7c6487dc1ac821135973f17ad2a7e179d1dad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "desktop-plus",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -24,11 +40,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792896866,
-        "narHash": "sha256-/0tELNnhdSnP+bHSdWiEe6KpfSwi6WrTnT9cm/jNkjA=",
+        "lastModified": 1793033486,
+        "narHash": "sha256-fXVURa0+CSCgaxLt8tmPNJq2U+fGYOwbk5j2YUe7kSc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c216bf5a1f173b0481bd5c8c489ebe5595ecc68c",
+        "rev": "7db163b2aee7e410e396b48aed02f646d742b9b8",
         "type": "github"
       },
       "original": {
@@ -40,11 +56,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1792979946,
-        "narHash": "sha256-aVtF/9htQLwg86teC0fQDjpDtNp/ukdehKwHIWxLj68=",
+        "lastModified": 1793067063,
+        "narHash": "sha256-eOt+TzRP5lgQtZXmRkLq3HjFEDOgjSEOUsh3git8I5Y=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "eec367c86b0b11d9dbb6392d2f53274f05b9f8ce",
+        "rev": "ac98637f5c7871370d5e1f26f37858ed40fd5aa2",
         "type": "github"
       },
       "original": {
@@ -56,11 +72,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1792978244,
-        "narHash": "sha256-2ftC8TnFbH3Nnmf41FAafaZ9sNsFG8o9eD5GhBnFRgA=",
+        "lastModified": 1793065303,
+        "narHash": "sha256-I2TioR9ldPhU3eYQm9iKpcfvdpwR3fvioJF3XJXinWE=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "933a073bbba0c6c8081745880eabf9d574688167",
+        "rev": "0e4c6cf3628b3d531e1a8df8281cfa1ad488c5cc",
         "type": "github"
       },
       "original": {
@@ -192,6 +208,7 @@
     },
     "root": {
       "inputs": {
+        "desktop-plus-tap": "desktop-plus-tap",
         "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
