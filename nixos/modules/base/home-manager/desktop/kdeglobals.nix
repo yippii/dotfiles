@@ -1,4 +1,8 @@
-{self, inputs, ...}: {
+{
+  self,
+  inputs,
+  ...
+}: {
   flake.homeModules.desktop = {
     imports = [inputs.plasma-manager.homeModules.plasma-manager];
     programs.plasma = {
