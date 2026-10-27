@@ -6,7 +6,7 @@
   flake.homeModules.desktop = {pkgs, ...}: {
     programs.zed-editor = {
       enable = true;
-      package = inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      package = null;
       extensions = ["nix" "toml" "elixir" "make" "java" "html" "latex" "lua"];
 
       userSettings = {

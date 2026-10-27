@@ -19,13 +19,11 @@
       };
     };
 
-    nix =
-      {
+    nix = {
         settings = {
-          lazy-trees = false;
-          eval-cores = 0;
+          package = inputs.determinate-nix.packages.${pkgs.stdenv.hostPlatform.system}.default;
           trusted-users = ["nixremote"];
-          substituters = [
+          trusted-substituters = [
             "https://nix-community.cachix.org"
             "https://cache.nixos.org/"
             "https://noctalia.cachix.org"
@@ -49,8 +47,6 @@
             #"cache.nixos-cuda.org:73DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
           ];
         };
-      }
-      // (lib.mkIf (!(config.networking.hostName == "yippie-nextcloud"))
-        {package = inputs.determinate-nix.packages.${pkgs.stdenv.hostPlatform.system}.default;});
+      };
   };
 }

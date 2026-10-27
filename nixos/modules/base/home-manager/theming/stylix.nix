@@ -49,12 +49,13 @@
           colors.enable = true;
         };
 
-        kitty.enable = false;
         fish.enable = false;
         fish.colors.enable = false;
-        noctalia.enable = false;
-        spicetify.enable = false;
         gtksourceview.enable = false;
+        kitty.enable = false;
+        noctalia.enable = false;
+        rofi.enable = false;
+        spicetify.enable = false;
         zen-browser.enable = false;
         zed.enable = false;
       };
