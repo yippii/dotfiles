@@ -5,6 +5,7 @@
     # -------- BASIC --------
     # NixOS Base
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     # CachyOS Kernel
     cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
@@ -16,12 +17,6 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
-    # Home Manager
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Impermenance
     disko = {
       url = "github:nix-community/disko";
@@ -29,6 +24,12 @@
     };
 
     preservation.url = "github:nix-community/preservation";
+
+    # Home Manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # -------- DESKTOP --------
     # Umbriel WM
@@ -41,15 +42,17 @@
     # Declarative Flatpak
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
-    zed = {
-      url = "github:zed-industries/zed";
-    };
-
     # Theming with Stylix
     stylix.url = "github:nix-community/stylix";
 
+    # Plasma Manager
+    plasma-manager.url = "github:nix-community/plasma-manager";
+
     # Qt Darkly Widgets
     darkly.url = "github:Bali10050/Darkly";
+
+    # Zed Editor
+    zed.url = "github:zed-industries/zed/nightly";
 
     # Neovim Configuration
     nix4nvchad = {
@@ -68,11 +71,6 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.inputs.home-manager.follows = "home-manager";
 
-    helium-browser = {
-      url = "github:oxcl/nix-flake-helium-browser";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Sine Mod
     sine.url = "github:CosmoCreeper/Sine?rev=a48b73d32a074d710a1193294d432a62e436b8cf";
     sine.flake = false;
@@ -86,6 +84,11 @@
     zen-context-menu.flake = false;
     zen-data-loading-bar.url = "github:rasyidrafi/zen-deta-loading-bar";
     zen-data-loading-bar.flake = false;
+
+    helium-browser = {
+      url = "github:oxcl/nix-flake-helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Spotify (Spicetify)
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
@@ -104,7 +107,6 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
 
     # -------- Device Specific --------
-
     # UEFI Secure Boot
     lanzaboote.url = "github:nix-community/lanzaboote/0403b4b7e8b2612657f0053a4c315e6c43eee9e6";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
