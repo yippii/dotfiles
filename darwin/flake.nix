@@ -15,6 +15,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    zed.url = "github:zed-industries/zed/nightly";
+
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     nix-darwin.url = "github:nix-darwin/nix-darwin";
