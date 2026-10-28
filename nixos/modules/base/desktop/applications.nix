@@ -38,9 +38,11 @@
           vlc
           mpv
           superfile
-          zed-editor_git
         ]
-        ++ [self.packages.${pkgs.stdenv.hostPlatform.system}.tmog];
+        ++ [
+          self.packages.${pkgs.stdenv.hostPlatform.system}.tmog
+          inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default
+        ];
 
       sessionVariables.NIXOS_OZONE_WL = "1";
     };

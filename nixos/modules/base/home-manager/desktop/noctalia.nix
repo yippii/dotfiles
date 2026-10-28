@@ -15,6 +15,7 @@
 
     programs.noctalia = {
       enable = true;
+      package = null;
       settings = {
         accessibility = {
           high_contrast = false;

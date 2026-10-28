@@ -68,7 +68,7 @@
       open = false;
       powerManagement.enable = true;
       nvidiaSettings = true;
-      package = pkgs.pkgsx86_64_v3.nvidia_cachyos;
+      package = pkgs.nvidia_cachyos;
 
       prime = {
         sync.enable = true;

@@ -51,6 +51,9 @@
     # Qt Darkly Widgets
     darkly.url = "github:Bali10050/Darkly";
 
+    # Zed Editor
+    zed.url = "github:zed-industries/zed/nightly";
+
     # Neovim Configuration
     nix4nvchad = {
       url = "github:nix-community/nix4nvchad";
