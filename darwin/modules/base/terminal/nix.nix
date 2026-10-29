@@ -5,7 +5,7 @@
 }: {
   nix = {
     settings = {
-      substituters = [
+      extra-substituters = [
         "https://nix-community.cachix.org"
         "https://cache.nixos.org"
         "https://zed.cachix.org"
