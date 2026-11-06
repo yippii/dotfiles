@@ -11,7 +11,7 @@
     cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # Determinate Nix
-    determinate-nix.url = "github:DeterminateSystems/nix-src";
+    determinate-nix.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
     # Dendritic Pattern
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -33,7 +33,7 @@
 
     # -------- DESKTOP --------
     # Umbriel WM
-    umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
+    umbriel.url = "github:noctalia-dev/umbriel/cachix";
 
     # Noctalia Shell
     noctalia.url = "github:noctalia-dev/noctalia-shell/cachix";
@@ -72,18 +72,14 @@
     zen-browser.inputs.home-manager.follows = "home-manager";
 
     # Sine Mod
-    sine.url = "github:CosmoCreeper/Sine?rev=a48b73d32a074d710a1193294d432a62e436b8cf";
+    sine.url = "github:CosmoCreeper/Sine";
     sine.flake = false;
-    sine-bootloader.url = "github:sineorg/bootloader?rev=ad1c91019196c3d7d43730f5dd0ddc278f9e3a6e";
+    sine-bootloader.url = "github:sineorg/bootloader";
     sine-bootloader.flake = false;
 
     # Sine Mod Plugins
-    nebula-zen.url = "github:JustAdumbPrsn/Zen-Nebula";
-    nebula-zen.flake = false;
-    zen-context-menu.url = "github:starry-AXQG/Context-Menu-Icons";
-    zen-context-menu.flake = false;
-    zen-data-loading-bar.url = "github:rasyidrafi/zen-deta-loading-bar";
-    zen-data-loading-bar.flake = false;
+    zia.url = "github:z1n-k/zia";
+    zia.flake = false;
 
     helium-browser = {
       url = "github:oxcl/nix-flake-helium-browser";
@@ -102,6 +98,7 @@
 
     # AI Stuff
     comfyui-nix.url = "github:utensils/comfyui-nix";
+    llm-agents.url = "github:numtide/llm-agents.nix";
 
     # Unpatched binaries
     nix-alien.url = "github:thiagokokada/nix-alien";

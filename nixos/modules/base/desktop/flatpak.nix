@@ -15,6 +15,14 @@
         "org.vinegarhq.Sober"
       ];
 
+      update = {
+        onActivation = true;
+        auto = {
+          enable = true;
+          onCalendar = "daily";
+        };
+      };
+
       uninstallUnmanaged = true;
     };
   };

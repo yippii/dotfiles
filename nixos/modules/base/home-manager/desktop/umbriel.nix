@@ -54,14 +54,15 @@
 
           mouse = {
             natural_scroll = false;
+            accel_profile = "flat";
             sensitivity = 0.0;
-            scroll_wheel_step = 60;
+            scroll_wheel_step = 30;
           };
 
           touchpad = {
             natural_scroll = true;
             accel_profile = "flat";
-            sensitivity = 1;
+            sensitivity = 0.5;
             scroll_factor = 1;
             disable_while_typing = true;
             click_method = "clickfinger";
@@ -86,7 +87,7 @@
 
           # Browser
           {
-            match.app_id = "zen-beta";
+            match.app_id = "zen-beta|helium";
             default_workspace = 1;
             default_focused = true;
           }
@@ -136,7 +137,7 @@
           }
 
           {
-            match.title = "^(Open File|Select|Choose a wallpaper|Open Folder|Save As|Library|Choose Where to Download|File Operation Progress|Rename|Copy Files|Move Files|Search Files)";
+            match.title = "^(Open File|Select|Choose a wallpaper|Open Folder|Save As|Library|Choose Where to Download|File Operation Progress|Rename|Copy Files|Move Files|Search Files|Picutre-in-Picture)";
             default_floating = true;
           }
 
@@ -163,7 +164,7 @@
           workspaces = {
             enabled = true;
             duration_ms = 250;
-            curve = "easeout";
+            curve = "ease";
           };
 
           overview = {
@@ -175,20 +176,20 @@
         };
 
         keybinds = {
-          "Mod+T" = "spawn:app2unit kitty";
-          "Mod+E" = "spawn:app2unit dolphin";
-          "Mod+Shift+E" = "spawn:app2unit zed";
+          "Mod+T" = "spawn app2unit kitty";
+          "Mod+E" = "spawn app2unit dolphin";
+          "Mod+Shift+E" = "spawn app2unit zed";
           "Mod+Q" = "window-close";
-          "Mod+F" = "spawn:app2unit zen-beta";
-          "Mod+L" = "spawn:systemctl suspend";
-          "Mod+S" = "spawn:~/.config/hypr/screenshot.sh";
+          "Mod+F" = "spawn app2unit zen-beta";
+          "Mod+L" = "spawn systemctl suspend";
+          "Mod+S" = "spawn ~/.config/hypr/screenshot.sh";
 
-          "Mod+R" = "spawn:noctalia msg panel-toggle launcher";
-          "Mod+C" = "spawn:noctalia msg panel-toggle control-center";
+          "Mod+R" = "spawn noctalia msg panel-toggle launcher";
+          "Mod+C" = "spawn noctalia msg panel-toggle control-center";
           "Mod+Shift+C" = "cheatsheet-toggle";
-          "Mod+Comma" = "spawn:noctalia msg settings-toggle";
-          "Ctrl+Alt+Delete" = "spawn:noctalia msg panel-toggle session";
-          "Ctrl+Alt+Shift+Q" = "spawn:pkill noctalia; sleep 0.5; noctalia";
+          "Mod+Comma" = "spawn noctalia msg settings-toggle";
+          "Ctrl+Alt+Delete" = "spawn noctalia msg panel-toggle session";
+          "Ctrl+Alt+Shift+Q" = "spawn pkill noctalia; sleep 0.5; noctalia";
 
           "Mod+O" = {
             action = "overview-toggle";
@@ -208,76 +209,76 @@
           "Mod+Shift+Up" = "window-move-up";
           "Mod+Shift+Right" = "column-move-right";
 
-          "Mod+1" = "workspace-switch:1";
-          "Mod+2" = "workspace-switch:2";
-          "Mod+3" = "workspace-switch:3";
-          "Mod+4" = "workspace-switch:4";
-          "Mod+5" = "workspace-switch:5";
-          "Mod+6" = "workspace-switch:6";
-          "Mod+7" = "workspace-switch:7";
-          "Mod+8" = "workspace-switch:8";
-          "Mod+9" = "workspace-switch:9";
-          "Mod+0" = "workspace-switch:10";
-          "Mod+Shift+1" = "window-move-to-workspace:1";
-          "Mod+Shift+2" = "window-move-to-workspace:2";
-          "Mod+Shift+3" = "window-move-to-workspace:3";
-          "Mod+Shift+4" = "window-move-to-workspace:4";
-          "Mod+Shift+5" = "window-move-to-workspace:5";
-          "Mod+Shift+6" = "window-move-to-workspace:6";
-          "Mod+Shift+7" = "window-move-to-workspace:7";
-          "Mod+Shift+8" = "window-move-to-workspace:8";
-          "Mod+Shift+9" = "window-move-to-workspace:9";
-          "Mod+Shift+0" = "window-move-to-workspace:10";
+          "Mod+1" = "workspace-switch 1";
+          "Mod+2" = "workspace-switch 2";
+          "Mod+3" = "workspace-switch 3";
+          "Mod+4" = "workspace-switch 4";
+          "Mod+5" = "workspace-switch 5";
+          "Mod+6" = "workspace-switch 6";
+          "Mod+7" = "workspace-switch 7";
+          "Mod+8" = "workspace-switch 8";
+          "Mod+9" = "workspace-switch 9";
+          "Mod+0" = "workspace-switch 10";
+          "Mod+Shift+1" = "window-move-to-workspace 1";
+          "Mod+Shift+2" = "window-move-to-workspace 2";
+          "Mod+Shift+3" = "window-move-to-workspace 3";
+          "Mod+Shift+4" = "window-move-to-workspace 4";
+          "Mod+Shift+5" = "window-move-to-workspace 5";
+          "Mod+Shift+6" = "window-move-to-workspace 6";
+          "Mod+Shift+7" = "window-move-to-workspace 7";
+          "Mod+Shift+8" = "window-move-to-workspace 8";
+          "Mod+Shift+9" = "window-move-to-workspace 9";
+          "Mod+Shift+0" = "window-move-to-workspace 10";
 
-          "Insert" = "spawn:app2unit quodlibet";
+          "Insert" = "spawn app2unit quodlibet";
 
           "Ctrl+F1" = {
-            action = "spawn:noctalia msg volume-mute";
+            action = "spawn noctalia msg volume-mute";
             allow_when_locked = true;
           };
 
           "Ctrl+F2" = {
-            action = "spawn:noctalia msg volume-down";
+            action = "spawn noctalia msg volume-down";
             allow_when_locked = true;
           };
 
           "Ctrl+F3" = {
-            action = "spawn:noctalia msg volume-up";
+            action = "spawn noctalia msg volume-up";
             allow_when_locked = true;
           };
 
           "Ctrl+F5" = {
-            action = "spawn:noctalia msg brightness-down";
+            action = "spawn noctalia msg brightness-down";
             allow_when_locked = true;
           };
 
           "Ctrl+F6" = {
-            action = "spawn:noctalia msg brightness-up";
+            action = "spawn noctalia msg brightness-up";
             allow_when_locked = true;
           };
 
           "XF86AudioMute" = {
-            action = "spawn:noctalia msg volume-mute";
+            action = "spawn noctalia msg volume-mute";
             allow_when_locked = true;
           };
 
           "XF86AudioLowerVolume" = {
-            action = "spawn:noctalia msg volume-down";
+            action = "spawn noctalia msg volume-down";
             allow_when_locked = true;
           };
 
           "XF86AudioRaiseVolume" = {
-            action = "spawn:noctalia msg volume-up";
+            action = "spawn noctalia msg volume-up";
             allow_when_locked = true;
           };
 
           "XF86MonBrightnessDown" = {
-            action = "spawn:noctalia msg brightness-down";
+            action = "spawn noctalia msg brightness-down";
             allow_when_locked = true;
           };
 
           "XF86MonBrightnessUp" = {
-            action = "spawn:noctalia msg brightness-up";
+            action = "spawn noctalia msg brightness-up";
             allow_when_locked = true;
           };
         };

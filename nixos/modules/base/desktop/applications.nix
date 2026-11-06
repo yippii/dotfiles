@@ -32,7 +32,6 @@
           qbittorrent
           kdePackages.ark
           unrar
-          opencode-desktop
           vesktop
           kdePackages.kinfocenter
           vlc

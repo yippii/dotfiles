@@ -4,6 +4,6 @@
   ...
 }: {
   flake.nixosModules.AI = {pkgs, ...}: {
-    environment.systemPackages = [pkgs.opencode-desktop];
+    environment.systemPackages = [inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.chatgpt];
   };
 }

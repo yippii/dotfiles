@@ -36,10 +36,10 @@
           default = {
             auto_hide = false;
             background_opacity = 0.699999988079071;
-            border = "outline";
+            border = "outline_variant";
             border_width = 0.0;
             capsule = true;
-            capsule_fill = "surface_variant";
+            capsule_fill = "surface_container";
             capsule_opacity = 0.0;
             capsule_padding = 6.0;
             capsule_radius = 5.0;
@@ -79,7 +79,7 @@
                 accordion = false;
                 accordion_direction = "end";
                 enabled = true;
-                fill = "surface_variant";
+                fill = "surface_container";
                 id = "g1";
                 members = ["tray"];
                 opacity = 0.0;
@@ -90,7 +90,7 @@
                 accordion = false;
                 accordion_direction = "end";
                 enabled = true;
-                fill = "surface_variant";
+                fill = "surface_container";
                 id = "g3";
                 members = ["launcher" "notifications" "bar" "status_2"];
                 opacity = 0.0;
@@ -101,7 +101,7 @@
                 accordion = false;
                 accordion_direction = "end";
                 enabled = true;
-                fill = "surface_variant";
+                fill = "surface_container";
                 id = "g4";
                 members = ["recorder" "network" "warp_2" "bluetooth" "volume" "brightness" "battery"];
                 opacity = 0.0;
@@ -276,7 +276,7 @@
           active_scale = 1.0;
           auto_hide = true;
           background_opacity = 0.3999999761581421;
-          border = "outline";
+          border = "outline_variant";
           border_width = 0.0;
           concave_edge_corners = true;
           cross_axis_padding = 8;
@@ -432,7 +432,7 @@
               rotation = 0.0;
               type = "login_box";
               settings = {
-                background_color = "surface_variant";
+                background_color = "surface_container";
                 background_opacity = 0.88;
                 background_radius = 12.0;
                 center_password_text = false;
@@ -460,7 +460,7 @@
               rotation = 0.0;
               type = "login_box";
               settings = {
-                background_color = "surface_variant";
+                background_color = "surface_container";
                 background_opacity = 0.88;
                 background_radius = 32.0;
                 center_password_text = true;
@@ -489,7 +489,7 @@
               type = "clock";
               settings = {
                 background = true;
-                background_color = "surface_variant";
+                background_color = "surface_container";
                 background_opacity = 0.87;
                 background_radius = 32;
                 center_text = true;
@@ -574,7 +574,7 @@
               rotation = -0.1333654522895813;
               type = "label";
               settings = {
-                background_color = "outline";
+                background_color = "outline_variant";
                 background_opacity = 1.0;
                 background_radius = 32;
                 shadow = false;
@@ -727,7 +727,7 @@
               rotation = -0.2617993950843811;
               type = "label";
               settings = {
-                background_color = "surface_variant";
+                background_color = "surface_container";
                 background_opacity = 1.0;
                 background_radius = 20;
                 title = " ";
@@ -764,7 +764,7 @@
               rotation = 0.2617993950843811;
               type = "label";
               settings = {
-                background_color = "outline";
+                background_color = "outline_variant";
                 background_opacity = 1.0;
                 background_padding = 0;
                 background_radius = 20;
@@ -806,7 +806,7 @@
                 background = false;
                 bands = 32;
                 centered = false;
-                color_1 = "outline";
+                color_1 = "outline_variant";
                 color_2 = "on_primary";
                 mirrored = true;
                 reversed = true;

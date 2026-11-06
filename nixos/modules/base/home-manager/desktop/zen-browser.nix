@@ -29,67 +29,33 @@
       version = "1.0";
 
       src = inputs.sine;
-      src_1 = inputs.nebula-zen;
-      src_2 = inputs.sine-bootloader;
-      src_3 = inputs.zen-context-menu;
-      src_4 = inputs.zen-data-loading-bar;
+      bootloader = inputs.sine-bootloader;
+      plugins_src_1 = inputs.zia;
 
       buildInputs = [pkgs.jq];
 
       installPhase = ''
         # --- STEP 1: Bootstrapping Sine ---
         mkdir -p $out/JS
-        cp --no-preserve=mode -r $src/{sine.sys.mjs,engine} $out/JS
-        cp --no-preserve=mode -r $src_2/profile/utils $src/locales $out
+        cp --no-preserve=mode -r $src/{engine.json,src} $out/JS
+        cp --no-preserve=mode -r $bootloader/profile/utils $src/locales $out
 
         # --- STEP 2: Installing Sine Mods ---
         # Installing Nebula
         mkdir -p $out/sine-mods
-        cp --no-preserve=mode -r $src_1 $out/sine-mods/Nebula
+        cp --no-preserve=mode -r $plugins_src_1 $out/sine-mods/zia
         echo "{}" > $out/sine-mods/mods.json
-        jq --arg key "Nebula" --slurpfile new $src_1/theme.json  \
+        jq --arg key "zia" --slurpfile new $plugins_src_1/theme.json  \
         '.[$key] = ($new[0] + {
-          "stars": 1233,
+          "stars": 229,
           "origin": "store",
           "preferences": "preferences.json",
           "no-updates": false,
           "enabled": true
         })' $out/sine-mods/mods.json > $out/sine-mods/mods.json.tmp
 
-        # installing Context Menu Icons
-        cp --no-preserve=mode -r $src_3 $out/sine-mods/context-menu-icons
-        jq --arg key "context-menu-icons" --slurpfile new $src_3/theme.json  \
-        '.[$key] = ($new[0] + {
-          "stars": 1233,
-          "origin": "store",
-          "preferences": "preferences.json",
-          "no-updates": false,
-          "enabled": true
-        })' $out/sine-mods/mods.json.tmp > $out/sine-mods/mods.json.tmp2
-
-        # installing Zen Data Loading Bar
-        cp --no-preserve=mode -r $src_4 $out/sine-mods/c9ee0d97-d2d6-40fd-8f85-549fe000b868
-        jq --arg key "c9ee0d97-d2d6-40fd-8f85-549fe000b868" --slurpfile new $src_4/theme.json  \
-        '.[$key] = ($new[0] + {
-          "stars": 1233,
-          "origin": "store",
-          "preferences": "preferences.json",
-          "no-updates": false,
-          "enabled": true
-        })' $out/sine-mods/mods.json.tmp2 > $out/sine-mods/mods.json.tmp3
-
         # --- Post Step 2 Cleanup ---
-        rm $out/sine-mods/mods.json.tmp
-        rm $out/sine-mods/mods.json.tmp2
-        rm $out/sine-mods/mods.json.tmp3
-        ln -s $out/sine-mods/Nebula/README.md $out/sine-mods/Nebula/readme.md
-
-        # --- STEP 3: Custom patches on Sine Mods ---
-        # Modifying Nebula
-        cp --no-preserve=mode ${pkgs.nixos-icons}/share/icons/hicolor/1024x1024/apps/nix-snowflake.png $out/sine-mods/Nebula/nebula/modules
-        substituteInPlace $out/sine-mods/Nebula/nebula/modules/topbar-buttons.css \
-          --replace-fail "url(\"chrome://branding/content/about-logo.svg\")" "url(\"nix-snowflake.png\")" \
-          --replace-fail "scale: 1.7;" "scale: 1.5;" \
+        mv $out/sine-mods/mods.json.tmp $out/sine-mods/mods.json
       '';
     };
   in {

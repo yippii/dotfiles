@@ -9,18 +9,14 @@
     ...
   }: let
     pname = "com.tmog.taskmanager";
-    version = "1.0.0";
+    version = "1.1.1";
 
     src = pkgs.fetchurl {
-      url = "https://tmog.org/rtm/downloads/TaskManagerOG-1.0.0-x86_64.AppImage";
-      hash = "sha256-7jd6c5SfiQhju8+tCd02tgugR28Me8vQ0Os0NeKQKpY=";
+      url = "https://tmog.org/downloads/TaskManagerOG-1.1.1-linux-x86_64.tar.gz";
+      hash = "sha256-OEgAMUgsocqdmJU7zMrWTeVHuK3EvEu2ectxdn25wbA=";
     };
 
-    appimageContents = pkgs.appimageTools.extract {
-      inherit pname version src;
-    };
-
-    tmog = pkgs.appimageTools.wrapType2 {
+    tmog = pkgs.stdenv.mkDerivation {
       inherit pname version src;
 
       meta = {
@@ -30,18 +26,30 @@
         platforms = ["x86_64-linux"];
       };
 
-      extraInstallCommands =
-        ''
-          install -Dm444 ${appimageContents}/${pname}.desktop -t $out/share/applications/
+      nativeBuildInputs = with pkgs; [
+        qt6Packages.wrapQtAppsHook
+        autoPatchelfHook
+      ];
 
-          install -Dm444 ${appimageContents}/tmog-task-manager.png -t $out/share/icons/hicolor/512x512/apps/
-        ''
-        + pkgs.lib.optionalString (builtins.pathExists "${appimageContents}/usr/share/icons") ''
-          cp -r ${appimageContents}/usr/share/icons/* $out/share/icons/ 2>/dev/null || true
+      buildInputs = with pkgs; [
+        stdenv.cc.cc.lib
+        qt6Packages.qtbase
+        qt6.qtsvg
+        libgpg-error
+        libgcrypt
+        glib
+      ];
 
-          substituteInPlace $out/share/applications/${pname}.desktop \
-            --replace-fail 'Exec=tmog-task-manager' 'Exec=${pname}'
-        '';
+      installPhase = ''
+        runHook preInstall
+
+        mkdir -p $out/bin $out/share $out/libexec
+        cp -r bin/* $out/bin
+        cp -r share/* $out/share
+        cp -r libexec/* $out/libexec
+
+        runHook postInstall
+      '';
     };
   in {
     packages.tmog = tmog;
