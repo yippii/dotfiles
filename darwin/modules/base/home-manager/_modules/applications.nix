@@ -27,6 +27,5 @@
     kitty
     notion-app
     daisydisk
-    opencode-desktop
   ];
 }

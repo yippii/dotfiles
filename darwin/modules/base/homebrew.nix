@@ -31,6 +31,7 @@
       "cloudflare-warp"
       "vorssaint"
       "desktop-plus/tap/desktop-plus"
+      "mantrakp04/tap/ardia"
     ];
 
     onActivation = {
